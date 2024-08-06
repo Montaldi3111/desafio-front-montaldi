@@ -19,8 +19,8 @@ export default function Home() {
         <h1 className="text-white text-4xl">De ahora en adelante, hacés más con tu dinero</h1>
         <h1 className="text-ylw text-2xl mt-3">Tu nueva <b>billetera</b> virtual</h1>
       </div>
-      <section className="w-full bg-ylw rounded-t-xl absolute bottom-0">
-      <div className="flex flex-row justify-around w-3/4 m-auto relative -top-20">
+      <section className="w-full h-28 bg-ylw rounded-t-xl absolute bottom-0">
+      <div className="flex flex-row justify-around w-3/4 m-auto relative -top-24">
         <Card message={card1}/>
         <Card message={card2}/>
       </div>
