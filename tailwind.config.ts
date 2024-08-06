@@ -31,6 +31,11 @@ const config: Config = {
         "4xl": "40px",
         "5xl": "48px",
         "6xl": "56px",
+      },
+      screens: {
+        "phone": "300px",
+        "tablet": "600px",
+        "desktop": "1000px"
       }
     }
   },

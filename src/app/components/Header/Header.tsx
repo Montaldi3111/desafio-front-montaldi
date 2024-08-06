@@ -1,11 +1,11 @@
 const Header = () => {
   return (
-    <header className="bg-black p-4">
+    <header className="bg-black phone:py-2 phone:px-2 p-4">
         <nav className="flex flex-row justify-between items-center">
-            <p className="text-ylw text-xl">DMH</p>
-            <span>
-                <button className="text-sm font-bold border-2 rounded py-2 px-4 border-ylw text-ylw mr-4">Ingresar</button>
-                <button className="text-sm font-bold bg-[#FAE208] rounded py-2 px-4 text-black">Crear Cuenta</button>
+            <p className="text-ylw text-xl phone:text-md phone:w-fit">DMH</p>
+            <span className="phone:flex phone:justify-evenly phone:w-3/4">
+                <button className="phone:w-2/3 phone:max-w-40 phone:p-1 phone:text-ylw phone:mr-2 phone:rounded phone:text-sm phone:font-bold phone:border-2 phone:border-ylw">Ingresar</button>
+                <button className="phone:w-2/3 phone:max-w-40 phone:p-1 phone:bg-ylw phone:text-black phone:rounded phone:font-bold phone:bg-white phone:text-sm">Crear Cuenta</button>
             </span>
         </nav>
     </header>
@@ -13,3 +13,10 @@ const Header = () => {
 }
 
 export default Header
+
+/* Desktop
+text-sm font-bold border-2 rounded py-2 px-4 border-ylw text-ylw mr-4 Ingresar
+
+text-sm font-bold bg-[#FAE208] rounded py-2 px-4 text-black Crear Cuenta
+*/
+
