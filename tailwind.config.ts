@@ -12,10 +12,11 @@ const config: Config = {
           "graySlate": "#3A3A3A",
           "ylw": "#FAE208",
           "blck": "#181818",
-          "light-gray": "#E3DFCF"
+          "lightGray": "#E3DFCF"
       },
       fontFamily: {
-        "head1": ["Archive", "sans-serif"] 
+        "head1": ["Archive", "sans-serif"],
+        "body": ["Archive", "sans-serif"], 
       },
       backgroundImage: {
         "home": "url(/home-img.png)"
