@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 300px) and (max-width:500px) {
+
+    header {
+        @apply py-2;
+    }
+
+    #logo {
+        @apply w-[75px];
+    }
+
+
+    #login {
+        @apply w-20;
+        @apply max-w-40;
+        @apply p-1;
+        @apply text-ylw;
+        @apply mr-2;
+        @apply rounded;
+        @apply text-xs;
+        @apply font-bold;
+        @apply border-2;
+        @apply border-ylw;
+    }
+
+    #register {
+        @apply w-24;
+        @apply max-w-40;
+        @apply p-1;
+        @apply mr-3;
+        @apply bg-ylw;
+        @apply text-black;
+        @apply rounded;
+        @apply font-bold;
+        @apply text-xs;
+    }
+    
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+
+    header {
+        @apply p-2;
+    }
+
+    #logo {
+        @apply w-[80px];
+    }
+
+
+    #login {
+        @apply mr-2;
+        @apply text-[14px];
+        @apply p-2;
+        @apply w-32;
+    }
+
+    #register {
+        @apply text-[14px];
+        @apply p-2;
+        @apply w-36;
+    }
+    
+}
+
+@media (min-width: 768px) {
+    header {
+        @apply p-2;
+    }
+
+    #logo {
+        @apply w-[80px];
+    }
+
+
+    #login {
+        @apply mr-2;
+        @apply text-[14px];
+        @apply py-1;
+        @apply px-2;
+        @apply w-32;
+    }
+
+    #register {
+        @apply text-[14px];
+        @apply p-2;
+        @apply w-36;
+    }
+}
+

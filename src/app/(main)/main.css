@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mobile CSS */
+
+@media (min-width:300px) {
+    main{
+        @apply bg-ylw;
+    }
+
+    main img {
+        @apply h-[50vh];
+    }
+
+    #text-content{
+        @apply top-2;
+        @apply left-5;
+        @apply mb-10;
+        @apply w-32;
+    }
+
+    #text-content #text-subcontent{
+        @apply text-ylw;
+        @apply text-[16px];
+        @apply mt-1;
+    }
+
+    #card-container{
+        @apply bottom-6;
+    }
+
+    #card-container #cards{
+        @apply -top-10;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+    }
+
+}
+
+/* Tablet CSS */
+
+@media (min-width:500px) {
+
+    main img {
+        @apply h-[70vh];
+    }
+
+    #text-content{
+        @apply top-2;
+        @apply left-5;
+        @apply mb-10;
+        @apply w-32;
+    }
+
+    #text-content #text-subcontent{
+        @apply text-ylw;
+        @apply text-[16px];
+        @apply mt-1;
+    }
+
+    #card-container #cards{
+        @apply -top-20;
+        @apply flex;
+        @apply flex-row;
+        @apply flex-wrap;
+        @apply items-center;
+    }
+}
+
+/* Laptop and Desktop CSS */
+
+@media (min-width:768px) {
+
+    main img {
+        @apply w-full;
+    }
+
+    #text-content{
+        @apply top-20;
+        @apply left-20;
+        @apply w-80;
+    }
+
+    #text-content #text-subcontent{
+        @apply text-ylw;
+        @apply text-[16px];
+        @apply mt-3;
+    }
+
+    #card-container{
+        @apply bottom-8;
+    }
+
+    #card-container #cards{
+        @apply -top-16;
+        @apply flex;
+        @apply flex-row;
+        @apply justify-around;
+        @apply w-3/4;
+        @apply m-auto;
+    }
+    
+}

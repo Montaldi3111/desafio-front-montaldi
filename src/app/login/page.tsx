@@ -1,14 +1,35 @@
 import React from 'react'
-import { FaArrowRight } from "react-icons/fa6";
+import "./login.css"
 const Login = () => {
   return (
-    <section className='bg-lightGray text-center font-body py-20 relative h-full'>
-    <form>
-      <h1 className='pb-0.5 font-bold text-lg'>Iniciar Sesion</h1>
-      <div className='my-8'>
+    <section className='bg-lightGray text-center items-center py-10 font-body relative h-3/4'>
+    <form id="form" className='font-body w-full h-[75vh]'>
+      <h1 className='font-bold text-lg'>¡Hola! Ingresá tu e-mail</h1>
+      <div className='' id="email-container">
+        <input type="email" name="email" id="email" placeholder='Correo electrónico' className='my-5 p-4 border-2 border-gray-200 rounded-sm shadow-md'/>
+      </div>
+      <div className='' id="password-container">
+        <input type="password" name="password" id="password" placeholder='Contraseña' className='my-5 p-4 border-2 border-gray-200 rounded-sm shadow-md'/>
+      </div>
+      <div className='flex flex-col items-center'>
+        <button className='bg-ylw text-blck my-5 py-4 rounded-sm shadow-md font-bold' id="login-btn">Ingresar</button>
+        <button className='bg-blck border-2 border-ylw text-ylw my-5 py-4 rounded-sm shadow-md font-bold' id="register-btn">Crear Cuenta</button>
+      </div>
+    </form>
+    </section>
+  )
+}
+
+export default Login;
+
+/* 
+Desktop 
+
+<h1 className='pb-0.5 font-bold text-lg'>¡Hola! Ingresá tu e-mail</h1>
+      <div className='my-8' id="email-container">
         <input type="email" name="email" id="email" placeholder='Correo electrónico' className='p-4 rounded-sm border-2 shadow w-1/4 text-lg'/>
       </div>
-      <div className='mb-3.5'>
+      <div className='mb-3.5' id="password-container">
         <input type="password" name="password" id="password" placeholder='Contraseña' className='p-4 rounded-sm border-2 shadow w-1/4 text-lg'/>
       </div>
       <div className='flex flex-col py-6 mx-auto w-2/4 text-center items-center'>
@@ -18,9 +39,5 @@ const Login = () => {
         <FaArrowRight className='relative items-center top-1.5 left-20'/>
         </div>
       </div>
-    </form>
-    </section>
-  )
-}
 
-export default Login;
+*/

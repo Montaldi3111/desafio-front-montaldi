@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mobile CSS */
+@media (min-width: 300px) {
+
+    #form input {
+        @apply w-[75vw];
+        @apply max-w-[300px];
+    }
+
+    #form button {
+        @apply w-[75vw];
+        @apply max-w-[300px];
+        @apply text-sm;
+    }
+}
+
+/* Tablet CSS */
+
+@media (min-width: 500px) {
+
+    #form input {
+        @apply w-[60vw];
+        @apply max-w-[350px];
+    }
+
+    #form button {
+        @apply w-[60vw];
+        @apply max-w-[350px];
+        @apply text-[18px];
+    }
+    
+}
+
+ /* Laptop, Desktop CSS */
+
+@media (min-width: 768px) {
+
+    #form input {
+        @apply w-[60vw];
+        @apply max-w-[350px];
+    }
+
+    #form button {
+        @apply w-[60vw];
+        @apply max-w-[350px];
+        @apply text-[18px];
+    }
+}

@@ -19,7 +19,7 @@ const config: Config = {
         "body": ["Archive", "sans-serif"], 
       },
       backgroundImage: {
-        "home": "url(/home-img.png)"
+        "home": "url(/image.png)"
       },
       borderRadius: {
         sm: "14px",
@@ -34,8 +34,8 @@ const config: Config = {
       },
       screens: {
         "phone": "300px",
-        "tablet": "600px",
-        "desktop": "1000px"
+        "tablet": "500px",
+        "desktop": "768px"
       }
     }
   },

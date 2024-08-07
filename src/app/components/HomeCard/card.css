@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mobile CSS */
+
+@media (min-width:300px) {
+    #card{
+        @apply bg-white;
+        @apply p-4;
+        @apply rounded-md;
+        @apply mb-4;
+        @apply mx-4
+
+    }
+
+    #card-head{
+        @apply phone:text-xl;
+        @apply font-bold;
+        @apply font-head1;
+        @apply border-b-2;
+        @apply border-ylw pb-2;
+    }
+
+    #card-content{
+        @apply text-[16px];
+        @apply mt-2;
+    }
+}
+
+/* Tablet CSS */
+
+@media (min-width:500px) {
+    #card{
+        @apply bg-white;
+        @apply mx-auto;
+        @apply w-[72vw];
+        @apply max-w-[75vw];
+        @apply p-4 rounded-md;
+        @apply mb-4;
+    }
+
+    #card-head{
+        @apply text-xl;
+        @apply font-bold;
+        @apply font-head1;
+        @apply border-b-2;
+        @apply border-ylw;
+        @apply pb-2;
+    }
+
+    #card-content{
+        @apply text-[16px];
+        @apply mt-2;
+    }
+}
+
+/* Laptop and Desktop CSS */
+
+@media (min-width:768px) {
+
+    #card{
+        @apply bg-white;
+        @apply p-4;
+        @apply rounded-md;
+        @apply w-[38%];
+        @apply-max-w-[150px];
+        @apply h-[38vh];
+        @apply mx-3;
+    }
+
+    #card-head{
+        @apply text-xl;
+        @apply font-bold;
+        @apply font-body;
+        @apply border-b-2;
+        @apply border-ylw;
+        @apply pb-2;
+    }
+
+    #card-content{
+        @apply text-[16px];
+        @apply mt-2;
+    }
+    
+}
+
+/* Extra Large Screen (Desktop) CSS */
+
+@media (min-width:910px) {
+    #card{
+        @apply max-h-[200px];
+    }
+}
