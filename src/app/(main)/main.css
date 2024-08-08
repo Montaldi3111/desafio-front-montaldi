@@ -5,9 +5,9 @@
 /* Mobile CSS */
 
 @media (min-width:300px) {
-    main{
+    /* main{
         @apply bg-ylw;
-    }
+    } */
 
     main img {
         @apply h-[50vh];
@@ -74,7 +74,7 @@
 @media (min-width:768px) {
 
     main img {
-        @apply w-full;
+        @apply w-[95vw];
     }
 
     #text-content{
@@ -90,7 +90,8 @@
     }
 
     #card-container{
-        @apply bottom-8;
+        @apply -top-4;
+        @apply pb-2;
     }
 
     #card-container #cards{
