@@ -12,7 +12,7 @@ const ImageContainer = () => {
         setHeight(window.innerHeight);
     }, [])
   return (
-    <Image src="/image.png" alt="Digital Money House" width={width} height={height} className="w-full max-h-[80vh] object-cover overflow-auto"/>
+    <Image src="/image.png" alt="Digital Money House" width={width} height={height} className="w-full max-h-[80vh] object-cover"/>
   )
 }
 
