@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mobile CSS */
+
+@media (min-width: 300px) {
+
+    main h1{
+        @apply pt-10;
+    }
+
+    form{
+        @apply mx-auto;
+        @apply px-2;
+    }
+
+    #top-input-container, #bottom-input-container{
+        @apply w-full;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply items-center;
+    }
+
+    input{
+        @apply w-[85vw];
+        @apply max-w-[300px];
+        @apply mx-4;
+        @apply mt-4;
+        @apply py-3;
+        @apply px-2;
+        @apply text-sm;
+    }
+
+    form p {
+        @apply text-xs;
+        @apply mt-4;
+    }
+
+    form button {
+        @apply w-[85vw];
+        @apply py-3;
+        @apply px-2;
+        @apply mx-4;
+        @apply mt-4;
+        @apply text-sm;
+    }
+}
+
+/* Tablet CSS */
+
+@media (min-width: 500px) {
+    #top-input-container, #bottom-input-container{
+        @apply w-full;
+        @apply flex;
+        @apply flex-row;
+        @apply flex-wrap;
+        @apply justify-center;
+        @apply items-center;
+    }
+
+    input{
+        @apply w-[40vw];
+        @apply max-w-[300px];
+        @apply mx-4;
+        @apply mt-4;
+        @apply p-4;
+        @apply text-[16px];
+    }
+
+    form p {
+        @apply text-sm;
+        @apply mt-6;
+    }
+
+    form button {
+        @apply w-[40vw];
+        @apply p-4;
+        @apply mx-4;
+        @apply mt-4;
+    }
+}
+
+
+/* Laptop, Desktop CSS */
+
+@media (min-width: 768px) {
+    form{
+        @apply mx-auto;
+    }
+    #top-input-container, #bottom-input-container{
+        @apply w-[80vw];
+        @apply max-w-[800px];
+        @apply flex;
+        @apply flex-row;
+        @apply flex-wrap;
+        @apply justify-center;
+        @apply items-center;
+    }
+
+    input{
+        @apply w-[30vw];
+        @apply max-w-[300px];
+        @apply mx-6;
+        @apply mt-6;
+        @apply p-4;
+    }
+
+    form p {
+        @apply text-sm;
+        @apply mt-6;
+    }
+
+    form button {
+        @apply w-[30vw];
+        @apply p-4;
+        @apply mx-6;
+        @apply mt-6;
+    }
+}

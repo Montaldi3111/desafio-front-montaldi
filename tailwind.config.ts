@@ -12,7 +12,8 @@ const config: Config = {
           "graySlate": "#3A3A3A",
           "ylw": "#FAE208",
           "blck": "#181818",
-          "lightGray": "#E3DFCF"
+          "lightGray": "#E3DFCF",
+          "skyBlue": "#D2FFEC"
       },
       fontFamily: {
         "head1": ["Archive", "sans-serif"],

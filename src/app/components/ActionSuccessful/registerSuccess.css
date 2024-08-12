@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mobile CSS */
+
+@media (min-width: 300px) {
+    #register-success{
+        @apply bg-lightGray;
+        @apply py-20;
+        @apply px-2;
+        @apply text-center;
+        @apply items-center;
+    }
+
+    #register-success h1 {
+        @apply text-3xl;
+        @apply font-bold;
+    }
+
+    #register-success img {
+        @apply mx-auto;
+        @apply my-6;
+        @apply w-[30vw];
+        @apply max-w-[175px]
+    }
+
+    #register-success p {
+        @apply w-full;
+        @apply mx-auto;
+        @apply text-[16px];
+    }
+
+    #register-success button {
+        @apply w-[50vw];
+        @apply max-w-[200px];
+        @apply mt-10;
+        @apply p-4;
+        @apply bg-ylw;
+        @apply font-bold;
+        @apply rounded-sm;
+    }
+}
+
+
+/* Tablet CSS */
+
+@media (min-width: 500px) {
+    #register-success{
+        @apply bg-lightGray;
+        @apply py-20;
+        @apply text-center;
+        @apply items-center;
+    }
+
+    #register-success h1 {
+        @apply text-4xl;
+        @apply font-bold;
+    }
+
+    #register-success img {
+        @apply mx-auto;
+        @apply my-6;
+        @apply w-[25vw];
+        @apply max-w-[150px]
+    }
+
+    #register-success p {
+        @apply min-w-[490px];
+        @apply w-[50vw];
+        @apply max-w-[500px];
+        @apply mx-auto;
+        @apply text-[16px];
+    }
+
+    #register-success button {
+        @apply w-[30vw];
+        @apply max-w-[300px];
+        @apply mt-10;
+        @apply p-4;
+        @apply bg-ylw;
+        @apply font-bold;
+        @apply rounded-sm;
+    }
+}
+
+/* Laptop, Desktop CSS */
+
+@media (min-width: 768px) {
+    #register-success{
+        @apply bg-lightGray;
+        @apply py-20;
+        @apply text-center;
+        @apply items-center;
+    }
+
+    #register-success h1 {
+        @apply text-4xl;
+        @apply font-bold;
+    }
+
+    #register-success img {
+        @apply mx-auto;
+        @apply my-6;
+        @apply w-[8vw];
+    }
+
+    #register-success p {
+        @apply min-w-[490px];
+        @apply w-[50vw];
+        @apply max-w-[500px];
+        @apply mx-auto;
+        @apply text-[16px];
+    }
+
+    #register-success button {
+        @apply w-[30vw];
+        @apply max-w-[300px];
+        @apply mt-10;
+        @apply p-4;
+        @apply bg-ylw;
+        @apply font-bold;
+        @apply rounded-sm;
+    }
+}
