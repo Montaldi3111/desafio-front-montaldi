@@ -1,20 +1,20 @@
-import RegisterSuccess from '@/app/components/ActionSuccessful/RegisterSuccess';
-import Card from '@/app/components/HomeCard/Card';
+import ResumeCard from '@/app/components/ResumeCard/ResumeCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-    title: 'Action/RegisterSuccess',
-    component: RegisterSuccess,
+    title: 'userCards/Principal',
+    component: ResumeCard,
     parameters: {
       layout: 'centered',
     },
     tags: ['autodocs'],
-  } satisfies Meta<typeof RegisterSuccess>;
+  } satisfies Meta<typeof ResumeCard>;
+
 
 export const Primary : Story = {
     args: {
+        
     }
 }
-
 export default meta;
 type Story = StoryObj<typeof meta>;

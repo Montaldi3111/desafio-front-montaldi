@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 768px) {
+    #searchBar-container {
+        @apply w-full;
+        @apply flex;
+        @apply flex-row;
+        @apply border-2;
+        @apply border-skyBlue;
+        @apply p-2;
+        @apply items-center;
+        @apply rounded;
+    }
+
+    #searchBar-container svg {
+        @apply text-gray-400;
+    }
+    #searchBar-container #search {
+        @apply ml-2;
+    }
+    
+}

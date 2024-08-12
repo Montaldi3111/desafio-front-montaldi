@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 768px) {
+    #movement-details{
+        @apply w-[90%];
+        @apply my-2;
+        @apply py-2;
+        @apply flex;
+        @apply flex-row;
+        @apply justify-between;
+        @apply border-y-2;
+    }
+
+    #movement-details #title {
+        @apply flex;
+        @apply flex-row;
+        @apply items-center;
+    }
+
+    #movement-details #circle {
+        @apply w-4;
+        @apply h-4;
+        @apply mr-4;
+        @apply rounded-full;
+        @apply bg-ylw;
+        @apply p-4;
+    }
+
+    #movement-details #details {
+        @apply items-center;
+    }
+}

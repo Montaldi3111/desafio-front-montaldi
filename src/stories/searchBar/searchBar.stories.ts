@@ -1,20 +1,21 @@
-import RegisterSuccess from '@/app/components/ActionSuccessful/RegisterSuccess';
-import Card from '@/app/components/HomeCard/Card';
+
+import SearchBar from '@/app/components/SearchBar/SearchBar';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-    title: 'Action/RegisterSuccess',
-    component: RegisterSuccess,
+    title: 'Search/searchBar',
+    component: SearchBar,
     parameters: {
       layout: 'centered',
     },
     tags: ['autodocs'],
-  } satisfies Meta<typeof RegisterSuccess>;
+  } satisfies Meta<typeof SearchBar>;
+
 
 export const Primary : Story = {
     args: {
+        
     }
 }
-
 export default meta;
 type Story = StoryObj<typeof meta>;

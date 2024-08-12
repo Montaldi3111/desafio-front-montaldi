@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Laptop, Desktop CSS */
+
+@media (min-width: 768px) {
+    #principal-card{
+        @apply w-[60vw];
+        @apply p-8;
+        @apply flex;
+        @apply flex-col;
+        @apply bg-graySlate;
+        @apply text-white;
+        @apply rounded;
+        @apply shadow;
+        @apply shadow-blck;
+    }
+
+    #principal-card #links {
+        @apply text-right;
+        @apply mb-4;
+        @apply underline;
+    }
+
+    #links #credit-cards {
+        @apply mr-2;
+    }
+
+    #principal-card #balance {
+        @apply items-center;
+        @apply text-left;
+    }
+
+    #principal-card #current-money{
+        @apply w-fit;
+        @apply p-2;
+        @apply mt-2;
+        @apply text-[30px];
+        @apply border-2;
+        @apply border-ylw;
+        @apply rounded-full;
+    }
+}

@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 768px) {
+    #home-buttons {
+        @apply w-full;
+        @apply flex;
+        @apply flex-row;
+    }
+    #home-buttons button{
+        @apply bg-ylw;
+        @apply p-4;
+        @apply font-bold;
+        @apply text-xl;
+        @apply rounded-sm;
+    }
+
+    #home-buttons #charge-money{
+        @apply w-[50%];
+        @apply max-w-[50vw];
+        @apply mr-4;
+    }
+
+    #home-buttons #payments{
+        @apply w-[50%];
+    }
+}
