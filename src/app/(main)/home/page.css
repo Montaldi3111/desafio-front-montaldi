@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Desktop CSS */
+
+@media (min-width: 768px) {
+    main #menu {
+        @apply w-[25vw];
+        @apply max-w-[250px];
+    }
+
+    main #account-details {
+        @apply w-[70vw];
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply items-center;
+    }
+}

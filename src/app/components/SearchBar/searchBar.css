@@ -5,20 +5,23 @@
 @media (min-width: 768px) {
     #searchBar-container {
         @apply w-full;
+        @apply p-2;
         @apply flex;
         @apply flex-row;
         @apply border-2;
         @apply border-skyBlue;
-        @apply p-2;
         @apply items-center;
-        @apply rounded;
+        @apply rounded-[12px];
+        @apply shadow-md;
     }
 
     #searchBar-container svg {
         @apply text-gray-400;
     }
     #searchBar-container #search {
+        @apply w-full;
         @apply ml-2;
+        @apply p-2;
     }
     
 }

@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 768px) {
+    #menu {
+        @apply my-[2px];
+        @apply pt-8;
+        @apply pl-8;
+        @apply flex;
+        @apply flex-col;
+    }
+
+    #menu a {
+        @apply mt-4;
+    }
+}

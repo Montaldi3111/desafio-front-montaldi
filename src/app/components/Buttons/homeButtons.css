@@ -4,16 +4,18 @@
 
 @media (min-width: 768px) {
     #home-buttons {
-        @apply w-full;
+        @apply w-[60vw];
+        @apply mt-4;
         @apply flex;
         @apply flex-row;
     }
     #home-buttons button{
         @apply bg-ylw;
-        @apply p-4;
+        @apply p-6;
         @apply font-bold;
         @apply text-xl;
         @apply rounded-sm;
+        @apply shadow-md;
     }
 
     #home-buttons #charge-money{

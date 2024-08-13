@@ -29,14 +29,19 @@ const MovementList = () => {
     ]
 
     return (
-        <article className='w-[80%]'>
-            <SearchBar />
-            <div className='bg-white'>
+        <article id="movement-list" className=''>
+            <SearchBar/>
+            <div id="movements" className='bg-white'>
             <p className='font-bold text-black'>Tu actividad</p>
-            <MovementCard movement={lista[0]}/>
-            <div className='flex flex-row jutify-between text-black font-bold'>
-                <p>Ver toda tu actividad</p>
-                <FaArrowRight />
+            <div></div>
+            {lista.map((movement, index) => (
+                <MovementCard key={index} movement={movement}/>
+            ))}
+            <div className='w-[100%] flex flex-row justify-between items-center border-t-[1px] border-black text-black font-bold'>
+                <p className='mt-2'>Ver toda tu actividad</p>
+                <button className='text-xl p-2 cursor-pointer'>
+                <FaArrowRight className="mt-2"/>
+                </button>
             </div>
             </div>
         </article>

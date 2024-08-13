@@ -10,7 +10,7 @@ const MovementCard = ({movement}) => {
             </div>
             <div id="details">
             <p id="transaction-import">${movement.amount}</p>
-            <p className="text-lightGray" id="date">{movement.date}</p>
+            <p className="text-gray-500" id="date">{movement.date}</p>
             </div>
         </span>
   )
