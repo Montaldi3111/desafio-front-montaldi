@@ -2,13 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile CSS */
+
+@media (min-width: 300px) {
+    main #home-shortcut {
+        @apply w-[80vw];
+        @apply mx-4;
+        @apply pt-4;
+        @apply flex;
+        @apply text-left;
+        @apply items-center;
+    }
+
+    main #home-shortcut svg {
+        @apply mr-2;
+    }
+
+    main #home-shortcut p {
+        @apply font-bold;
+    }
+
+    main #account-details {
+        @apply w-[90vw];
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply items-center;
+    }
+}
+
+/* Tablet CSS */
+
+@media (min-width: 500px) {
+
+    main {
+        @apply flex;
+        @apply flex-row;
+    }
+
+    main #home-shortcut {
+        @apply hidden;
+    }
+    main #account-details {
+        @apply w-[70vw];
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply items-center;
+    }
+}
+
+
 /* Desktop CSS */
 
 @media (min-width: 768px) {
-    main #menu {
-        @apply w-[25vw];
-        @apply max-w-[250px];
-    }
 
     main #account-details {
         @apply w-[70vw];

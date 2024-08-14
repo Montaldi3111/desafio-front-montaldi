@@ -1,8 +1,8 @@
 import React from 'react'
 import SearchBar from '../SearchBar/SearchBar'
 import MovementCard from '../MovementCard/MovementCard'
-import "./movementList.css"
 import { FaArrowRight } from 'react-icons/fa6'
+import "./movementList.css"
 
 const MovementList = () => {
 
@@ -17,7 +17,7 @@ const MovementList = () => {
         date: "sábado"
     },
     {
-        operation: "Ingresaste a dinero",
+        operation: "Ingresaste dinero",
         amount: 10000,
         date: "sábado"
     },

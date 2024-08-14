@@ -2,6 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile CSS */
+
+@media (min-width: 300px) {
+    #movement-details{
+        @apply w-[100%];
+        @apply my-2;
+        @apply p-2;
+        @apply flex;
+        @apply flex-row;
+        @apply justify-between;
+        @apply border-t-[1px];
+        @apply border-black;
+        @apply text-sm;
+    }
+
+    #movement-details #title {
+        @apply flex;
+        @apply flex-row;
+        @apply items-center;
+    }
+
+    #movement-details #circle {
+        @apply w-2;
+        @apply h-2;
+        @apply mr-4;
+        @apply rounded-full;
+        @apply bg-ylw;
+        @apply p-[10px];
+    }
+
+    #movement-details #details {
+        @apply items-center;
+    }
+}
+
+/* Tablet CSS */
+
+@media (min-width: 500px) {
+    #movement-details{
+        @apply w-[100%];
+        @apply my-2;
+        @apply p-2;
+        @apply flex;
+        @apply flex-row;
+        @apply justify-between;
+        @apply border-t-[1px];
+        @apply border-black;
+        @apply text-sm;
+    }
+
+    #movement-details #title {
+        @apply flex;
+        @apply flex-row;
+        @apply items-center;
+    }
+
+    #movement-details #circle {
+        @apply w-2;
+        @apply h-2;
+        @apply mr-4;
+        @apply rounded-full;
+        @apply bg-ylw;
+        @apply p-[10px];
+    }
+
+    #movement-details #details {
+        @apply items-center;
+    }
+}
+
+
+/* Laptop, Desktop CSS */
+
 @media (min-width: 768px) {
     #movement-details{
         @apply w-[100%];

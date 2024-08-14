@@ -2,9 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (min-width: 768px) {
+/* Mobile CSS */
+
+@media (min-width:300px) {
     #menu {
-        @apply my-[2px];
+        @apply hidden;
+    }
+}
+
+/* Tablet CSS */
+
+@media (min-width: 500px) {
+    #menu {
+        @apply w-[30vw];
+        @apply max-w-[200px];
+        @apply pt-4;
+        @apply pl-4;
+        @apply flex;
+        @apply flex-col;
+    }
+
+    #menu a {
+        @apply mt-4;
+        @apply text-[16px];
+    }
+}
+
+@media (min-width: 768px) {
+
+    #menu {
+        @apply w-[25vw];
         @apply pt-8;
         @apply pl-8;
         @apply flex;

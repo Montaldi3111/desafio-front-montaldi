@@ -2,6 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile CSS */
+
+@media (min-width: 300px) {
+    #searchBar-container {
+        @apply w-[100%];
+        @apply mb-4;
+        @apply p-2;
+        @apply flex;
+        @apply flex-row;
+        @apply border-2;
+        @apply border-skyBlue;
+        @apply items-center;
+        @apply rounded-[12px];
+        @apply shadow-md;
+    }
+
+    #searchBar-container svg {
+        @apply text-gray-400;
+    }
+    #searchBar-container #search {
+        @apply w-full;
+        @apply ml-2;
+        @apply p-2;
+    }
+}
+
+/* Tablet CSS */
+
+@media (min-width: 500px) {
+    #searchBar-container {
+        @apply w-[60vw];
+        @apply mb-4;
+        @apply p-2;
+        @apply flex;
+        @apply flex-row;
+        @apply border-2;
+        @apply border-skyBlue;
+        @apply items-center;
+        @apply rounded-[12px];
+        @apply shadow-md;
+    }
+
+    #searchBar-container svg {
+        @apply text-gray-400;
+    }
+    #searchBar-container #search {
+        @apply w-full;
+        @apply ml-2;
+        @apply p-2;
+    }
+}
+
+/* Laptop, Desktop CSS */
+
+
 @media (min-width: 768px) {
     #searchBar-container {
         @apply w-full;

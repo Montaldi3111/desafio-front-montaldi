@@ -2,7 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Desktop CSS */
+/* Mobile CSS */
+
+@media (min-width: 300px) {
+    #movement-list {
+        @apply w-[100%];
+        @apply mt-4;
+    }
+
+    #searchBar-container {
+        @apply mb-4;
+    }
+
+    #movements {
+        @apply p-4;
+        @apply rounded-[12px];
+        @apply shadow-md;
+    }
+
+    #movements p {
+        @apply text-xs;
+    }
+}
+
+/* Tablet CSS */
+
+@media (min-width: 500px) {
+    #movement-list {
+        @apply w-[60vw];
+        @apply mt-4;
+    }
+
+    #searchBar-container {
+        @apply mb-4;
+    }
+
+    #movements {
+        @apply p-4;
+        @apply rounded-[12px];
+        @apply shadow-md;
+    }
+
+    #movements p {
+        @apply text-sm;
+    }
+}
+
+/* Laptop, Desktop CSS */
 
 @media (min-width: 768px) {
     #movement-list {
