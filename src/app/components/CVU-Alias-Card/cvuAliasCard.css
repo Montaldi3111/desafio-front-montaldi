@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 768px) {
+    #cvu-alias-card {
+        @apply bg-blck;
+        @apply w-[100%];
+        @apply mt-4;
+        @apply p-6;
+        @apply text-white;
+        @apply rounded-sm;
+        @apply shadow;
+    }
+
+    #cvu-alias-card p {
+        @apply mb-6;
+        @apply text-sm;
+        @apply font-bold;
+    }
+
+    #cvu-alias-card #cvu-container {
+        @apply mb-8;
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+    }
+
+    #cvu-alias-card #alias-container {
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+    }
+
+}

@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Laptop, Desktop CSS */
+
+@media (min-width: 768px) {
+    #user-details {
+        @apply w-[100%];
+        @apply bg-white;
+        @apply p-6;
+        @apply rounded-sm;
+        @apply shadow;
+    }
+
+    #user-details h3 {
+        @apply text-lg;
+        @apply font-bold;
+        @apply mb-4;
+    }
+
+    #details-container {
+        @apply flex;
+        @apply flex-col;
+    }
+
+    #details-container ul {
+        @apply grid;
+        @apply grid-cols-12;
+        @apply items-center;
+        @apply border-b-[1px];
+        @apply border-lightGray;
+    }
+
+    #details-container ul #detail-header {
+        @apply text-blck;
+        @apply font-semibold;
+        @apply col-span-3;
+    }
+
+    #details-container ul #user-info {
+        @apply text-graySlate;
+        @apply col-span-8;
+    }
+
+    #details-container ul svg {
+        @apply border-2;
+        @apply border-red-500;
+        @apply w-6;
+        @apply text-xl;
+    }
+
+    #details-container #detail-header, #details-container #user-info, #details-container svg{
+        @apply my-2;
+    }
+
+}

@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Laptop, Desktop CSS */
+
+@media (min-width: 768px) {
+
+    #info {
+        @apply w-[90vw];
+        @apply pl-10;
+        @apply pr-4;
+    }
+
+    #manage-payments {
+        @apply w-[100%];
+        @apply bg-ylw;
+        @apply mt-4;
+        @apply items-center;
+        @apply flex;
+        @apply justify-between;
+        @apply py-8;
+        @apply px-4;
+        @apply rounded-sm;
+        @apply shadow;
+    }
+}

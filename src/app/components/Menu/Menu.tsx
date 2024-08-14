@@ -2,7 +2,7 @@ import React from 'react'
 import "./menu.css"
 const Menu = () => {
   return (
-    <section id="menu" className="bg-ylw">
+    <section id="menu" className="bg-ylw h-full">
     <a href="#" className='font-bold'>Inicio</a>
     <a href="#">Actividad</a>
     <a href="#">Tu perfil</a>
