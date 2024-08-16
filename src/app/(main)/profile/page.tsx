@@ -10,7 +10,11 @@ const Profile = () => {
         <section>
             <Menu />
         </section>
-        <section id="info" className='mx-auto my-4'>
+        <section id="info" className='my-4 w-full'>
+        <div id="actual-page">
+            <FaArrowRight />
+            <p>Perfil</p>
+        </div>
             <UserDetails />
             <div id="manage-payments">
             <p className='font-bold'>Gestioná los medios de pago</p>

@@ -14,7 +14,7 @@
 
 @media (min-width: 500px) {
     #menu {
-        @apply w-[30vw];
+        @apply w-[28vw];
         @apply max-w-[200px];
         @apply pt-4;
         @apply pl-4;
@@ -24,7 +24,7 @@
 
     #menu a {
         @apply mt-4;
-        @apply text-[16px];
+        @apply text-sm;
     }
 }
 

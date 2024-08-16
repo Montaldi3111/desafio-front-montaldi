@@ -2,6 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile CSS */
+
+@media (min-width: 300px) {
+    #cvu-alias-card {
+        @apply bg-blck;
+        @apply w-[90vw];
+        @apply mt-4;
+        @apply mx-auto;
+        @apply p-6;
+        @apply text-white;
+        @apply rounded-sm;
+        @apply shadow;
+    }
+
+    #cvu-alias-card p {
+        @apply mb-6;
+        @apply text-sm;
+    }
+
+    #cvu-alias-card #cvu-container {
+        @apply mb-4;
+        @apply pb-4;
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+        @apply border-b-2;
+        @apply border-white;
+    }
+
+    #cvu-alias-card #alias-container {
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+    }
+
+}
+
+/* Tablet CSS */
+
+@media (min-width: 500px) {
+    #cvu-alias-card {
+        @apply w-[60vw];
+        @apply min-w-[354px];
+        @apply mt-4;
+        @apply mx-auto;
+        @apply p-6;
+        @apply bg-blck;
+        @apply text-white;
+        @apply rounded-sm;
+        @apply shadow;
+    }
+
+    #cvu-alias-card p {
+        @apply mb-6;
+        @apply text-sm;
+        @apply font-bold;
+    }
+
+    #cvu-alias-card #cvu-container {
+        @apply mb-8;
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+        @apply border-0;
+    }
+
+    #cvu-alias-card #alias-container {
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+    }
+
+}
+
+/* Laptop, Desktop CSS */
+
 @media (min-width: 768px) {
     #cvu-alias-card {
         @apply bg-blck;

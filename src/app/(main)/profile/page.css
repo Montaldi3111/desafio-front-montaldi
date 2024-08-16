@@ -2,12 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile CSS */
+
+@media (min-width: 300px) {
+
+    #info {
+        @apply mx-auto;
+    }
+
+    #actual-page {
+        @apply ml-4;
+        @apply mb-4;
+        @apply flex;
+        @apply items-center;
+    }
+
+    #actual-page p {
+        @apply ml-2;
+        @apply text-graySlate;
+        @apply font-semibold;
+        @apply underline;
+    }
+
+    #manage-payments {
+        @apply w-[90vw];
+        @apply mx-auto;
+        @apply mt-4;
+        @apply p-4;
+        @apply bg-ylw;
+        @apply items-center;
+        @apply flex;
+        @apply justify-between;
+        @apply rounded-sm;
+        @apply shadow;
+    }
+
+    #manage-payments p {
+        @apply text-sm;
+    }
+}
+
+/* Tablet CSS */
+
+@media (min-width: 500px) {
+
+    #info {
+        @apply border-2;
+        @apply border-red-500;
+        @apply w-screen;
+    }
+
+    #actual-page {
+        @apply hidden;
+    }
+
+    #manage-payments {
+        @apply w-[60vw];
+        @apply min-w-[354px];
+        @apply mx-auto;
+        @apply bg-ylw;
+        @apply mt-4;
+        @apply items-center;
+        @apply flex;
+        @apply justify-between;
+        @apply py-8;
+        @apply px-4;
+        @apply rounded-sm;
+        @apply shadow;
+    }
+
+    #manage-payments p {
+        @apply text-lg;
+    }
+
+}
+
 /* Laptop, Desktop CSS */
 
 @media (min-width: 768px) {
 
     #info {
-        @apply w-[90vw];
+        @apply w-[70vw];
+        @apply mx-auto;
         @apply pl-10;
         @apply pr-4;
     }

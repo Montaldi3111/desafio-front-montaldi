@@ -2,10 +2,118 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile CSS */
+
+@media (min-width: 300px) {
+    #user-details {
+        @apply w-[90vw];
+        @apply max-w-[360px];
+        @apply mx-auto;
+        @apply bg-white;
+        @apply py-6;
+        @apply px-4;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply text-sm;
+    }
+
+    #user-details h3 {
+        @apply font-bold;
+        @apply text-[16px];
+        @apply mb-2;
+    }
+
+    #details-container {
+        @apply flex;
+        @apply flex-col;
+    }
+
+    #details-container ul {
+        @apply grid;
+        @apply grid-cols-12;
+        @apply items-center;
+        @apply border-b-[1px];
+        @apply border-lightGray;
+    }
+
+    #details-container ul #detail-header {
+        @apply w-fit;
+        @apply col-span-6;
+        @apply font-semibold;
+        @apply text-blck;
+    }
+
+    #details-container ul #user-info {
+        @apply col-span-11;
+        @apply text-[12px];
+    }
+
+    #details-container #detail-header, #details-container #user-info, #details-container svg{
+        @apply my-2;
+    }
+    
+
+}
+
+/* Tablet CSS */
+
+@media (min-width: 500px) {
+    #user-details {
+        @apply min-w-[334px];
+        @apply w-[60vw];
+        @apply max-w-[500px];
+        @apply bg-white;
+        @apply py-4;
+        @apply px-2;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply text-sm;
+    }
+
+    #user-details h3 {
+        @apply font-bold;
+        @apply text-[16px];
+        @apply mb-2;
+    }
+
+    #details-container {
+        @apply flex;
+        @apply flex-col;
+    }
+
+    #details-container ul {
+        @apply grid;
+        @apply grid-cols-12;
+        @apply items-center;
+        @apply border-b-[1px];
+        @apply border-lightGray;
+    }
+
+    #details-container ul #detail-header {
+        @apply text-sm;
+        @apply font-semibold;
+        @apply text-blck;
+        @apply col-span-6;
+    }
+
+    #details-container ul #user-info {
+        @apply pr-4;
+        @apply col-span-5;
+        @apply text-[12px];
+    }
+
+    #details-container #detail-header, #details-container #user-info, #details-container svg{
+        @apply my-2;
+    }
+    
+
+}
+
 /* Laptop, Desktop CSS */
 
 @media (min-width: 768px) {
     #user-details {
+        @apply min-w-[100%];
         @apply w-[100%];
         @apply bg-white;
         @apply p-6;
@@ -35,17 +143,15 @@
     #details-container ul #detail-header {
         @apply text-blck;
         @apply font-semibold;
-        @apply col-span-3;
+        @apply col-span-4;
     }
 
     #details-container ul #user-info {
         @apply text-graySlate;
-        @apply col-span-8;
+        @apply col-span-7;
     }
 
     #details-container ul svg {
-        @apply border-2;
-        @apply border-red-500;
         @apply w-6;
         @apply text-xl;
     }
