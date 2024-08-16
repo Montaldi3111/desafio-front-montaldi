@@ -5,19 +5,34 @@
 /* Mobile CSS */
 
 @media (min-width:300px) {
-    /* main{
-        @apply bg-ylw;
-    } */
 
-    main img {
-        @apply h-[50vh];
+    main {
+        @apply relative;
+        @apply h-full;
+    }
+
+    main #image-container {
+        @apply h-[75vh];
+    }
+
+    main #image-container #home-img{
+        @apply w-full;
+        @apply h-full;
     }
 
     #text-content{
-        @apply top-2;
+        @apply top-6;
         @apply left-5;
         @apply mb-10;
         @apply w-32;
+    }
+
+    #text-content #line {
+        @apply w-10;
+        @apply mt-1;
+        @apply bg-ylw;
+        @apply border-2;
+        @apply border-ylw;
     }
 
     #text-content #text-subcontent{
@@ -27,15 +42,13 @@
     }
 
     #card-container{
-        @apply bottom-6;
-    }
-
-    #card-container #cards{
-        @apply -top-10;
+        @apply h-[300px];
         @apply flex;
         @apply flex-col;
-        @apply justify-center;
+        @apply relative;
+        @apply bottom-[136px];
     }
+
 
 }
 
@@ -43,15 +56,29 @@
 
 @media (min-width:500px) {
 
-    main img {
-        @apply h-[70vh];
+    main {
+        @apply relative;
+        @apply h-full;
+    }
+
+    main #image-container {
+        @apply h-[60%];
+    }
+
+    main #image-container img  {
+        @apply h-[100%];
     }
 
     #text-content{
-        @apply top-2;
-        @apply left-5;
+        @apply w-[40vw];
         @apply mb-10;
-        @apply w-32;
+        @apply absolute;
+        @apply top-6;
+
+    }
+
+    #text-content #text-head {
+        @apply text-xl;
     }
 
     #text-content #text-subcontent{
@@ -60,47 +87,60 @@
         @apply mt-1;
     }
 
-    #card-container #cards{
-        @apply -top-20;
+    #card-container {
+        @apply h-fit;
+        @apply max-h-[280px];
         @apply flex;
-        @apply flex-row;
-        @apply flex-wrap;
-        @apply items-center;
+        @apply flex-col;
+        @apply relative;
+        @apply bottom-[17px];
+
     }
+
 }
 
 /* Laptop and Desktop CSS */
 
 @media (min-width:768px) {
 
-    main img {
-        @apply w-[95vw];
+    main {
+        @apply relative;
+        @apply h-screen;
+    }
+
+    main #image-container {
+        @apply h-full;
+    }
+
+    main #image-container img  {
+        @apply h-full;
     }
 
     #text-content{
-        @apply top-20;
+        @apply w-[418px];
+        @apply absolute;
         @apply left-20;
-        @apply w-80;
+        @apply text-left;
+    }
+
+    #text-content #text-head {
+        @apply text-[32px];
+        @apply tracking-wide
     }
 
     #text-content #text-subcontent{
         @apply text-ylw;
-        @apply text-[16px];
+        @apply text-[30px];
         @apply mt-3;
     }
 
     #card-container{
-        @apply -top-4;
-        @apply pb-2;
-    }
-
-    #card-container #cards{
-        @apply -top-16;
         @apply flex;
         @apply flex-row;
-        @apply justify-around;
-        @apply w-3/4;
-        @apply m-auto;
+        @apply justify-center;
+        @apply max-h-[150px];
+        @apply relative;
+        @apply -top-[150px];
     }
     
 }

@@ -7,8 +7,14 @@
 @media (min-width:300px) {
     #card{
         @apply mb-4;
-        @apply mx-4
+        @apply mx-4;
+        @apply text-sm;
+        @apply relative;
+        @apply -top-14;
+    }
 
+    #card-head {
+        @apply text-xl;
     }
 
 }
@@ -19,8 +25,10 @@
     #card{
         @apply mx-auto;
         @apply w-[72vw];
-        @apply max-w-[75vw];
+        @apply max-w-[490px];
         @apply mb-4;
+        @apply relative;
+        @apply -top-20;
     }
 
 
@@ -31,13 +39,18 @@
 @media (min-width:768px) {
 
     #card{
+        @apply w-[40%];
         @apply p-4;
-        @apply w-[38%];
-        @apply-max-w-[150px];
-        @apply h-[38vh];
+        @apply max-w-[380px];
+        @apply h-[200px];
         @apply mx-3;
+        @apply relative;
+        @apply -top-20;
     }
 
+    #card #card-content {
+        @apply mt-2;
+    }
     
 }
 

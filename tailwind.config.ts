@@ -9,18 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-          "graySlate": "#3A3A3A",
-          "ylw": "#FAE208",
-          "blck": "#181818",
-          "lightGray": "#E3DFCF",
-          "skyBlue": "#D2FFEC"
+        "graySlate": "#3A3A3A",
+        "ylw": "#FAE208",
+        "blck": "#181818",
+        "lightGray": "#E3DFCF",
+        "skyBlue": "#D2FFEC"
       },
       fontFamily: {
         "head1": ["Archive", "sans-serif"],
-        "body": ["Archive", "sans-serif"], 
-      },
-      backgroundImage: {
-        "home": "url(/image.png)"
+        "body": ["Archive", "sans-serif"],
       },
       borderRadius: {
         sm: "14px",
@@ -45,7 +42,7 @@ const config: Config = {
     sm: "14px",
     md: "16px",
     lg: "20px",
-    xl: "24px",
+    "xl": "24px",
   },
   plugins: [],
 };

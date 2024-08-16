@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+#login:hover {
+    @apply bg-ylw;
+    @apply text-black;
+}
+
+#register:hover {
+    @apply border-2;
+    @apply border-ylw;
+    @apply bg-blck;
+    @apply text-ylw;
+}
+
 @media (min-width: 300px) and (max-width:500px) {
 
     header {
@@ -21,6 +33,8 @@
         @apply mr-2;
         @apply rounded;
         @apply text-xs;
+        @apply text-center;
+        @apply items-center;
         @apply font-bold;
         @apply border-2;
         @apply border-ylw;
@@ -32,6 +46,8 @@
         @apply p-1;
         @apply mr-3;
         @apply bg-ylw;
+        @apply text-center;
+        @apply items-center;
         @apply text-black;
         @apply rounded;
         @apply font-bold;
@@ -54,12 +70,16 @@
     #login {
         @apply mr-2;
         @apply text-[14px];
+        @apply text-center;
+        @apply items-center;
         @apply p-2;
         @apply w-32;
     }
 
     #register {
         @apply text-[14px];
+        @apply text-center;
+        @apply items-center;
         @apply p-2;
         @apply w-36;
     }
@@ -79,13 +99,16 @@
     #login {
         @apply mr-2;
         @apply text-[14px];
-        @apply py-1;
-        @apply px-2;
+        @apply text-center;
+        @apply items-center;
+        @apply p-2;
         @apply w-32;
     }
 
     #register {
         @apply text-[14px];
+        @apply text-center;
+        @apply items-center;
         @apply p-2;
         @apply w-36;
     }

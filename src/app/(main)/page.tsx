@@ -1,5 +1,5 @@
 import Card from "../components/HomeCard/Card";
-import ImageContainer from "../components/ImageContainer/ImageContainer";
+import Image from "next/image";
 import "./main.css"
 export default function Home() {
 
@@ -14,21 +14,19 @@ export default function Home() {
   }
 
   return (
-    <main className="relative bg-ylw">
-      <section className="w-full h-full">
-        <ImageContainer />
+    <main className="w-full">
+      <section id="image-container">
+      <Image id="home-img" src="/image.png" alt="Digital Money House" width={1440} height={731} className="w-full object-cover"/>
       </section>
       <section id="text-content" className="absolute">
-        <h1 id="text-head" className="text-white text-xl">De ahora en adelante, hacés más con tu dinero</h1>
-        <h1 id="text-subcontent" className="text-ylw text-[16px]">Tu nueva <b>billetera</b> virtual</h1>
+        <h1 id="text-head" className="text-white">De ahora en adelante, hacés más con tu dinero</h1>
+        <p id="line"></p>
+        <h1 id="text-subcontent" className="text-ylw">Tu nueva <b>billetera virtual</b></h1>
       </section>
-      <section id="card-container" className="relative w-full rounded-t-md bg-ylw">
-      <div id="cards" className="relative">
+      <section id="card-container" className="w-full rounded-t-md bg-ylw">
         <Card message={card1}/>
         <Card message={card2}/>
-      </div>
       </section>
     </main>
   );
 }
- /* card container absolute w-full bg-ylw rounded-t-md */

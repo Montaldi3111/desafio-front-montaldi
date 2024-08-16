@@ -4,5 +4,6 @@
 
 html, body{
   @apply max-w-[100%];
+  @apply h-screen;
   @apply overflow-x-hidden;
 }
