@@ -28,7 +28,7 @@
         @apply max-w-[490px];
         @apply mb-4;
         @apply relative;
-        @apply -top-20;
+        @apply -top-[52px];
     }
 
 
@@ -50,6 +50,7 @@
 
     #card #card-content {
         @apply mt-2;
+        @apply text-[16px];
     }
     
 }

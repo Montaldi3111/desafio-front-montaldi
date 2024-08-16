@@ -62,7 +62,7 @@
     }
 
     main #image-container {
-        @apply h-[60%];
+        @apply h-[62vh];
     }
 
     main #image-container img  {
@@ -81,6 +81,10 @@
         @apply text-xl;
     }
 
+    #text-content #line {
+        @apply hidden;
+    }
+
     #text-content #text-subcontent{
         @apply text-ylw;
         @apply text-[16px];
@@ -88,12 +92,12 @@
     }
 
     #card-container {
-        @apply h-fit;
+        @apply h-[268px];
         @apply max-h-[280px];
         @apply flex;
         @apply flex-col;
         @apply relative;
-        @apply bottom-[17px];
+        @apply bottom-[19px];
 
     }
 
@@ -119,6 +123,7 @@
     #text-content{
         @apply w-[418px];
         @apply absolute;
+        @apply top-12;
         @apply left-20;
         @apply text-left;
     }
