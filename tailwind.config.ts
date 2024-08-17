@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         "graySlate": "#3A3A3A",
         "ylw": "#FAE208",
+        "ylwBlck": "#C0AD06",
         "blck": "#181818",
         "lightGray": "#E3DFCF",
         "skyBlue": "#D2FFEC"

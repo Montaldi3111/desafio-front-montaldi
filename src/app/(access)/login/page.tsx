@@ -3,9 +3,9 @@ import "./login.css"
 import LoginFormContainer from '@/app/components/containers/LoginFormContainer';
 const Login = () => {
   return (
-    <section className='bg-lightGray text-center items-center py-10 font-body relative h-3/4'>
+    <main className='bg-lightGray text-center font-body relative'>
     <LoginFormContainer />
-    </section>
+    </main>
   )
 }
 

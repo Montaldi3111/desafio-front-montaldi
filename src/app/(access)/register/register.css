@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+#input-error {
+    @apply border-2;
+    @apply border-red-500;
+}
+
+#error-msg {
+    @apply text-red-500;
+    @apply text-sm;
+    @apply text-center;
+}
+
+#form input {
+    @apply border-2;
+    @apply rounded-sm;
+    @apply border-skyBlue;
+    @apply shadow-md;
+}
+
+#form button:hover {
+    @apply border-2;
+    @apply border-blck;
+}
+
+#form input:hover {
+    @apply border-2;
+    @apply border-blck;
+}
+
 /* Mobile CSS */
 
 @media (min-width: 300px) {
@@ -33,7 +61,7 @@
         @apply text-sm;
     }
 
-    form p {
+    form #separator {
         @apply text-xs;
         @apply mt-4;
     }
@@ -69,7 +97,7 @@
         @apply text-[16px];
     }
 
-    form p {
+    form #separator {
         @apply text-sm;
         @apply mt-6;
     }
@@ -86,9 +114,6 @@
 /* Laptop, Desktop CSS */
 
 @media (min-width: 768px) {
-    form{
-        @apply mx-auto;
-    }
     #top-input-container, #bottom-input-container{
         @apply w-[80vw];
         @apply max-w-[800px];
@@ -99,23 +124,30 @@
         @apply items-center;
     }
 
+    #top-input-container div, #bottom-input-container div {
+        @apply mt-4;
+    }
+
     input{
         @apply w-[30vw];
         @apply max-w-[300px];
-        @apply mx-6;
-        @apply mt-6;
+        @apply mx-0;
+        @apply mt-0;
+        @apply mb-4;
         @apply p-4;
     }
 
-    form p {
+    form #separator {
         @apply text-sm;
-        @apply mt-6;
+        @apply my-6;
     }
 
     form button {
         @apply w-[30vw];
+        @apply max-w-[300px];
+        @apply m-0;
+        @apply ml-4;
+        @apply mb-4;
         @apply p-4;
-        @apply mx-6;
-        @apply mt-6;
     }
 }
