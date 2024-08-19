@@ -1,5 +1,9 @@
 "use client"
+import { getUserAccount } from '@/services/account/account.service';
+import { loginRequest } from '@/services/auth/auth.service';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { setCookie } from 'cookies-next'
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { FaArrowLeft } from 'react-icons/fa6';
@@ -18,17 +22,32 @@ const LoginForm = () => {
   }).required()
 
   const {register, handleSubmit, formState: {errors}} = useForm({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
+    defaultValues: {
+      email: '',
+      password: ''
+    }
   })
 
   const [foward, setFoward] = useState(false); // false => Solo muestra el input de email. true => muestra el input de password
+
+  const router = useRouter()
 
   const handleChange = () => {
     setFoward(!foward);
   }
 
   const onSubmit = (data : FormData) => {
-    console.log(data)
+    loginRequest(data).then(response => {
+      getUserAccount(response).then(user => {
+        setCookie("userLogged", user.user_id, {
+          expires: new Date(Date.now() + 1000 * 3600 * 24) // la cookie dura 1 día
+        })
+        localStorage.setItem("accessToken", response); // ESTO NO LO DEBO HACER, PERO PARA MANTENER EL TOKEN POR AHORA
+      }).then(() => router.push("/dashboard"))
+    }).catch(error => {
+      console.log(error)
+    })
   }
 
   return (

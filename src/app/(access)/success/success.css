@@ -31,7 +31,7 @@
         @apply text-[16px];
     }
 
-    #register-success button {
+    #register-success a {
         @apply w-[50vw];
         @apply max-w-[200px];
         @apply mt-10;
@@ -73,7 +73,7 @@
         @apply text-[16px];
     }
 
-    #register-success button {
+    #register-success a {
         @apply w-[30vw];
         @apply max-w-[300px];
         @apply mt-10;
@@ -113,7 +113,7 @@
         @apply text-[16px];
     }
 
-    #register-success button {
+    #register-success a {
         @apply w-[30vw];
         @apply max-w-[300px];
         @apply mt-10;

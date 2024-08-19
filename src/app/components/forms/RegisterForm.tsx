@@ -3,6 +3,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
 import React from 'react'
 import { useForm } from 'react-hook-form';
+import { createUser } from '@/services/user/user.service';
+import { useRouter } from 'next/navigation';
 
 type FormData = {
   dni: string;
@@ -25,12 +27,26 @@ const schema = yup.object({
 }).required();
 
 const RegisterForm = () => {
+
+  const router = useRouter()
+
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
+    defaultValues: {
+      dni: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      repeat_password: '',
+      phone: ''
+    }
   });
 
   const onSubmit = (data: FormData) => {
-    console.log(data)
+    createUser(data).then(() => {
+      router.push("/success")
+    })
   }
 
   return (

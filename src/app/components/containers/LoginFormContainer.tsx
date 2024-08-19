@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginForm from '../forms/LoginForm'
+import LoginForm from '../Forms/LoginForm'
 
 const LoginFormContainer = () => {
   return (

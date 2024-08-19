@@ -1,16 +1,16 @@
 import Image from 'next/image'
 import React from 'react'
-import "./registerSuccess.css"
+import "./success.css"
 
 const RegisterSuccess = () => {
   return (
-    <section id="register-success" className=''>
+    <main id="register-success" className='h-full'>
         <h1>Registro Exitoso</h1>
         <Image src="/tick-icon.png" alt="register successful" width={200} height={100}/>
         <p>Hemos enviado un correo de confirmación para válidar tu email, por favor revisalo para iniciar sesión.</p>
-        <button>Continuar</button>
+        <a href="/login" className='hover:cursor-pointer'>Continuar</a>
 
-    </section>
+    </main>
   )
 }
 
