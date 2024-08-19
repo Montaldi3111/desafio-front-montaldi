@@ -2,15 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-#input-error {
-    @apply border-2;
-    @apply border-red-500;
-}
-
-#error-msg {
-    @apply text-red-500;
-    @apply text-sm;
-    @apply text-center;
+main {
+    @apply h-full;
 }
 
 #form input {
@@ -18,6 +11,10 @@
     @apply rounded-sm;
     @apply border-skyBlue;
     @apply shadow-md;
+}
+
+form #input-error {
+    @apply border-red-500;
 }
 
 #form button:hover {
@@ -32,15 +29,25 @@
 
 /* Mobile CSS */
 
-@media (min-width: 300px) {
+@media (min-width: 300px) and (max-width: 500px) {
 
-    main h1{
+    main {
+        @apply h-full;
+    }
+
+    form h1{
         @apply pt-10;
     }
 
-    form{
-        @apply mx-auto;
-        @apply px-2;
+    form #error-msg {
+        @apply hidden;
+    }
+
+    form #form-error {
+        @apply mt-2;
+        @apply text-sm;
+        @apply text-red-500;
+        @apply text-center;
     }
 
     #top-input-container, #bottom-input-container{
@@ -49,6 +56,10 @@
         @apply flex-col;
         @apply justify-center;
         @apply items-center;
+    }
+
+    #top-input-container div, #bottom-input-container div {
+        @apply mx-0;
     }
 
     input{
@@ -64,6 +75,7 @@
     form #separator {
         @apply text-xs;
         @apply mt-4;
+        @apply mx-4;
     }
 
     form button {
@@ -78,7 +90,18 @@
 
 /* Tablet CSS */
 
-@media (min-width: 500px) {
+@media (min-width: 500px) and (max-width:768px){
+
+    form h1 {
+        @apply pt-14;
+    }
+
+    #error-msg, #form-error {
+        @apply text-red-500;
+        @apply text-sm;
+        @apply text-center;
+    }
+
     #top-input-container, #bottom-input-container{
         @apply w-full;
         @apply flex;
@@ -102,6 +125,10 @@
         @apply mt-6;
     }
 
+    form #button-container {
+        @apply ml-4;
+    }
+
     form button {
         @apply w-[40vw];
         @apply p-4;
@@ -113,7 +140,18 @@
 
 /* Laptop, Desktop CSS */
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
+
+    main h1{
+        @apply pt-14;
+    }
+
+    #error-msg, #form-error {
+        @apply text-red-500;
+        @apply text-sm;
+        @apply text-center;
+    }
+
     #top-input-container, #bottom-input-container{
         @apply w-[80vw];
         @apply max-w-[800px];
