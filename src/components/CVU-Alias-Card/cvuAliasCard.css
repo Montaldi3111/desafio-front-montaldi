@@ -41,10 +41,11 @@
 
 /* Tablet CSS */
 
-@media (min-width: 500px) {
+@media (min-width: 500px) and (max-width: 768px){
     #cvu-alias-card {
+        @apply min-w-[334px];
         @apply w-[60vw];
-        @apply min-w-[354px];
+        @apply max-w-[500px];
         @apply mt-4;
         @apply mx-auto;
         @apply p-6;

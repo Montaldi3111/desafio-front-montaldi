@@ -2,29 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+main #actual-page {
+    @apply hidden;
+}
+
 /* Mobile CSS */
 
-@media (min-width: 300px) {
+@media (min-width: 300px) and (max-width: 500px){
 
-    #info {
+    main #info {
         @apply mx-auto;
     }
 
-    #actual-page {
+    main #actual-page {
+        @apply flex;
         @apply ml-4;
         @apply mb-4;
-        @apply flex;
         @apply items-center;
     }
 
-    #actual-page p {
+    main #actual-page p {
         @apply ml-2;
         @apply text-graySlate;
         @apply font-semibold;
         @apply underline;
     }
 
-    #manage-payments {
+     #manage-payments {
         @apply w-[90vw];
         @apply mx-auto;
         @apply mt-4;
@@ -44,21 +48,16 @@
 
 /* Tablet CSS */
 
-@media (min-width: 500px) {
-
-    #info {
-        @apply border-2;
-        @apply border-red-500;
-        @apply w-screen;
-    }
+@media (min-width: 500px) and (max-width: 768px) {
 
     #actual-page {
         @apply hidden;
     }
 
     #manage-payments {
+        @apply min-w-[334px];
         @apply w-[60vw];
-        @apply min-w-[354px];
+        @apply max-w-[500px];
         @apply mx-auto;
         @apply bg-ylw;
         @apply mt-4;
@@ -72,7 +71,7 @@
     }
 
     #manage-payments p {
-        @apply text-lg;
+        @apply text-[16px];
     }
 
 }
@@ -80,6 +79,10 @@
 /* Laptop, Desktop CSS */
 
 @media (min-width: 768px) {
+
+    main #actual-page {
+        @apply hidden;
+    }
 
     #info {
         @apply w-[70vw];
@@ -99,5 +102,9 @@
         @apply px-4;
         @apply rounded-sm;
         @apply shadow;
+    }
+
+    #manage-payments p {
+        @apply text-lg;
     }
 }

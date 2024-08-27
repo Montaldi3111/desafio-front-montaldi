@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+main {
+    @apply h-full;
+}
+
+main #home-shortcut {
+    @apply hidden;
+}
+
 /* Mobile CSS */
 
-@media (min-width: 300px) {
+@media (min-width: 300px) and (max-width:500px) {
     main #home-shortcut {
         @apply w-[80vw];
         @apply mx-4;
@@ -34,7 +42,7 @@
 
 /* Tablet CSS */
 
-@media (min-width: 500px) {
+@media (min-width: 500px) and (max-width: 767px){
 
     main {
         @apply flex;
@@ -57,14 +65,20 @@
 
 /* Desktop CSS */
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
+
+    main {
+        @apply h-full;
+        @apply flex;
+        @apply flex-row;
+    }
 
     main #account-details {
-        @apply w-[70vw];
+        @apply w-[60vw];
+        @apply h-full;
         @apply mx-auto;
         @apply flex;
         @apply flex-col;
-        @apply justify-center;
-        @apply items-center;
+        @apply justify-between;
     }
 }

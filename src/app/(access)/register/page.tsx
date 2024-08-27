@@ -1,5 +1,5 @@
 import './register.css';
-import RegisterFormContainer from '@/app/components/containers/RegisterFormContainer';
+import RegisterFormContainer from '@/components/containers/RegisterFormContainer';
 const Register = () => {
   return (
     <main className='bg-lightGray'>

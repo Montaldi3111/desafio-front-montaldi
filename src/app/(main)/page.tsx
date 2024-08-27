@@ -1,4 +1,4 @@
-import Card from "../components/HomeCard/Card";
+import Card from "../../components/HomeCard/Card";
 import Image from "next/image";
 import "./main.css"
 export default function Home() {

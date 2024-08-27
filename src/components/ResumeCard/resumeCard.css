@@ -4,7 +4,7 @@
 
 /* Mobile CSS */
 
-@media (min-width: 300px) {
+@media (min-width: 300px) and (max-width:500px) {
     #principal-card{
         @apply w-[100%];
         @apply p-4;
@@ -51,7 +51,7 @@
 
 /* Tablet CSS */
 
-@media (min-width: 500px) {
+@media (min-width: 500px) and (max-width:767px) {
     #principal-card{
         @apply w-[60vw];
         @apply p-6;
@@ -97,6 +97,7 @@
 @media (min-width: 768px) {
     #principal-card{
         @apply w-[60vw];
+        @apply h-fit;
         @apply p-8;
         @apply flex;
         @apply flex-col;

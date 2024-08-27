@@ -11,3 +11,17 @@ type LoginUserType = {
     email: string,
     password: string,
 }
+
+type UserAccountType = {
+    alias: string,
+    available_amount: number,
+    cvu: string,
+    id: number,
+    user_id: number
+}
+
+type UserDataType = {
+    user_id: number,
+    accountId: number,
+    token: string
+}

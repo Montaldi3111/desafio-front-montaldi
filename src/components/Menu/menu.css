@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+#menu {
+    @apply h-full;
+}
+
 /* Mobile CSS */
 
 @media (min-width:300px) {

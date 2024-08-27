@@ -1,9 +1,9 @@
 import React from 'react'
-import Menu from '@/app/components/Menu/Menu'
-import UserDetails from '@/app/components/UserDetails/UserDetails'
+import Menu from '@/components/Menu/Menu'
+import CvuAliasCard from '@/components/CVU-Alias-Card/CvuAliasCard'
+import UserDetails from '@/components/UserDetails/UserDetails'
 import "./page.css"
 import { FaArrowRight } from 'react-icons/fa6'
-import CvuAliasCard from '@/app/components/CVU-Alias-Card/CvuAliasCard'
 const Profile = () => {
   return (
     <main className='bg-lightGray h-full flex flex-row'>

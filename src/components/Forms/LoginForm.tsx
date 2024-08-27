@@ -28,10 +28,9 @@ const LoginForm = () => {
       password: ''
     }
   })
-
   const [foward, setFoward] = useState(false); // false => Solo muestra el input de email. true => muestra el input de password
+  const router = useRouter();
 
-  const router = useRouter()
 
   const handleChange = () => {
     setFoward(!foward);
@@ -40,11 +39,22 @@ const LoginForm = () => {
   const onSubmit = (data : FormData) => {
     loginRequest(data).then(response => {
       getUserAccount(response).then(user => {
-        setCookie("userLogged", user.user_id, {
-          expires: new Date(Date.now() + 1000 * 3600 * 24) // la cookie dura 1 día
+        // El token dura una hora, por lo tanto las cookies deben durar lo mismo
+        setCookie("loggedIn", true, {
+          expires: new Date(Date.now() + 1000 * 3600)
         })
-        localStorage.setItem("accessToken", response); // ESTO NO LO DEBO HACER, PERO PARA MANTENER EL TOKEN POR AHORA
-      }).then(() => router.push("/dashboard"))
+        setCookie("userLogged", user.user_id, {
+          expires: new Date(Date.now() + 1000 * 3600)
+        })
+        setCookie("accountId", user.id, {
+          expires: new Date(Date.now() + 1000 * 3600)
+        })
+        setCookie("token", response , {
+          expires: new Date(Date.now() + 1000 * 3600)
+        })
+      }).then(() => {
+        router.push("/dashboard")
+      })
     }).catch(error => {
       console.log(error)
     })
