@@ -21,6 +21,7 @@ const config: Config = {
         "body": ["Archive", "sans-serif"],
       },
       borderRadius: {
+        xs: "10px",
         sm: "14px",
         md: "20px",
         lg: "28px",
@@ -41,7 +42,7 @@ const config: Config = {
   fontSize: {
     xs: "12px",
     sm: "14px",
-    md: "16px",
+    md: "16px", // esto me genera error si text-md, por eso text-[16px]
     lg: "20px",
     "xl": "24px",
   },

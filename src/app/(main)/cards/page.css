@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 768px) {
+    main{
+        @apply h-screen;
+        @apply flex;
+        @apply bg-lightGray;
+    }
+
+    #container {
+        @apply w-full;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-around;
+    }
+
+    #new-card {
+        @apply w-[80%];
+        @apply h-[167px];
+        @apply mx-auto;
+        @apply p-6;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-between;
+        @apply bg-blck;
+        @apply rounded-xs;
+        @apply shadow-md;
+    }
+
+    #new-card #add-card {
+        @apply mt-4;
+        @apply flex;
+        @apply flex-row;
+        @apply items-center;
+        @apply justify-between;
+    }
+
+    #new-card #add-card svg{
+        @apply text-ylw;
+        @apply hover:text-white;
+    }
+
+    #new-card #add-card #circle-plus {
+        @apply w-12;
+        @apply h-12;
+    }
+
+    #new-card #add-card #first-container{
+        @apply flex;
+        @apply items-center;
+    }
+
+    #first-container, #second-container{
+        @apply cursor-pointer;
+    }
+
+    #new-card #add-card #first-container h2{
+        @apply ml-4;
+        @apply hover:underline;
+    }
+
+    #new-card #add-card #second-container #arrow-right{
+        @apply w-6;
+        @apply h-6;
+    }
+
+    #cards-list {
+        @apply w-[80%];
+        @apply mx-auto;
+        @apply py-6;
+        @apply px-8;
+        @apply bg-white;
+        @apply rounded-xs;
+    }
+
+    #cards-list h3 {
+        @apply mb-6;
+    }
+
+    #cards-list span {
+        @apply mb-4;
+        @apply pb-4;
+        @apply flex;
+        @apply items-center;
+        @apply justify-between;
+        @apply border-b-2;
+    }
+
+    #cards-list span div {
+        @apply flex;
+        @apply items-center;
+    }
+
+    #cards-list span div h4{
+        @apply w-10;
+        @apply h-10;
+        @apply mr-4;
+        @apply bg-ylw;
+        @apply rounded-full;
+    }
+
+    #cards-list span:hover h4{
+        @apply bg-graySlate;
+    }
+}

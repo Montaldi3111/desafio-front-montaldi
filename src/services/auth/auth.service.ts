@@ -24,3 +24,16 @@ export const loginRequest = async (data: LoginUserType) => {
         throw new Error("Could not login");
     }
 }
+
+export const logoutSession = async() => {
+    try {
+        const response = await fetch(`${API_URL}/logout`, {
+            method: "POST"
+        })
+        if(response.status === 202) {
+            return true;
+        }
+    } catch (error) {
+        throw new Error("Could not logout")
+    }
+}

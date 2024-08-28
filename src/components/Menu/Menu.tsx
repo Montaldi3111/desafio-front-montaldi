@@ -1,7 +1,24 @@
+'use client'
 import React from 'react'
 import "./menu.css"
 import Link from 'next/link'
-const Menu = () => {
+import {logoutSession} from '@/services/auth/auth.service'
+import { useRouter } from 'next/navigation'
+import { deleteCookie } from 'cookies-next'
+const Menu =  () => {
+  const router = useRouter();
+  const handleLogout = async() => {
+    const logout = await logoutSession();
+    if(logout) {
+      deleteCookie("loggedIn")
+      deleteCookie("accountId")
+      deleteCookie("token")
+      deleteCookie("userLogged")
+      router.push("/");
+    } else {
+      alert("No se pudo lograr la acción, intentelo de nuevo")
+    }
+  }
   return (
     <div id="menu" className="bg-ylw">
       <Link className='font-bold' href="/dashboard">Inicio</Link>
@@ -10,7 +27,7 @@ const Menu = () => {
       <Link href="/charge">Cargar dinero</Link>
       <Link href="/pay">Pagar servicios</Link>
       <Link href="/cards">Tarjetas</Link>
-      <Link className='text-graySlate' href="/logout">Cerrar sesión</Link>
+      <p className='text-graySlate mt-4 text-sm' onClick={handleLogout}>Cerrar sesión</p>
     </div>
   )
 }
