@@ -2,14 +2,14 @@
 import React from 'react'
 import "./menu.css"
 import Link from 'next/link'
-import {logoutSession} from '@/services/auth/auth.service'
+import { logoutSession } from '@/services/auth/auth.service'
 import { useRouter } from 'next/navigation'
 import { deleteCookie } from 'cookies-next'
-const Menu =  () => {
+const Menu = () => {
   const router = useRouter();
-  const handleLogout = async() => {
+  const handleLogout = async () => {
     const logout = await logoutSession();
-    if(logout) {
+    if (logout) {
       deleteCookie("loggedIn")
       deleteCookie("accountId")
       deleteCookie("token")

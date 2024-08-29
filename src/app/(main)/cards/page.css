@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (min-width: 768px) {
-    main{
-        @apply h-screen;
+@media (min-width: 300px) and (max-width:500px) {
+    main {
         @apply flex;
         @apply bg-lightGray;
     }
@@ -14,30 +13,286 @@
         @apply flex;
         @apply flex-col;
         @apply justify-around;
+        @apply gap-y-10;
+    }
+
+    #container #current-page {
+        @apply w-[85%];
+        @apply h-fit;
+        @apply mx-auto;
+        @apply mt-4;
+        @apply flex;
+        @apply items-center;
+    }
+
+    #container #current-page h3 {
+        @apply ml-2;
+        @apply h-fit;
+        @apply underline;
     }
 
     #new-card {
-        @apply w-[80%];
-        @apply h-[167px];
+        @apply w-[92%];
+        @apply h-[150px];
         @apply mx-auto;
-        @apply p-6;
+        @apply p-4;
         @apply flex;
         @apply flex-col;
-        @apply justify-between;
+        @apply justify-around;
         @apply bg-blck;
         @apply rounded-xs;
         @apply shadow-md;
     }
 
+    #new-card #card-header {
+        @apply mb-2;
+        @apply text-sm;
+    }
+
     #new-card #add-card {
-        @apply mt-4;
         @apply flex;
         @apply flex-row;
         @apply items-center;
         @apply justify-between;
     }
 
-    #new-card #add-card svg{
+    #new-card #add-card svg {
+        @apply text-ylw;
+        @apply hover:text-white;
+    }
+
+    #new-card #add-card #circle-plus {
+        @apply w-10;
+        @apply h-10;
+    }
+
+    #new-card #add-card #first-container {
+        @apply flex;
+        @apply items-center;
+    }
+
+    #new-card #add-card #first-container h2 {
+        @apply text-[16px];
+        @apply ml-4;
+        @apply hover:underline;
+    }
+
+    #first-container,
+    #second-container {
+        @apply cursor-pointer;
+    }
+
+
+    #new-card #add-card #second-container #arrow-right {
+        @apply w-6;
+        @apply h-6;
+    }
+
+    #cards-list {
+        @apply w-[92%];
+        @apply mx-auto;
+        @apply mb-6;
+        @apply py-4;
+        @apply px-4;
+        @apply bg-white;
+        @apply rounded-xs;
+        @apply text-[16px];
+    }
+
+    #cards-list h3 {
+        @apply mb-4;
+        @apply pb-2;
+        @apply border-b-2;
+        @apply text-[16px];
+    }
+
+    #cards-list span {
+        @apply mb-4;
+        @apply pb-4;
+        @apply flex;
+        @apply items-center;
+        @apply justify-between;
+        @apply border-b-2;
+        @apply text-[14px];
+    }
+
+    #cards-list span div {
+        @apply flex;
+        @apply items-center;
+    }
+
+    #cards-list span div h4 {
+        @apply w-6;
+        @apply h-6;
+        @apply mr-4;
+        @apply bg-ylw;
+        @apply rounded-full;
+    }
+
+    #cards-list span:hover h4 {
+        @apply bg-graySlate;
+    }
+}
+
+@media (min-width: 500px) and (max-width:768px) {
+    main {
+        @apply h-screen;
+        @apply flex;
+        @apply bg-lightGray;
+    }
+
+    #container {
+        @apply w-full;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply gap-y-10;
+    }
+
+    #container #current-page {
+        @apply hidden;
+    }
+
+    #new-card {
+        @apply w-[85%];
+        @apply h-max;
+        @apply mx-auto;
+        @apply px-4;
+        @apply py-10;
+        @apply bg-blck;
+        @apply rounded-xs;
+        @apply shadow-md;
+    }
+
+    #new-card #card-header {
+        @apply hidden;
+    }
+
+    #new-card #add-card {
+        @apply flex;
+        @apply flex-row;
+        @apply items-center;
+        @apply justify-between;
+    }
+
+    #new-card #add-card svg {
+        @apply text-ylw;
+        @apply hover:text-white;
+    }
+
+    #new-card #add-card #circle-plus {
+        @apply w-8;
+        @apply h-8;
+    }
+
+    #new-card #add-card #first-container {
+        @apply flex;
+        @apply items-center;
+    }
+
+    #new-card #add-card #first-container h2 {
+        @apply text-[16px];
+        @apply ml-4;
+        @apply hover:underline;
+    }
+
+    #first-container,
+    #second-container {
+        @apply cursor-pointer;
+    }
+
+
+    #new-card #add-card #second-container #arrow-right {
+        @apply w-4;
+        @apply h-4;
+    }
+
+    #cards-list {
+        @apply w-[85%];
+        @apply mx-auto;
+        @apply py-10;
+        @apply px-4;
+        @apply bg-white;
+        @apply rounded-xs;
+        @apply text-[16px];
+    }
+
+    #cards-list h3 {
+        @apply mb-4;
+        @apply pb-2;
+        @apply border-b-2;
+        @apply text-[16px];
+    }
+
+    #cards-list span {
+        @apply mb-4;
+        @apply pb-4;
+        @apply flex;
+        @apply items-center;
+        @apply justify-between;
+        @apply border-b-2;
+        @apply text-[16px];
+    }
+
+    #cards-list span div {
+        @apply flex;
+        @apply items-center;
+    }
+
+    #cards-list span div h4 {
+        @apply w-6;
+        @apply h-6;
+        @apply mr-4;
+        @apply bg-ylw;
+        @apply rounded-full;
+    }
+
+    #cards-list span:hover h4 {
+        @apply bg-graySlate;
+    }
+}
+
+
+@media (min-width: 768px) {
+    main {
+        @apply h-screen;
+        @apply flex;
+        @apply bg-lightGray;
+    }
+
+    #container {
+        @apply w-full;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply gap-y-10;
+    }
+
+    #container #current-page {
+        @apply hidden;
+    }
+
+    #new-card {
+        @apply w-[80%];
+        @apply h-48;
+        @apply mx-auto;
+        @apply p-6;
+        @apply flex;
+        @apply flex-col;
+        @apply bg-blck;
+        @apply rounded-xs;
+        @apply shadow-md;
+    }
+
+    #new-card #add-card {
+        @apply mt-14;
+        @apply flex;
+        @apply flex-row;
+        @apply items-center;
+        @apply justify-between;
+    }
+
+    #new-card #add-card svg {
         @apply text-ylw;
         @apply hover:text-white;
     }
@@ -47,21 +302,22 @@
         @apply h-12;
     }
 
-    #new-card #add-card #first-container{
+    #new-card #add-card #first-container {
         @apply flex;
         @apply items-center;
     }
 
-    #first-container, #second-container{
+    #first-container,
+    #second-container {
         @apply cursor-pointer;
     }
 
-    #new-card #add-card #first-container h2{
+    #new-card #add-card #first-container h2 {
         @apply ml-4;
         @apply hover:underline;
     }
 
-    #new-card #add-card #second-container #arrow-right{
+    #new-card #add-card #second-container #arrow-right {
         @apply w-6;
         @apply h-6;
     }
@@ -93,7 +349,7 @@
         @apply items-center;
     }
 
-    #cards-list span div h4{
+    #cards-list span div h4 {
         @apply w-10;
         @apply h-10;
         @apply mr-4;
@@ -101,7 +357,7 @@
         @apply rounded-full;
     }
 
-    #cards-list span:hover h4{
+    #cards-list span:hover h4 {
         @apply bg-graySlate;
     }
 }

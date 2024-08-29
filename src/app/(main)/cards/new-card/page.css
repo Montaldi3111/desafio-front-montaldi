@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 300px) and (max-width:500px) {
+    main {
+        @apply flex;
+        @apply flex-col;
+        @apply relative;
+    }
+
+    main #current-page {
+        @apply w-[85%];
+        @apply h-fit;
+        @apply mx-auto;
+        @apply mt-4;
+        @apply flex;
+        @apply items-center;
+    }
+
+    main #current-page h3 {
+        @apply ml-2;
+        @apply h-fit;
+        @apply underline;
+    }
+
+    form {
+        @apply w-[95%];
+        @apply h-fit;
+        @apply mx-auto;
+        @apply my-4;
+        @apply p-4;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply items-center;
+        @apply rounded-sm;
+    }
+
+    form #input-container {
+        @apply w-[95%];
+        @apply mt-8;
+        @apply flex;
+        @apply flex-col;
+        @apply items-center;
+        @apply justify-center;
+        @apply gap-y-8;
+    }
+
+    form #input-container input {
+        @apply w-full;
+        @apply max-w-[300px];
+        @apply px-4;
+        @apply py-2;
+        @apply text-[16px];
+        @apply text-wrap;
+        @apply border-2;
+        @apply border-skyBlue;
+        @apply rounded-sm;
+        @apply shadow;
+    }
+
+    form #input-container #numberId {
+        @apply order-1;
+    }
+
+    form #input-container #expirationDate {
+        @apply order-3;
+    }
+
+    form #input-container #firstLastName {
+        @apply order-2;
+    }
+
+    form #input-container #CVC {
+        @apply order-4;
+    }
+
+    form button {
+        @apply order-5;
+        @apply w-full;
+        @apply max-w-[450px];
+        @apply px-4;
+        @apply py-2;
+        @apply rounded-sm;
+        @apply text-lg;
+        @apply font-bold;
+
+    }
+}
+
+@media (min-width: 500px) and (max-width:768px) {
+    main {
+        @apply flex;
+        @apply relative;
+    }
+
+    main #current-page {
+        @apply hidden;
+    }
+
+    form {
+        @apply w-[65%];
+        @apply h-fit;
+        @apply mx-auto;
+        @apply my-4;
+        @apply p-4;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-around;
+        @apply items-center;
+        @apply rounded-sm;
+    }
+
+    form #input-container {
+        @apply w-[95%];
+        @apply mt-8;
+        @apply grid;
+        @apply grid-cols-12;
+        @apply justify-between;
+        @apply gap-y-8;
+    }
+
+    form #input-container input {
+        @apply w-full;
+        @apply max-w-[450px];
+        @apply m-2;
+        @apply px-6;
+        @apply py-4;
+        @apply text-[16px];
+        @apply text-wrap;
+        @apply border-2;
+        @apply border-skyBlue;
+        @apply rounded-sm;
+        @apply shadow;
+    }
+
+    form #input-container #numberId {
+        @apply order-1;
+        @apply col-span-12;
+    }
+
+    form #input-container #expirationDate {
+        @apply w-[95%];
+        @apply max-w-[180px];
+        @apply order-3;
+        @apply col-span-6;
+    }
+
+    form #input-container #firstLastName {
+        @apply order-2;
+        @apply col-span-12;
+    }
+
+    form #input-container #CVC {
+        @apply w-[100%];
+        @apply max-w-[180px];
+        @apply order-4;
+        @apply col-span-6;
+    }
+
+    form button {
+        @apply order-5;
+        @apply col-span-12;
+        @apply w-full;
+        @apply max-w-[450px];
+        @apply px-6;
+        @apply py-4;
+        @apply rounded-sm;
+        @apply text-lg;
+        @apply font-bold;
+
+    }
+}
+
+@media (min-width:768px) {
+    main {
+        @apply flex;
+        @apply relative;
+    }
+
+    main #current-page {
+        @apply hidden;
+    }
+
+    form {
+        @apply h-[80vh];
+        @apply w-[70vw];
+        @apply mx-auto;
+        @apply my-auto;
+        @apply p-8;
+        @apply flex;
+        @apply flex-col;
+        @apply items-center;
+        @apply justify-center;
+        @apply border;
+        @apply rounded-sm;
+    }
+
+    form #input-container {
+        @apply w-[80%];
+        @apply mt-8;
+        @apply flex;
+        @apply flex-row-reverse;
+        @apply flex-wrap;
+        @apply justify-between;
+        @apply items-start;
+        @apply gap-y-8;
+    }
+
+    form #input-container input {
+        @apply w-[25vw];
+        @apply max-w-[450px];
+        @apply px-6;
+        @apply py-4;
+        @apply text-lg;
+        @apply border-2;
+        @apply border-skyBlue;
+        @apply rounded-sm;
+        @apply shadow;
+    }
+
+    #numberId {
+        @apply order-2;
+    }
+
+    #expirationDate {
+        @apply order-1;
+    }
+
+    #firstLastName {
+        @apply order-4;
+    }
+
+    #CVC {
+        @apply order-3;
+    }
+
+    form button {
+        @apply order-5;
+        @apply w-[25vw];
+        @apply max-w-[450px];
+        @apply px-6;
+        @apply py-4;
+        @apply rounded-sm;
+        @apply text-lg;
+        @apply font-bold;
+
+    }
+}

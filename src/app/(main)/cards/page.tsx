@@ -8,8 +8,12 @@ const Cards = () => {
     <main>
         <Menu />
         <section id="container">
+            <div id="current-page" className=''>
+            <FaArrowRight />
+            <h3>Tarjetas</h3>
+            </div>
         <article id="new-card">
-            <div>
+            <div id='card-header'>
                 <h3 className='text-white font-bold'>Agregá tu tarjeta de débito o crédito</h3>
             </div>
             <span id='add-card'>

@@ -18,7 +18,7 @@
 
 @media (min-width: 500px) {
     #menu {
-        @apply w-[28vw];
+        @apply w-[28%];
         @apply max-w-[200px];
         @apply pt-4;
         @apply pl-4;
