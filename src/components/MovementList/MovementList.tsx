@@ -1,24 +1,17 @@
-'use client'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import SearchBar from '../SearchBar/SearchBar'
 import { FaArrowRight } from 'react-icons/fa6'
-import "./movementList.css"
 import MovementCard from '../MovementCard/MovementCard'
 import { getAllTransactions } from '@/services/transactions/transactions.service'
+import "./movementList.css"
 
 type MovementCardParams = {
     accountId: number,
     token: string,
  
 }
-const MovementList = ({accountId, token}:MovementCardParams) => {
-    const [transactions, setTransactions] = useState([]);
-    useEffect(() => {
-        getAllTransactions(accountId, token)
-        .then(list => 
-                setTransactions(list as any)
-        )
-    },[accountId, token]);
+const MovementList = async ({accountId, token}:MovementCardParams) => {
+    const transactions = await getAllTransactions(accountId, token)
     return (
         <article id="movement-list" className=''>
             <SearchBar/>

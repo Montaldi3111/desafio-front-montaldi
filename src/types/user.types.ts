@@ -19,9 +19,3 @@ type UserAccountType = {
     id: number,
     user_id: number
 }
-
-type UserDataType = {
-    user_id: number,
-    accountId: number,
-    token: string
-}

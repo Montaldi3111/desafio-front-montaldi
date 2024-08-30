@@ -2,7 +2,8 @@
 import { getUserAccount } from '@/services/account/account.service';
 import { loginRequest } from '@/services/auth/auth.service';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { setCookie } from 'cookies-next'
+import { setCookie } from 'cookies-next';
+import { cookies } from 'next/headers';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
@@ -31,7 +32,6 @@ const LoginForm = () => {
   const [foward, setFoward] = useState(false); // false => Solo muestra el input de email. true => muestra el input de password
   const router = useRouter();
 
-
   const handleChange = () => {
     setFoward(!foward);
   }
@@ -39,6 +39,7 @@ const LoginForm = () => {
   const onSubmit = (data : FormData) => {
     loginRequest(data).then(response => {
       getUserAccount(response).then(user => {
+        const now = Date.now();
         // El token dura una hora, por lo tanto las cookies deben durar lo mismo
         setCookie("loggedIn", true, {
           expires: new Date(Date.now() + 1000 * 3600)

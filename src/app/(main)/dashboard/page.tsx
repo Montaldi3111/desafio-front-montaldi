@@ -1,18 +1,16 @@
-"use client"
-import { useEffect } from 'react'
 import ResumeCard from '@/components/ResumeCard/ResumeCard'
 import HomeButtons from '@/components/Buttons/HomeButtons'
 import MovementList from '@/components/MovementList/MovementList'
 import Menu from '@/components/Menu/Menu'
 import { FaArrowRight } from 'react-icons/fa6'
+import { NextRequest } from 'next/server'
+import { getUserAccount } from '../../../services/account/account.service';
 import "./page.css"
-import { useStore } from 'react-redux'
-const Home = () => {
+import { cookies, headers } from 'next/headers'
+const Home = async () => {
 
-  const store = useStore();
-  const state:any = store.getState();
-  const userState:UserDataType = state.userState;
-
+  const token = headers().get("x-digital-access-token") ?? "";
+  const userData:UserAccountType = await getUserAccount(token)
   return (
     <main className='bg-lightGray h-full'>
       <section>
@@ -23,9 +21,9 @@ const Home = () => {
         <p className='underline'>Inicio</p>
       </div>
       <section id="account-details" className='h-full py-10'>
-        <ResumeCard token={userState.token}/>
+        <ResumeCard balance={userData.available_amount}/>
         <HomeButtons />
-        <MovementList accountId={userState.accountId} token={userState.token}/>
+        <MovementList accountId={userData.id} token={token}/>
       </section>
     </main>
   )

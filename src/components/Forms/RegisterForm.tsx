@@ -45,7 +45,7 @@ const RegisterForm = () => {
 
   const onSubmit = (data: FormData) => {
     createUser(data).then(() => {
-      router.push("/success")
+      router.push("/register/success")
     })
   }
 

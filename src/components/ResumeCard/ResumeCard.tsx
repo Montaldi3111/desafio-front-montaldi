@@ -1,18 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import "./resumeCard.css"
 import { getUserBalance } from '@/services/account/account.service'
 
 type ResumeCardParams = {
-  token?: string,
+  balance: number,
 }
 
-const ResumeCard = ({token}:ResumeCardParams) => {
-  const [balance, setBalance] = useState<number>(0);
-  useEffect(() => {
-    getUserBalance(token).then(balance => {
-      setBalance(balance);
-    })
-  },[])
+const ResumeCard = ({balance}:ResumeCardParams) => {
   return (
     <article id="principal-card">
         <span id="links"><a href="#" id="credit-cards">Ver tarjetas</a><a href="#" id="check-cvu">Ver CVU</a></span>
