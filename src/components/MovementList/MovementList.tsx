@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchBar from '../SearchBar/SearchBar'
 import { FaArrowRight } from 'react-icons/fa6'
-import MovementCard from '../MovementCard/MovementCard'
+import MovementCard from '../Cards/MovementCard/MovementCard'
 import { getAllTransactions } from '@/services/transactions/transactions.service'
 import "./movementList.css"
 

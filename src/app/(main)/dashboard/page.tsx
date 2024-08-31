@@ -1,4 +1,4 @@
-import ResumeCard from '@/components/ResumeCard/ResumeCard'
+import ResumeCard from '@/components/Cards/ResumeCard/ResumeCard'
 import HomeButtons from '@/components/Buttons/HomeButtons'
 import MovementList from '@/components/MovementList/MovementList'
 import Menu from '@/components/Menu/Menu'
@@ -10,7 +10,7 @@ import { cookies, headers } from 'next/headers'
 const Home = async () => {
 
   const token = headers().get("x-digital-access-token") ?? "";
-  const userData:UserAccountType = await getUserAccount(token)
+  const userData:UserAccountType = await getUserAccount(token);
   return (
     <main className='bg-lightGray h-full'>
       <section>

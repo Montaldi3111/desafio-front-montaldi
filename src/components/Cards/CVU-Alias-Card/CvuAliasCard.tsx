@@ -1,10 +1,16 @@
-"use client"
+'use client'
 import React from 'react'
-import { FaRegClone } from 'react-icons/fa6';
 import Image from "next/image"
 import "./cvuAliasCard.css";
 import { toast, Toaster } from 'sonner';
-const CvuAliasCard = () => {
+
+type CvuAliasCardParams = {
+    alias: string,
+    cvu: string,
+}
+
+const CvuAliasCard = ({alias, cvu}:CvuAliasCardParams) => {
+
     const copyAlias = (text:string) => {
         if(navigator.clipboard){
             navigator.clipboard.writeText(text).then(() => {
@@ -33,18 +39,18 @@ const CvuAliasCard = () => {
         <div id="cvu-container">
             <ul>
                 <li className='font-bold text-lg text-ylw'>CVU</li>
-                <li className='text-lightGray'>10000012151423</li>
+                <li className='text-lightGray'>{cvu}</li>
             </ul>
-            <div className='cursor-pointer p-2' onClick={() => copyCVU("10000005648621")}>
+            <div className='cursor-pointer p-2' onClick={() => copyCVU(cvu)}>
             <Image src="/clone-icon.png" alt="copy-to-clipboard" width={35} height={10}/>
             </div>
         </div>
         <div id="alias-container">
             <ul>
                 <li className='font-bold text-lg text-ylw'>Alias</li>
-                <li className='text-lightGray'>elaliasesfalsoquerido</li>
+                <li className='text-lightGray'>{alias}</li>
             </ul>
-            <div className='cursor-pointer p-2' onClick={() => copyAlias("estealiasesfalso")}>
+            <div className='cursor-pointer p-2' onClick={() => copyAlias(alias)}>
             <Image src="/clone-icon.png"alt="copy-to-clipboard" width={35} height={10}/>
             </div>
         </div>

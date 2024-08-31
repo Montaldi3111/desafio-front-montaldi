@@ -37,28 +37,18 @@ const LoginForm = () => {
   }
 
   const onSubmit = (data : FormData) => {
-    loginRequest(data).then(response => {
-      getUserAccount(response).then(user => {
-        const now = Date.now();
-        // El token dura una hora, por lo tanto las cookies deben durar lo mismo
-        setCookie("loggedIn", true, {
-          expires: new Date(Date.now() + 1000 * 3600)
-        })
-        setCookie("userLogged", user.user_id, {
-          expires: new Date(Date.now() + 1000 * 3600)
-        })
-        setCookie("accountId", user.id, {
-          expires: new Date(Date.now() + 1000 * 3600)
-        })
-        setCookie("token", response , {
-          expires: new Date(Date.now() + 1000 * 3600)
-        })
-      }).then(() => {
-        router.push("/dashboard")
-      })
-    }).catch(error => {
-      console.log(error)
+   loginRequest(data).then( response => {
+    setCookie("token", response, {
+      expires: new Date(Date.now() + 1000 * 3600)
     })
+    setCookie("session", "true", {
+      expires: new Date(Date.now() + 1000 * 3600)
+    })
+   }).then(() => {
+    router.push("/dashboard")
+   }).catch(err => {
+    throw new Error(err.message)
+   })
   }
 
   return (

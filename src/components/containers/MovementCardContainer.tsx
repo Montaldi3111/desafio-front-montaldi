@@ -1,6 +1,6 @@
 "use server"
 import React from 'react'
-import MovementCard from '../MovementCard/MovementCard'
+import MovementCard from '../Cards/MovementCard/MovementCard'
 import { getAllTransactions } from '@/services/transactions/transactions.service';
 
 type CardContainerParams = {

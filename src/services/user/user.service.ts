@@ -12,8 +12,8 @@ export const createUser = async (data:UserType) => {
             body: JSON.stringify({
                 dni: Number(data.dni),
                 email: data.email,
-                firstname: data.firstName,
-                lastname: data.lastName,
+                firstname: data.firstname,
+                lastname: data.lastname,
                 password: data.password,
                 phone: data.phone
             })
