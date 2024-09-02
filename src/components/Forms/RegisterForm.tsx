@@ -1,12 +1,11 @@
 "use client"
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup'
-import React from 'react'
 import { useForm } from 'react-hook-form';
 import { createUser } from '@/services/user/user.service';
 import { useRouter } from 'next/navigation';
+import * as yup from 'yup'
 
-type FormData = {
+type FormRegisterData = {
   dni: string;
   firstName: string;
   lastName: string;
@@ -30,7 +29,7 @@ const RegisterForm = () => {
 
   const router = useRouter()
 
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+  const { register, handleSubmit, formState: { errors } } = useForm<FormRegisterData>({
     resolver: yupResolver(schema),
     defaultValues: {
       dni: '',
@@ -43,7 +42,7 @@ const RegisterForm = () => {
     }
   });
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data : FormRegisterData) => {
     createUser(data).then(() => {
       router.push("/register/success")
     })
@@ -95,8 +94,8 @@ const RegisterForm = () => {
             {errors.phone?.type === "pattern" && <p id="error-msg"><i>Solo se aceptan números</i></p>}
           </div>
           <div id="button-container" className='flex flex-col'>
-          <button className='max-w-[300px] bg-ylw font-bold rounded-sm shadow-md' onClick={handleSubmit(onSubmit)}>Crear Cuenta</button>
-          {errors?.password && <p id="form-error"><i>Revisar los campos</i></p>}
+            <button className='max-w-[300px] bg-ylw font-bold rounded-sm shadow-md' onClick={handleSubmit(onSubmit)}>Crear Cuenta</button>
+            {errors?.password && <p id="form-error"><i>Revisar los campos</i></p>}
           </div>
         </section>
       </form>

@@ -1,15 +1,15 @@
 "use client"
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import React from 'react'
-import Cards from "react-credit-cards-2"
-import 'react-credit-cards-2/dist/es/styles-compiled.css';
-import * as yup from "yup"
 import { addNewCard } from '@/services/cards/cards.service'
 import { useRouter } from 'next/navigation'
 import { toast, Toaster } from 'sonner'
+import React from 'react'
+import Cards from "react-credit-cards-2"
+import * as yup from "yup"
+import 'react-credit-cards-2/dist/es/styles-compiled.css';
 
-type FormData = {
+type FormCardData = {
   number_id: string,
   expiration_date: string,
   first_last_name: string,
@@ -29,7 +29,7 @@ const NewCardForm = ({account_id, token} : NewCardFormParams) => {
     number_id: yup.string().max(16, "Máximo 16 números").required("Este campo es obligatorio"),
   }).required()
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<FormData>({
+  const { register, handleSubmit, watch, formState: { errors } } = useForm<FormCardData>({
     resolver: yupResolver(schema),
     defaultValues: {
       number_id: "",
@@ -40,16 +40,15 @@ const NewCardForm = ({account_id, token} : NewCardFormParams) => {
   })
   const router = useRouter();
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data: FormCardData) => {
     addNewCard(account_id, data, token).then((response) => {
       if(response === 0){
-        toast.success("Tarjeta agregada correctamente")
         router.push("/cards")
       } else {
-        toast.error("Error, revise los campos")
+        toast.error("Se ha producido un error al añadir la tarjeta")
       }
     }).catch(err => {
-      console.log(err)
+      toast.error(err.message)
     })
   }
 

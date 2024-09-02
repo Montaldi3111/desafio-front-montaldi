@@ -1,6 +1,4 @@
-import React from 'react'
 import "./resumeCard.css"
-import { getUserBalance } from '@/services/account/account.service'
 
 type ResumeCardParams = {
   balance: number,

@@ -1,13 +1,12 @@
-import React from 'react'
-import "./page.css"
-import Menu from '@/components/Menu/Menu'
-import NewCardForm from '@/components/Forms/NewCardForm'
 import { FaArrowRight } from 'react-icons/fa6'
 import { headers } from 'next/headers'
 import { getUserAccount } from '@/services/account/account.service'
+import Menu from '@/components/Menu/Menu'
+import NewCardForm from '@/components/Forms/NewCardForm'
+import "./page.css"
 const NewCard = async () => {
-  const token = headers().get("x-digital-access-token") ?? "";
-  const {id} = await getUserAccount(token);
+  const token:string = headers().get("x-digital-access-token") ?? "";
+  const {id}: {id: string} = await getUserAccount(token);
   return (
     <main className='h-screen bg-lightGray'>
       <Menu />

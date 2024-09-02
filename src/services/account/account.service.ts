@@ -3,35 +3,46 @@ const API_ENDPOINT = "/account";
 
 // GET user account by token
 
-export const getUserAccount = async (accessToken: string) => {
-    try {
-        const res = await fetch(`${API_URL}${API_ENDPOINT}`, {
-            method: 'GET',
-            headers: {
-                "Authorization": accessToken,
+export const getUserAccount = async (accessToken?: string): Promise<UserAccountType> => {
+    // Como el token puede ser undefined, es necesario verificarlo antes de realizar la llamada a la API
+    if (accessToken) {
+        try {
+            const res = await fetch(`${API_URL}${API_ENDPOINT}`, {
+                method: 'GET',
+                headers: {
+                    "Authorization": accessToken,
+                }
+            })
+            if (res.ok) {
+                const data = await res.json();
+                return data;
+            } else {
+                throw new Error("Could not retrieve account data");
             }
-        })
-        if(res.ok) {
-            return await res.json();
+        } catch (error) {
+            throw new Error("Could not retrieve server information");
         }
-    } catch (error) {
-        throw new Error("Could not retrieve user data");
+    } else {
+        throw new Error("Missing Access Token");
     }
 }
 
-// Returns the balance of the account
+// Devuelve el balance del usuario
 
-export const getUserBalance = async (accessToken?: string) => {
-    try {
-        if(accessToken){
-            const userData = await getUserAccount(accessToken);
-            if(userData) {
+export const getUserBalance = async (accessToken?: string): Promise<number> => {
+    // Como el token puede ser undefined, es necesario verificarlo antes de realizar la llamada a la API
+    if (accessToken) {
+        try {
+            const userData: UserAccountType = await getUserAccount(accessToken);
+            if (userData) {
                 return userData.available_amount;
+            } else {
+                throw new Error("Could not retrieve user's balance account");
             }
-        } else {
-            throw new Error("Missing access token");
+        } catch (error) {
+            throw new Error("Could not retrieve server information")
         }
-    }catch (error) {
-        throw new Error("Error getting user balance");
+    } else {
+        throw new Error("Missing access token");
     }
 }

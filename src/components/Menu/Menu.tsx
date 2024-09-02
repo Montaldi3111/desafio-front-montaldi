@@ -24,7 +24,7 @@ const Menu = () => {
       <Link href="/charge">Cargar dinero</Link>
       <Link href="/pay">Pagar servicios</Link>
       <Link href="/cards">Tarjetas</Link>
-      <p className='text-graySlate mt-4 text-sm' onClick={handleLogout}>Cerrar sesión</p>
+      <p className='text-graySlate mt-4 text-sm cursor-pointer' onClick={handleLogout}>Cerrar sesión</p>
     </div>
   )
 }

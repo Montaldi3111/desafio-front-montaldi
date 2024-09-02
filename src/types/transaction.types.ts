@@ -8,7 +8,3 @@ type TransactionType = {
     origin: string,
     type: string
 }
-
-type TransactionListType = {
-    transactions: TransactionType[];
-}

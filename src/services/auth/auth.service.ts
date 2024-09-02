@@ -1,8 +1,8 @@
 const API_URL = "https://digitalmoney.digitalhouse.com/api"
 
-// Perfoms a login request, returns a new token for store in cookies
+// Esta función realiza una petición de login a la API y devuelve un token
 
-export const loginRequest = async (data: LoginUserType) => {
+export const loginRequest = async (data: LoginUserType) : Promise<string> => {
     try {
         const response = await fetch(`${API_URL}/login`, {
             method: "POST",
@@ -18,22 +18,25 @@ export const loginRequest = async (data: LoginUserType) => {
         if(response.ok) {
             const data = await response.json();
             return data.token;
+        } else {
+            throw new Error("Invalid email or password");
         }
     } catch (error) {
-        console.log(error);
-        throw new Error("Could not login");
+        throw new Error("Could not retrieve server information");
     }
 }
 
-export const logoutSession = async() => {
+export const logoutSession = async(): Promise<boolean> => {
     try {
         const response = await fetch(`${API_URL}/logout`, {
             method: "POST"
         })
         if(response.status === 202) {
             return true;
+        } else {
+            return false;
         }
     } catch (error) {
-        throw new Error("Could not logout")
+        throw new Error("Could not retrieve server information");
     }
 }

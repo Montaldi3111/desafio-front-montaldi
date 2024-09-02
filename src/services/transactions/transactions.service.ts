@@ -2,8 +2,8 @@ const API_URL = process.env.API_URL;
 const API_ENDPOINT = "/accounts";
 
 export const getAllTransactions = async (accountId : number, accessToken? : string) : Promise<TransactionType[]> => {
-    try {
-        if(accessToken) {
+    if(accessToken) {
+        try {
             const resp = await fetch(`${API_URL}${API_ENDPOINT}/${accountId}/activity`, {
                 method: "GET",
                 headers: {
@@ -15,13 +15,13 @@ export const getAllTransactions = async (accountId : number, accessToken? : stri
                 const data:TransactionType[] = await resp.json();
                 return data;
             } else {
-                throw new Error('Could not retrieve information');
+                throw new Error('Could not get user activity');
             }
-        } else {
-            throw new Error('Missing access token');
+        } catch (error) {
+            throw new Error('Could not retrieve server information')
         }
-    } catch (error) {
-        throw new Error('Could not reach server')
+    } else {
+        throw new Error('Missing access token');
     }
 }
 

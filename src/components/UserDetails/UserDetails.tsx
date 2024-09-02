@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from 'next/image'
 import "./userDetails.css"
 
@@ -11,9 +10,9 @@ function maskPassword (pass:string):string {
 }
 
 const UserDetails = ({ userData }: UserDetailsParams) => {
-    const password = String(userData.password);
-    const maskedPassword = maskPassword(password);
-    const firstAndLastName = userData.firstname + " " + userData.lastname
+    const password:string = String(userData.password);
+    const maskedPassword:string = maskPassword(password);
+    const firstAndLastName:string = userData.firstname + " " + userData.lastname
     return (
         <article id="user-details">
             <h3>Tus datos</h3>

@@ -1,8 +1,8 @@
-const API_URL = "https://digitalmoney.digitalhouse.com/api/";
-const API_ENDPOINT = "users";
+const API_URL = "https://digitalmoney.digitalhouse.com/api";
+const API_ENDPOINT = "/users";
 
 // Create a new user
-export const createUser = async (data:UserType) => {
+export const createUser = async (data:FormRegisterData) : Promise<any> => {
     try {
         const response = await fetch(`${API_URL}${API_ENDPOINT}`, {
             method: "POST",
@@ -12,8 +12,8 @@ export const createUser = async (data:UserType) => {
             body: JSON.stringify({
                 dni: Number(data.dni),
                 email: data.email,
-                firstname: data.firstname,
-                lastname: data.lastname,
+                firstname: data.firstName,
+                lastname: data.lastName,
                 password: data.password,
                 phone: data.phone
             })
@@ -21,27 +21,35 @@ export const createUser = async (data:UserType) => {
 
         if(response.ok) {
             return response.json();
+        } else {
+            throw new Error("Could not create user");
         }
         
     } catch (error) {
-        throw new Error("Could not create user");
+        throw new Error("Could not retrieve server information");
     }
 }
 
-export const getUserData = async (user_id : number, accessToken : string) => {
-    try {
-        const resp = await fetch(`${API_URL}${API_ENDPOINT}/${user_id}`, {
-            method: "GET",
-            headers: {
-                "Authorization": accessToken
+export const getUserData = async (user_id : number, accessToken? : string) : Promise<UserType> => {
+    if(accessToken) {
+        try {
+            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${user_id}`, {
+                method: "GET",
+                headers: {
+                    "Authorization": accessToken
+                }
+            })
+    
+            if(resp.ok) {
+                const userData = resp.json();
+                return userData;
+            } else {
+                throw new Error("Could not find user with that token");
             }
-        })
-
-        if(resp.ok) {
-            const userData = resp.json();
-            return userData;
+        } catch (error) {
+            throw new Error("Could not retrieve server information");
         }
-    } catch (error) {
-        throw new Error("Could not found that user");
+    } else {
+        throw new Error("Missing access token");
     }
 }

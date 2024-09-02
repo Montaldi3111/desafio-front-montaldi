@@ -1,22 +1,23 @@
 import React from 'react'
 import { CiCirclePlus } from 'react-icons/ci'
 import { FaArrowRight } from 'react-icons/fa6'
-import "./page.css"
 import Menu from '@/components/Menu/Menu'
 import { headers } from 'next/headers'
 import { getAllCards } from '@/services/cards/cards.service'
 import { getUserAccount } from '@/services/account/account.service'
 import PaymentCard from '@/components/Cards/PaymentCard/PaymentCard'
 import Link from 'next/link'
+import "./page.css"
+
 const Cards = async () => {
     const token:string = headers().get("x-digital-access-token") ?? "";
-    const {id} = await getUserAccount(token);
-    const cards = await getAllCards(id, token);
+    const {id}: {id:string} = await getUserAccount(token);
+    const cards:CardType[] = await getAllCards(id, token);
   return (
     <main>
         <Menu />
         <section id="container">
-            <div id="current-page" className=''>
+            <div id="current-page">
             <FaArrowRight />
             <h3>Tarjetas</h3>
             </div>

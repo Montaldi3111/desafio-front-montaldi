@@ -11,7 +11,7 @@ type CvuAliasCardParams = {
 
 const CvuAliasCard = ({alias, cvu}:CvuAliasCardParams) => {
 
-    const copyAlias = (text:string) => {
+    const copyAlias = (text:string):void => {
         if(navigator.clipboard){
             navigator.clipboard.writeText(text).then(() => {
                 toast.success('Alias copiado al portapapeles con exito');
@@ -21,7 +21,7 @@ const CvuAliasCard = ({alias, cvu}:CvuAliasCardParams) => {
         }
     }
 
-    const copyCVU = (text:string) => {
+    const copyCVU = (text:string):void => {
         if(navigator.clipboard){
             navigator.clipboard.writeText(text).then(() => {
                 toast.success('CVU copiado al portapapeles con exito');
@@ -41,7 +41,7 @@ const CvuAliasCard = ({alias, cvu}:CvuAliasCardParams) => {
                 <li className='font-bold text-lg text-ylw'>CVU</li>
                 <li className='text-lightGray'>{cvu}</li>
             </ul>
-            <div className='cursor-pointer p-2' onClick={() => copyCVU(cvu)}>
+            <div className='cursor-pointer p-2' onClick={():void => copyCVU(cvu)}>
             <Image src="/clone-icon.png" alt="copy-to-clipboard" width={35} height={10}/>
             </div>
         </div>
@@ -50,7 +50,7 @@ const CvuAliasCard = ({alias, cvu}:CvuAliasCardParams) => {
                 <li className='font-bold text-lg text-ylw'>Alias</li>
                 <li className='text-lightGray'>{alias}</li>
             </ul>
-            <div className='cursor-pointer p-2' onClick={() => copyAlias(alias)}>
+            <div className='cursor-pointer p-2' onClick={():void => copyAlias(alias)}>
             <Image src="/clone-icon.png"alt="copy-to-clipboard" width={35} height={10}/>
             </div>
         </div>
