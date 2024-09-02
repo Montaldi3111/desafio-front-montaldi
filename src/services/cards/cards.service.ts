@@ -57,6 +57,26 @@ export const addNewCard = async (account_id:number, cardData:FormCardData, acces
     }
 }
 
-export const deleteCard = async (account_id:number, card_id:number, accessToken?:string) => {
-    
+// Elimina una tarjeta dado una cuenta y el id de la tarjeta
+
+export const deleteCard = async (account_id:number, card_id:number, accessToken?:string) : Promise<number> => {
+    if(accessToken) {
+        try {
+            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${account_id}/cards/${card_id}`,{
+                method: "DELETE",
+                headers: {
+                    "Authorization": accessToken
+                }
+            })
+            if(resp.ok) {
+                return 0; // En caso de realizar el método de manera exitosa
+            } else {
+                return 1; // En caso de que el método falló
+            }
+        } catch (error) {
+            throw new Error("Could not retrieve server information")
+        }
+    } else {
+        throw new Error("Missing access token");
+    }
 }

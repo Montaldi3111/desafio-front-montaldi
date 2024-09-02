@@ -12,6 +12,7 @@ const Menu = () => {
     if (logout) {
       deleteCookie("session")
       deleteCookie("token")
+      router.push("/login")
     } else {
       alert("No se pudo lograr la acción, intentelo de nuevo")
     }
