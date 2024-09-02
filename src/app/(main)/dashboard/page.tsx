@@ -3,10 +3,9 @@ import HomeButtons from '@/components/Buttons/HomeButtons'
 import MovementList from '@/components/MovementList/MovementList'
 import Menu from '@/components/Menu/Menu'
 import { FaArrowRight } from 'react-icons/fa6'
-import { NextRequest } from 'next/server'
 import { getUserAccount } from '../../../services/account/account.service';
 import "./page.css"
-import { cookies, headers } from 'next/headers'
+import { headers } from 'next/headers'
 const Home = async () => {
 
   const token = headers().get("x-digital-access-token") ?? "";

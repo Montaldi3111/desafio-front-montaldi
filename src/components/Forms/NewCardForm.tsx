@@ -5,6 +5,9 @@ import React from 'react'
 import Cards from "react-credit-cards-2"
 import 'react-credit-cards-2/dist/es/styles-compiled.css';
 import * as yup from "yup"
+import { addNewCard } from '@/services/cards/cards.service'
+import { useRouter } from 'next/navigation'
+import { toast, Toaster } from 'sonner'
 
 type FormData = {
   number_id: string,
@@ -13,7 +16,12 @@ type FormData = {
   cod: string,
 }
 
-const NewCardForm = () => {
+type NewCardFormParams = {
+  account_id: number,
+  token: string,
+}
+
+const NewCardForm = ({account_id, token} : NewCardFormParams) => {
   const schema = yup.object({
     cod: yup.string().min(3, "Mínimo 3 números").max(4, "Máximo 4 números").required("Este campo es obligatorio"),
     expiration_date: yup.string().min(4, "Mínimo 4 números").max(5, "Máximo 5 números").required("Este campo es obligatorio"),
@@ -30,15 +38,26 @@ const NewCardForm = () => {
       cod: ''
     }
   })
+  const router = useRouter();
 
   const onSubmit = (data: FormData) => {
-    console.log(data);
+    addNewCard(account_id, data, token).then((response) => {
+      if(response === 0){
+        toast.success("Tarjeta agregada correctamente")
+        router.push("/cards")
+      } else {
+        toast.error("Error, revise los campos")
+      }
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
   const cardValues = watch(); // esto para que pueda pasarle los datos al componente de Card
   return (
     <>
       <form className='bg-white' onSubmit={handleSubmit(onSubmit)}>
+        <Toaster richColors visibleToasts={1} position='bottom-left'/>
         <Cards number={cardValues.number_id || ""}
           expiry={cardValues.expiration_date || ""}
           cvc={cardValues.cod || ""}
