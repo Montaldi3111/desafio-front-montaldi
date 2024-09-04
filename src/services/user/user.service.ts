@@ -33,7 +33,7 @@ export const createUser = async (data:FormRegisterData) : Promise<any> => {
 export const getUserData = async (user_id : number, accessToken? : string) : Promise<UserType> => {
     if(accessToken) {
         try {
-            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${user_id}`, {
+            const resp:Response = await fetch(`${API_URL}${API_ENDPOINT}/${user_id}`, {
                 method: "GET",
                 headers: {
                     "Authorization": accessToken
@@ -41,7 +41,7 @@ export const getUserData = async (user_id : number, accessToken? : string) : Pro
             })
     
             if(resp.ok) {
-                const userData = resp.json();
+                const userData:Promise<UserType> = await resp.json();
                 return userData;
             } else {
                 throw new Error("Could not find user with that token");

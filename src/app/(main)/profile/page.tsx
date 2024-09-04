@@ -10,8 +10,8 @@ import "./page.css"
 const Profile = async () => {
 
   const token: string = headers().get("x-digital-access-token") ?? "";
-  const userAccount: UserAccountType = await getUserAccount(token);
-  const userData: UserType = await getUserData(userAccount.user_id, token)
+  const {alias, cvu, user_id} : {alias: string, cvu: string, user_id: number} = await getUserAccount(token);
+  const userData: UserType = await getUserData(user_id, token)
   return (
     <main className='bg-lightGray h-full flex flex-row'>
       <section>
@@ -27,7 +27,7 @@ const Profile = async () => {
           <p className='font-bold'>Gestioná los medios de pago</p>
           <FaArrowRight />
         </div>
-        <CvuAliasCard alias={userAccount.alias} cvu={userAccount.cvu} />
+        <CvuAliasCard alias={alias} cvu={cvu} />
       </section>
     </main>
   )

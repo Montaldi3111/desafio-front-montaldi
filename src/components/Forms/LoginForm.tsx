@@ -13,6 +13,12 @@ type FormLoginData = {
   password: string;
 }
 
+function maskPassword (pass:string):string {
+  if(!pass) return "";
+  return '*'.repeat(pass.length);
+  
+}
+
 const LoginForm = () => {
 
   const schema = yup.object({
@@ -36,11 +42,15 @@ const LoginForm = () => {
 
   const onSubmit = (data: FormLoginData) => {
     loginRequest(data).then((response:string) => {
+      const maskedpassword:string = maskPassword(data.password);
+      setCookie("password", maskedpassword, {
+        expires: new Date(Date.now() + 1000 * 3600),
+      })
       setCookie("token", response, {
-        expires: new Date(Date.now() + 1000 * 3600)
+        expires: new Date(Date.now() + 1000 * 3600),
       })
       setCookie("session", "true", {
-        expires: new Date(Date.now() + 1000 * 3600)
+        expires: new Date(Date.now() + 1000 * 3600),  
       })
     }).then(() => {
       router.push("/dashboard")

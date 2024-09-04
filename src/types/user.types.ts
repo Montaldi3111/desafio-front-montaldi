@@ -7,24 +7,9 @@ type UserType = {
     phone: string,
 }
 
-type FormLoginData = {
-    email: string;
-    password: string;
-}
-
 type LoginUserType = {
     email: string,
     password: string,
-}
-
-type FormRegisterData = {
-    dni: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-    repeat_password: string;
-    phone: string;
 }
 
 type UserAccountType = {
