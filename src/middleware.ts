@@ -1,8 +1,5 @@
-import { getCookie } from 'cookies-next'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { getUserAccount } from './services/account/account.service';
-import { cookies } from 'next/headers';
  
 export async function middleware(request: NextRequest) {
   try {
@@ -15,19 +12,16 @@ export async function middleware(request: NextRequest) {
   }
 }
 
-const getAuthenticationHeaders = (request : NextRequest, accessToken: string, session: string) => {
+const getAuthenticationHeaders = (request : NextRequest, accessToken : string, session : string) => {
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-digital-access-token', accessToken)
   requestHeaders.set('x-digital-session', session)
- 
   return NextResponse.next({
     request: {
       headers: requestHeaders,
     },
   })
 }
- 
-// See "Matching Paths" below to learn more
 export const config = {
   matcher: ["/dashboard", "/register/success", "/profile", "/cards", "/cards/new-card"]
 }

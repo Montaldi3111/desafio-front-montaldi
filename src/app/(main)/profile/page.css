@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+main {
+    @apply h-screen;
+}
+
 main #actual-page {
     @apply hidden;
 }
@@ -86,6 +90,7 @@ main #actual-page {
 
     #info {
         @apply w-[70vw];
+        @apply h-screen;
         @apply mx-auto;
         @apply pl-10;
         @apply pr-4;

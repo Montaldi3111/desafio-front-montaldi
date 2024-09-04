@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 main {
-    @apply h-full;
+    @apply h-screen;
 }
 
 main #home-shortcut {
@@ -68,7 +68,7 @@ main #home-shortcut {
 @media (min-width: 767px) {
 
     main {
-        @apply h-full;
+        @apply h-screen;
         @apply flex;
         @apply flex-row;
     }
@@ -79,6 +79,5 @@ main #home-shortcut {
         @apply mx-auto;
         @apply flex;
         @apply flex-col;
-        @apply justify-between;
     }
 }

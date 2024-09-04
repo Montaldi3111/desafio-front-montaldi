@@ -14,6 +14,7 @@
     @apply text-ylw;
 }
 
+
 @media (min-width: 300px) and (max-width:500px) {
 
     header {
@@ -53,10 +54,36 @@
         @apply font-bold;
         @apply text-xs;
     }
+
+    #profile-buttons {
+        @apply mr-4;
+        @apply flex;
+        @apply items-center;
+    }
+
+    #user-initials {
+        @apply mr-2;
+        @apply p-1;
+        @apply bg-ylw;
+        @apply text-[16px];
+        @apply text-center;
+        @apply tracking-wider;
+        @apply text-black;
+        @apply rounded-xs;
+    }
+
+    #user-hi-message {
+        @apply hidden;
+    }
+
+    #burguer-menu {
+        @apply text-2xl;
+        @apply text-ylw;
+    }
     
 }
 
-@media (min-width: 501px) and (max-width: 768px) {
+@media (min-width: 500px) and (max-width: 768px) {
 
     header {
         @apply p-2;
@@ -82,6 +109,27 @@
         @apply items-center;
         @apply p-2;
         @apply w-36;
+    }
+
+    #user-initials {
+        @apply mr-2;
+        @apply p-1;
+        @apply bg-ylw;
+        @apply text-[16px];
+        @apply text-center;
+        @apply tracking-wider;
+        @apply text-black;
+        @apply rounded-xs;
+    }
+
+    #user-hi-message {
+        @apply text-white;
+        @apply text-[md];
+        @apply mr-4;
+    }
+
+    #burguer-menu {
+        @apply hidden;
     }
     
 }
@@ -140,6 +188,10 @@
 
     #profile-link #user-hi-message:hover {
         @apply underline;
+    }
+
+    #burguer-menu {
+        @apply hidden;
     }
 }
 

@@ -4,10 +4,11 @@ import EditUserProfileForm from '../Forms/EditUserProfileForm';
 import { cookies } from 'next/headers';
 
 type UserDetailsParams = {
+    userId: number,
     userData: UserType
 }
 
-const UserDetails = ({ userData }: UserDetailsParams) => {
+const UserDetails = ({ userId, userData }: UserDetailsParams) => {
     const cookiesStore = cookies();
     const password:string = cookiesStore.get("password")?.value ?? "";
     return (
@@ -18,7 +19,7 @@ const UserDetails = ({ userData }: UserDetailsParams) => {
                     <li id="detail-header">Email</li>
                     <li id="user-info">{userData.email}</li>
                 </ul>
-                <EditUserProfileForm userData={userData} pass={password}/>
+                <EditUserProfileForm userId={userId} userData={userData} pass={password}/>
             </div>
         </article>
     )

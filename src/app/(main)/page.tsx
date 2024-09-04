@@ -14,9 +14,9 @@ export default function Home() {
   }
 
   return (
-    <main className="w-full">
+    <main className="w-full h-screen">
       <section id="image-container">
-      <Image id="home-img" src="/image.png" alt="Digital Money House" width={1440} height={731} className="w-full object-cover"/>
+      <Image id="home-img" src="/image.png" alt="Digital Money House" width={2300} height={900} className="w-full"/>
       </section>
       <section id="text-content" className="absolute">
         <h1 id="text-head" className="text-white">De ahora en adelante, hacés más con tu dinero</h1>

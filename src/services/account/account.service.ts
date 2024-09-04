@@ -15,7 +15,7 @@ export const getUserAccount = async (accessToken?: string): Promise<UserAccountT
             })
             if (res.ok) {
                 const data = await res.json();
-                return data;
+                return data as UserAccountType;
             } else {
                 throw new Error("Could not retrieve account data");
             }

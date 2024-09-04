@@ -45,6 +45,11 @@ const config: Config = {
     md: "16px", // esto me genera error si text-md, por eso text-[16px]
     lg: "20px",
     "xl": "24px",
+    "2xl": "32px",
+    "3xl": "40px",
+    "4xl": "48px",
+    "5xl": "56px",
+    "6xl": "64px",
   },
   plugins: [],
 };

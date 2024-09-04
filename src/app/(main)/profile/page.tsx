@@ -6,6 +6,7 @@ import Menu from '@/components/Menu/Menu'
 import CvuAliasCard from '@/components/Cards/CVU-Alias-Card/CvuAliasCard'
 import UserDetails from '@/components/UserDetails/UserDetails'
 import "./page.css"
+import { Toaster } from 'sonner'
 
 const Profile = async () => {
 
@@ -13,7 +14,8 @@ const Profile = async () => {
   const {alias, cvu, user_id} : {alias: string, cvu: string, user_id: number} = await getUserAccount(token);
   const userData: UserType = await getUserData(user_id, token)
   return (
-    <main className='bg-lightGray h-full flex flex-row'>
+    <main className='bg-lightGray flex flex-row'>
+      <Toaster richColors visibleToasts={1} position='bottom-left'/>
       <section>
         <Menu />
       </section>
@@ -22,7 +24,7 @@ const Profile = async () => {
           <FaArrowRight />
           <p>Perfil</p>
         </div>
-        <UserDetails userData={userData} />
+        <UserDetails userId={user_id} userData={userData} />
         <div id="manage-payments">
           <p className='font-bold'>Gestioná los medios de pago</p>
           <FaArrowRight />

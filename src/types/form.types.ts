@@ -14,8 +14,8 @@ type FormRegisterData = {
 }
 
 type FormEditProfileData = {
-    first_last_name?: string;
-    dni?: string;
-    phone?: string;
+    first_last_name: string;
+    dni: string;
+    phone: string;
     password?: string;
 }

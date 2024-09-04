@@ -1,5 +1,7 @@
 "use client"
+import { getUserAccount, getUserId } from '@/services/account/account.service';
 import { loginRequest } from '@/services/auth/auth.service';
+import { getUserData } from '@/services/user/user.service';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { setCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';
@@ -53,7 +55,7 @@ const LoginForm = () => {
         expires: new Date(Date.now() + 1000 * 3600),  
       })
     }).then(() => {
-      router.push("/dashboard")
+      router.push("/dashboard");
     }).catch(err => {
       throw new Error(err.message)
     })

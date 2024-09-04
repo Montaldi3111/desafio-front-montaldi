@@ -17,6 +17,10 @@
         @apply text-xl;
     }
 
+    #card #card-content{
+        @apply mt-2;
+    }
+
 }
 
 /* Tablet CSS */
@@ -29,6 +33,10 @@
         @apply mb-4;
         @apply relative;
         @apply -top-[52px];
+    }
+
+    #card #card-content{
+        @apply mt-2;
     }
 
 
