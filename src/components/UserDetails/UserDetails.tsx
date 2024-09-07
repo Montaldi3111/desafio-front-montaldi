@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import "./userDetails.css"
 import EditUserProfileForm from '../Forms/EditUserProfileForm';
 import { cookies } from 'next/headers';

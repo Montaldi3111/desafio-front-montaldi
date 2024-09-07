@@ -19,3 +19,10 @@ type UserAccountType = {
     id: number,
     user_id: number
 }
+
+type EditUserType = {
+    dni: string,
+    firstname: string,
+    lastname: string,
+    phone: string,
+}

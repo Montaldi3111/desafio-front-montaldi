@@ -82,9 +82,11 @@
 @media (min-width: 768px) {
     #cvu-alias-card {
         @apply bg-blck;
+        @apply mx-auto;
         @apply w-[100%];
+        @apply max-w-[1000px];
         @apply mt-4;
-        @apply p-6;
+        @apply p-5;
         @apply text-white;
         @apply rounded-sm;
         @apply shadow;
@@ -97,7 +99,7 @@
     }
 
     #cvu-alias-card #cvu-container {
-        @apply mb-8;
+        @apply mb-6;
         @apply flex;
         @apply justify-between;
         @apply items-center;

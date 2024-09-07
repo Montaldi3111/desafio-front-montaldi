@@ -54,7 +54,7 @@ export const getUserData = async (user_id : number, accessToken? : string) : Pro
     }
 }
 
-export const updateUserData = async (user_id : number, data : UserType, accessToken? : string) : Promise<number> => {
+export const updateUserData = async (user_id : number, data : EditUserType, accessToken? : string) : Promise<number> => {
     if(accessToken) {
         try {
             const resp = await fetch(`${API_URL}${API_ENDPOINT}/${user_id}`, {

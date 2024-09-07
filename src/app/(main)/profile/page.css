@@ -97,7 +97,9 @@ main #actual-page {
     }
 
     #manage-payments {
+        @apply mx-auto;
         @apply w-[100%];
+        @apply max-w-[1000px];
         @apply bg-ylw;
         @apply mt-4;
         @apply items-center;

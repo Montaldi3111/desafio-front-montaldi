@@ -4,13 +4,16 @@
 
 /* Mobile CSS */
 
-@media (min-width: 300px) {
+main {
+    @apply items-center;
+    @apply text-center;
+}
+
+@media (min-width: 300px) and (max-width:500px) {
     #register-success{
         @apply bg-lightGray;
         @apply py-20;
         @apply px-2;
-        @apply text-center;
-        @apply items-center;
     }
 
     #register-success h1 {
@@ -31,7 +34,7 @@
         @apply text-[16px];
     }
 
-    #register-success a {
+    #register-success button {
         @apply w-[50vw];
         @apply max-w-[200px];
         @apply mt-10;
@@ -45,12 +48,10 @@
 
 /* Tablet CSS */
 
-@media (min-width: 500px) {
+@media (min-width: 500px) and (max-width:768px){
     #register-success{
         @apply bg-lightGray;
         @apply py-20;
-        @apply text-center;
-        @apply items-center;
     }
 
     #register-success h1 {
@@ -73,7 +74,7 @@
         @apply text-[16px];
     }
 
-    #register-success a {
+    #register-success button {
         @apply w-[30vw];
         @apply max-w-[300px];
         @apply mt-10;
@@ -89,9 +90,7 @@
 @media (min-width: 768px) {
     #register-success{
         @apply bg-lightGray;
-        @apply py-20;
-        @apply text-center;
-        @apply items-center;
+        @apply pt-24;
     }
 
     #register-success h1 {
@@ -113,7 +112,7 @@
         @apply text-[16px];
     }
 
-    #register-success a {
+    #register-success button {
         @apply w-[30vw];
         @apply max-w-[300px];
         @apply mt-10;

@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+main {
+    @apply h-screen;
+}
+
 /* Mobile CSS */
 
-@media (min-width: 300px) {
+@media (min-width: 300px) and (max-width:500px){
     #user-details {
         @apply w-[90vw];
         @apply max-w-[360px];
@@ -44,6 +48,7 @@
     }
 
     #details-container ul #user-info {
+        @apply bg-white;
         @apply col-span-11;
         @apply text-[12px];
     }
@@ -52,16 +57,16 @@
         @apply my-2;
     }
     
-
 }
 
 /* Tablet CSS */
 
-@media (min-width: 500px) {
+@media (min-width: 500px) and (max-width: 768px) {
     #user-details {
         @apply min-w-[334px];
         @apply w-[60vw];
         @apply max-w-[500px];
+        @apply mx-auto;
         @apply bg-white;
         @apply py-4;
         @apply px-2;
@@ -97,6 +102,7 @@
     }
 
     #details-container ul #user-info {
+        @apply bg-white;
         @apply pr-4;
         @apply col-span-5;
         @apply text-[12px];
@@ -113,8 +119,9 @@
 
 @media (min-width: 768px) {
     #user-details {
-        @apply min-w-[100%];
+        @apply mx-auto;
         @apply w-[100%];
+        @apply max-w-[1000px];
         @apply bg-white;
         @apply p-6;
         @apply rounded-sm;
@@ -136,17 +143,19 @@
         @apply grid;
         @apply grid-cols-12;
         @apply items-center;
+        @apply justify-center;
         @apply border-b-[1px];
         @apply border-lightGray;
     }
 
     #details-container ul #detail-header {
-        @apply text-blck;
-        @apply font-semibold;
+        @apply text-[16px];
         @apply col-span-4;
     }
 
     #details-container ul #user-info {
+        @apply bg-white;
+        @apply text-[16px];
         @apply text-graySlate;
         @apply col-span-7;
     }
@@ -158,6 +167,16 @@
 
     #details-container #detail-header, #details-container #user-info, #details-container svg{
         @apply my-2;
+    }
+
+    #details-container ul #check-x-field {
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+    }
+
+    #details-container ul #check-x-field svg {
+        @apply size-4;
     }
 
 }

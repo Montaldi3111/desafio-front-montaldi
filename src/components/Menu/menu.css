@@ -4,45 +4,79 @@
 
 #menu {
     @apply h-full;
+    @apply bg-ylw;
 }
 
 /* Mobile CSS */
 
-@media (min-width:300px) {
-    #menu {
+@media (min-width:300px) and (max-width:500px) {
+
+    #menu-home {
         @apply hidden;
+    }
+
+    header #hidden {
+        @apply hidden;
+    }
+
+    header nav #profile-buttons #menu{
+        @apply absolute;
+        @apply w-[219px];
+        @apply h-screen;
+        @apply top-14;
+        @apply left-0;
+        @apply flex;
+        @apply flex-col;
+    }
+
+    header nav #profile-buttons #menu a , header nav #profile-buttons #menu p{
+        @apply mt-4;
+        @apply ml-4;
+        @apply text-[16px];
     }
 }
 
 /* Tablet CSS */
 
-@media (min-width: 500px) {
-    #menu {
-        @apply w-[28%];
-        @apply max-w-[200px];
+@media (min-width: 500px) and (max-width:768px) {
+    header #menu-hi-message {
+        @apply hidden;
+    }
+
+    #menu-home{
+        @apply w-[32vw];
+        @apply max-w-[150px];
         @apply pt-4;
-        @apply pl-4;
+        @apply px-4;
         @apply flex;
         @apply flex-col;
     }
 
-    #menu a {
+    #menu-home a, #menu-home p{
+        @apply w-[120px];
+        @apply text-[16px];
         @apply mt-4;
-        @apply text-sm;
     }
 }
 
 @media (min-width: 768px) {
 
-    #menu {
-        @apply w-[25vw];
-        @apply pt-8;
-        @apply pl-8;
+    header #menu-hi-message {
+        @apply hidden;
+    }
+
+    #menu-home{
+        @apply w-[20vw];
+        @apply max-w-[272px];
+        @apply pt-6;
+        @apply px-6;
         @apply flex;
         @apply flex-col;
     }
 
-    #menu a {
+    #menu-home a, #menu-home p{
+        @apply w-[120px];
+        @apply text-[16px];
         @apply mt-4;
     }
 }

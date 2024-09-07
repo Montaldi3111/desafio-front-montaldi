@@ -1,10 +1,13 @@
+"use server"
 import { getUserAccount } from "@/services/account/account.service";
 import { getUserData } from "@/services/user/user.service";
 import { cookies } from "next/headers";
 import Link from "next/link"
 import { FaBars } from "react-icons/fa6";
+import Menu from "../Menu/MenuMobile";
+import HeaderIcons from "../HeadersIcons/HeaderIcons";
 
-const HeaderContainer = async () => {
+const LoginRegisterHeader = async () => {
   const cookiesStore = cookies();
   const token = cookiesStore.get("token")?.value ?? "";
   if(token !== ""){
@@ -14,11 +17,11 @@ const HeaderContainer = async () => {
     return (
           <span id="profile-buttons">
             <Link href={"/profile"} id="profile-link"><b id="user-initials">{initials}</b><b id="user-hi-message">Hola, {firstname + " " + lastname}</b></Link>
-            <FaBars id="burguer-menu"/>
+            <HeaderIcons userFirstname={firstname} userLastname={lastname}/>
           </span>
     )
 
   }
 }
 
-export default HeaderContainer
+export default LoginRegisterHeader

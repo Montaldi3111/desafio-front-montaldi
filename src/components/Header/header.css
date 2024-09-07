@@ -18,7 +18,7 @@
 @media (min-width: 300px) and (max-width:500px) {
 
     header {
-        @apply py-2;
+        @apply p-2;
     }
 
     #logo {
@@ -56,13 +56,17 @@
     }
 
     #profile-buttons {
-        @apply mr-4;
         @apply flex;
+        @apply justify-start;
         @apply items-center;
     }
 
+    #profile-link {
+        @apply w-fit;
+        @apply mr-6;
+    }
+
     #user-initials {
-        @apply mr-2;
         @apply p-1;
         @apply bg-ylw;
         @apply text-[16px];

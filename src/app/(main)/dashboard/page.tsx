@@ -13,7 +13,7 @@ const Home = async () => {
   return (
     <main className='bg-lightGray'>
       <section>
-        <Menu />
+        <Menu/>
       </section>
       <div id="home-shortcut" className='hidden'>
         <FaArrowRight />
