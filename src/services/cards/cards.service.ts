@@ -61,6 +61,7 @@ export const addNewCard = async (account_id:number, cardData:FormCardData, acces
 
 export const deleteCard = async (account_id:number, card_id:number, accessToken?:string) : Promise<number> => {
     if(accessToken) {
+        console.log(account_id, card_id)
         try {
             const resp = await fetch(`${API_URL}${API_ENDPOINT}/${account_id}/cards/${card_id}`,{
                 method: "DELETE",

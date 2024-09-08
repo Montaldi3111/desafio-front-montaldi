@@ -6,7 +6,7 @@ import NewCardForm from '@/components/Forms/NewCardForm'
 import "./page.css"
 const NewCard = async () => {
   const token:string = headers().get("x-digital-access-token") ?? "";
-  const {id}: {id: string} = await getUserAccount(token);
+  const {id}: {id: number} = await getUserAccount(token);
   return (
     <main className='h-screen bg-lightGray'>
       <Menu />
@@ -14,7 +14,7 @@ const NewCard = async () => {
         <FaArrowRight />
         <h3>Tarjetas</h3>
       </div>
-      <NewCardForm account_id={Number(id)} token={token}/>
+      <NewCardForm account_id={id} token={token}/>
     </main>
   )
 }
