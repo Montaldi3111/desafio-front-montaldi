@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+    @apply h-screen;
+    @apply w-full;
+}
+
+@media (min-width: 768px) {
+    main {
+        @apply flex;
+    }
+
+    main #charge-methods {
+        @apply w-full;
+        @apply mt-10;
+        @apply flex;
+        @apply flex-col;
+    }
+
+    main #charge-methods #transfer-card{
+        @apply w-[80%];
+        @apply mx-auto;
+        @apply mb-10;
+        @apply py-14;
+        @apply px-8;
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+        @apply rounded-xs;
+        @apply shadow-md;
+        @apply shadow-gray-500;
+        @apply hover:cursor-pointer;
+        @apply hover:text-ylw;
+        @apply hover:underline;
+    }
+
+    main #charge-methods #transfer-card div {
+        @apply flex;
+        @apply items-center;
+    }
+
+    main #charge-methods h3 {
+        @apply text-ylw;
+        @apply text-lg;
+        @apply ml-4;
+        @apply hover:cursor-pointer;
+    }
+
+    main #charge-methods svg {
+        @apply text-ylw;
+        @apply w-8;
+        @apply h-8;
+    }
+
+    main #charge-methods #select-card {
+        @apply w-[80%];
+        @apply mx-auto;
+        @apply py-14;
+        @apply px-8;
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+        @apply rounded-xs;
+        @apply shadow-md;
+        @apply shadow-gray-500;
+        @apply hover:cursor-pointer;
+        @apply hover:text-ylw;
+        @apply hover:underline;
+    }
+
+    main #select-card div {
+        @apply flex;
+        @apply items-center;
+    }
+
+    main #select-card img {
+        @apply w-10;
+        @apply h-8;
+    }
+}

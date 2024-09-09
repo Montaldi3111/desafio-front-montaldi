@@ -19,3 +19,10 @@ type FormEditProfileData = {
     phone: string;
     password: string;
 }
+
+type FormChargeWithCardData = {
+    amount: number;
+    dated: string;
+    destination: string;
+    origin: string;
+}
