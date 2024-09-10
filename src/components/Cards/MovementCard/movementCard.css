@@ -4,7 +4,7 @@
 
 /* Mobile CSS */
 
-@media (min-width: 300px) {
+@media (min-width: 300px) and (max-width:500px){
     #movement-details{
         @apply w-[100%];
         @apply my-2;
@@ -39,7 +39,7 @@
 
 /* Tablet CSS */
 
-@media (min-width: 500px) {
+@media (min-width: 500px) and (max-width:768px){
     #movement-details{
         @apply w-[100%];
         @apply my-2;
@@ -77,13 +77,13 @@
 
 @media (min-width: 768px) {
     #movement-details{
-        @apply w-[100%];
-        @apply my-2;
-        @apply p-2;
+        @apply w-full;
+        @apply py-3;
         @apply flex;
         @apply flex-row;
         @apply justify-between;
-        @apply border-t-[1px];
+        @apply items-center;
+        @apply border-b-[1px];
         @apply border-black;
     }
 

@@ -1,4 +1,4 @@
-import ResumeCard from '@/app/components/ResumeCard/ResumeCard';
+import ResumeCard from '@/components/Cards/ResumeCard/ResumeCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
@@ -13,7 +13,7 @@ const meta = {
 
 export const Primary : Story = {
     args: {
-        
+        balance: 1200
     }
 }
 export default meta;

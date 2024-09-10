@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#search-filter-container {
+    @apply hidden;
+}
+
+@media (min-width: 768px) {
+    
+    #search-filter-container {
+        @apply absolute;
+        @apply top-[11rem];
+        @apply right-[7.8rem];
+        @apply w-[350px];
+        @apply bg-lightGray;
+    }
+    
+    #search-filter-container #title {
+        @apply pt-4;
+        @apply px-4;
+        @apply pb-2;
+        @apply flex;
+        @apply justify-between;
+        @apply border-b-[1px];
+        @apply border-black;
+    }
+    
+    #search-filter-container #title #period-container {
+        @apply flex;
+        @apply items-center;
+        @apply cursor-pointer;
+    }
+    
+    #search-filter-container #title #period-container h3 {
+        @apply text-[16px];
+        @apply mr-2;
+    }
+    
+    #search-filter-container #title #erase-filters h3 {
+        @apply text-[16px];
+        @apply text-gray-500;
+        @apply hover:cursor-pointer;
+        @apply hover:underline;
+    }
+    
+    #search-filter-container #filters #filter-list {
+        @apply w-[95%];
+        @apply mx-auto;
+        @apply px-4;
+        @apply py-4;
+        @apply flex;
+        @apply flex-col;
+        @apply items-center;
+    }
+    
+    #search-filter-container #filters #filter-list label {
+        @apply w-full;
+        @apply mb-2;
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+        @apply hover:cursor-pointer;
+    }
+    
+    #search-filter-container #filters #filter-list label span {
+        @apply text-[16px];
+        @apply text-gray-500;
+    }
+    
+    #search-filter-container #filters #filter-list label svg {
+        @apply text-[16px];
+        @apply text-gray-500;
+    }
+    
+    #search-filter-container #filters #filter-list button {
+        @apply w-full;
+        @apply p-2;
+        @apply bg-ylw;
+        @apply font-bold;
+        @apply text-black;
+        @apply text-[16px];
+        @apply rounded-sm;
+        @apply hover:underline;
+    }
+}

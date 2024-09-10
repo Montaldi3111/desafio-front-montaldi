@@ -1,4 +1,4 @@
-import CvuAliasCard from '@/app/components/CVU-Alias-Card/CvuAliasCard';
+import CvuAliasCard from '@/components/Cards/CVU-Alias-Card/CvuAliasCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {

@@ -5,8 +5,177 @@
 main {
     @apply flex;
     @apply h-[100vh];
+    @apply w-full;
 }
 
 @media (min-width: 768px) {
-    
+    form {
+        @apply w-[80%];
+        @apply mt-20;
+        @apply mx-auto;
+    }
+
+    form #select-card-section {
+        @apply w-full;
+        @apply py-10;
+        @apply px-12;
+        @apply text-ylw;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply rounded-sm;
+    }
+
+    form #select-card-section h3 {
+        @apply mb-6;
+        @apply text-xl;
+    }
+
+    form #select-card-section #cards-container {
+        @apply py-4;
+        @apply px-8;
+        @apply rounded-sm;
+    }
+
+    form #select-card-section #cards-container h3 {
+        @apply mb-6;
+        @apply text-[16px];
+    }
+
+    form #select-card-section #cards-container span {
+        @apply mb-4;
+        @apply pb-4;
+        @apply flex;
+        @apply items-center;
+        @apply justify-between;
+        @apply border-b-2;
+        @apply border-gray-500;
+    }
+
+    form #select-card-section #cards-container span div {
+        @apply flex;
+        @apply items-center;
+    }
+
+    form #select-card-section #cards-container span #circle {
+        @apply w-8;
+        @apply h-8;
+        @apply mr-4;
+        @apply bg-ylw;
+        @apply rounded-full;
+    }
+
+    form #select-card-section #cards-container span:hover #circle {
+        @apply bg-graySlate;
+    }
+
+    form #select-card-section #buttons-container {
+        @apply w-full;
+        @apply flex;
+        @apply justify-between;
+        @apply mt-8;
+    }
+
+    form #select-card-section #buttons-container a{
+        @apply w-full;
+        @apply flex;
+        @apply items-center;
+    }
+
+    form #select-card-section #buttons-container h3 {
+        @apply mb-0;
+        @apply text-xl;
+        @apply hover:underline;
+    }
+
+    form #select-card-section #buttons-container a svg {
+        @apply w-10;
+        @apply h-10;
+        @apply mr-4;
+        @apply hover:text-white;
+    }
+
+    form #select-card-section #buttons-container button {
+        @apply w-[30vw];
+        @apply max-w-[300px];
+        @apply p-4;
+        @apply font-bold;
+        @apply text-[16px];
+        @apply text-black;
+        @apply bg-ylw;
+        @apply rounded-sm;
+    }
+
+    form #amount-section {
+        @apply py-10;
+        @apply px-12;
+        @apply text-ylw;
+        @apply rounded-sm;
+    }
+
+    form #amount-section h3 {
+        @apply mb-6;
+        @apply text-xl;
+    }
+
+    form #amount-section input {
+        @apply w-[40%];
+        @apply max-w-[300px];
+        @apply p-4;
+        @apply text-black;
+        @apply border-2;
+        @apply border-skyBlue;
+        @apply rounded-sm;
+    }
+
+    form #amount-section button {
+        @apply w-[30vw];
+        @apply max-w-[300px];
+        @apply p-4;
+        @apply bg-ylw;
+        @apply font-bold;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+    }
+
+    form #check-info-section {
+        @apply relative;
+        @apply flex;
+        @apply justify-between;
+        @apply items-end;
+        @apply py-14;
+        @apply px-12;
+        @apply rounded-sm;
+    }
+
+    form #check-info-section div {
+        @apply mt-4;
+        @apply flex;
+        @apply items-center;
+        @apply text-[16px];
+        @apply text-white;
+    }
+
+
+    form #check-info-section div svg {
+        @apply w-6;
+        @apply h-6;
+        @apply ml-4;
+        @apply text-ylw;
+        @apply hover:cursor-pointer;
+    }
+
+    form #check-info-section button {
+        @apply relative;
+        @apply w-[20vw];
+        @apply max-w-[300px];
+        @apply p-4;
+        @apply top-6;
+        @apply bg-ylw;
+        @apply font-bold;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+    }
 }

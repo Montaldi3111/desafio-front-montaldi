@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+    @apply h-[100vh];
+    @apply w-full;
+    @apply flex;
+}
+
+@media (min-width: 768px) {
+    main #activity-container {
+        @apply w-full;
+        @apply mt-14;
+        @apply flex;
+        @apply flex-col;
+    }
+
+    main #activity-container #search-bar-container {
+        @apply w-[80%];
+        @apply mx-auto;
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+        @apply gap-x-5;
+    }
+
+    main #activity-container #filter-container {
+        @apply w-[20%];
+        @apply mb-4;
+        @apply bg-ylw;
+        @apply p-[1.1rem];
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+        @apply shadow-sm;
+        @apply shadow-gray-400;
+    }
+
+    main #activity-container #filter-container:hover {
+        @apply underline;
+        @apply cursor-pointer;
+    }
+
+    main #activity-container #activities-list {
+        @apply w-[80%];
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply p-4;
+        @apply rounded-[12px];
+    }
+
+    main #activity-container #activities-list div h3 {
+        @apply pb-4;
+        @apply text-[16px];
+        @apply border-b-[1px];
+        @apply border-black;
+    }
+
+    main #activity-container #activities-list #movement-list{
+        @apply items-center;
+    }
+}

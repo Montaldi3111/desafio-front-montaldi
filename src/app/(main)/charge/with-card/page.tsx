@@ -14,7 +14,7 @@ const ChargeWithCard = async () => {
             <section>
                 <Menu />
             </section>
-            <section>
+            <section className='w-full'>
                 <ChargeWithCardForm cards={cards}/>
             </section>
         </main>

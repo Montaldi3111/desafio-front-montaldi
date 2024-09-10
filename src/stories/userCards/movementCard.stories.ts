@@ -1,5 +1,4 @@
-import MovementCard from '@/app/components/MovementCard/MovementCard';
-import ResumeCard from '@/app/components/ResumeCard/ResumeCard';
+import MovementCard from '@/components/Cards/MovementCard/MovementCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
@@ -11,11 +10,15 @@ const meta = {
     tags: ['autodocs'],
   } satisfies Meta<typeof MovementCard>;
 
-export const Primary : Story = {
-    args: {
-        name: "Transferiste a Juan",
+  const movement = {
+        operation: "Transferiste a Juan",
         amount: 5000,
         date: "viernes"
+  }
+
+export const Primary : Story = {
+    args: {
+      movement
     }
 }
 export default meta;

@@ -1,5 +1,4 @@
-import HomeButtons from '@/app/components/Buttons/HomeButtons';
-import ResumeCard from '@/app/components/ResumeCard/ResumeCard';
+import HomeButtons from '@/components/Buttons/HomeButtons';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
@@ -14,7 +13,6 @@ const meta = {
 
 export const Primary : Story = {
     args: {
-        
     }
 }
 export default meta;
