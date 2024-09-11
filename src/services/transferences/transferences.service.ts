@@ -2,7 +2,7 @@ const API_URL = "https://digitalmoney.digitalhouse.com/api";
 const API_ENDPOINT = "/accounts"
 
 // POST crea un nuevo deposito
-export const createNewDeposit = async (account_id : number, deposit:any ,accessToken? : string) => {
+export const createNewDeposit = async (account_id : number, deposit:FormChargeWithCardData ,accessToken? : string) => {
     if(accessToken) {
         console.log(account_id, deposit);
         try {
@@ -20,9 +20,9 @@ export const createNewDeposit = async (account_id : number, deposit:any ,accessT
                 })
             })
             if(resp.ok) {
-                return 0; // Accion exitosa
+                return 0; // Acción exitosa
             } else {
-                return 1; // Accion fallida
+                return 1; // Acción fallida
             }
         } catch (error) {
             throw new Error('Could not retrieve server information')

@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#activities-list {
+    @apply w-[80%];
+    @apply mx-auto;
+    @apply mb-4;
+    @apply flex;
+    @apply flex-col;
+    @apply flex-wrap;
+    @apply p-4;
+    @apply rounded-[12px];
+}
+
+#activities-list div h3 {
+    @apply pb-4;
+    @apply text-[16px];
+    @apply border-b-[1px];
+    @apply border-black;
+}
+
+#activities-list #movement-list{
+    @apply mt-0;
+    @apply items-center;
+}
+
+#activities-list #page-btn-container {
+    @apply flex;
+    @apply flex-row;
+    @apply justify-center;
+}
+
+#activities-list #page-btn {
+    @apply m-2;
+    @apply py-2;
+    @apply px-4;
+    @apply font-bold;
+}

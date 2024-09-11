@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-main {
-    @apply h-screen;
-}
-
 main #home-shortcut {
     @apply hidden;
 }
@@ -68,7 +64,7 @@ main #home-shortcut {
 @media (min-width: 767px) {
 
     main {
-        @apply h-screen;
+        @apply h-[200vh];
         @apply flex;
         @apply flex-row;
     }

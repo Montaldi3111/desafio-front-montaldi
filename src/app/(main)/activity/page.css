@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 main {
-    @apply h-[100vh];
     @apply w-full;
     @apply flex;
 }
@@ -44,25 +43,5 @@ main {
     main #activity-container #filter-container:hover {
         @apply underline;
         @apply cursor-pointer;
-    }
-
-    main #activity-container #activities-list {
-        @apply w-[80%];
-        @apply mx-auto;
-        @apply flex;
-        @apply flex-col;
-        @apply p-4;
-        @apply rounded-[12px];
-    }
-
-    main #activity-container #activities-list div h3 {
-        @apply pb-4;
-        @apply text-[16px];
-        @apply border-b-[1px];
-        @apply border-black;
-    }
-
-    main #activity-container #activities-list #movement-list{
-        @apply items-center;
     }
 }

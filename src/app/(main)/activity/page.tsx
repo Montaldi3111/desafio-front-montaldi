@@ -2,19 +2,20 @@ import Menu from '@/components/Menu/Menu'
 import SearchBar from '@/components/SearchBar/SearchBar'
 import React from 'react'
 import { FaSliders } from 'react-icons/fa6'
-import "./page.css"
 import MovementCard from '@/components/Cards/MovementCard/MovementCard'
 import SearchFilter from '@/components/SearchFilter/SearchFilter'
 import { headers } from 'next/headers'
 import { getUserAccount } from '@/services/account/account.service'
 import { getAllTransactions } from '@/services/transactions/transactions.service'
+import "./page.css"
+import ActivityList from '@/components/ActivityList/ActivityList'
 
 const ActivityPage = async () => {
     const token:string = headers().get("x-digital-access-token")?? "";
     const {id} : {id: number} = await getUserAccount(token);
-    const transactions = await getAllTransactions(id, token)
+    const transactions = await getAllTransactions(id, token);
     return (
-        <main className='bg-lightGray'>
+        <main className='bg-lightGray h-[175vh]'>
             <section>
                 <Menu />
             </section>
@@ -28,14 +29,7 @@ const ActivityPage = async () => {
                     </span>
                 </article>
                 <article className='bg-white' id="activities-list">
-                    <div><h3 className='font-bold'>Tu actividad</h3></div>
-                    <div id="movement-list">
-                        {
-                            (transactions && transactions.length > 0) ? transactions.map((transaction: any, index: number) => (
-                                <MovementCard key={index} movement={transaction} />
-                            )) : <p className='text-[16px] font-bold text-center mt-4'>No hay registros de tu actividad</p>
-                        }
-                    </div>
+                    <ActivityList transactions={transactions}/>
                 </article>
             </section>
         </main>

@@ -9,13 +9,16 @@ import { CiCirclePlus } from 'react-icons/ci';
 import { FaPenToSquare } from 'react-icons/fa6';
 import { toast } from 'sonner';
 import * as yup from "yup"
+import ActionSuccessCard from '../Cards/ActionSuccessCard/ActionSuccessCard';
+import { dateFormatter } from '@/utils/dateFormatter';
 type ChargeWithCardParams = {
-    cards: CardType[];
-    accountId: number;
-    token: string;
+    cards: CardType[],
+    accountId: number,
+    cvu: string,
+    token: string,
 }
 
-const ChargeWithCardForm = ({ cards, accountId, token }: ChargeWithCardParams) => {
+const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardParams) => {
     const router = useRouter();
 
     const schema = yup.object({
@@ -43,6 +46,7 @@ const ChargeWithCardForm = ({ cards, accountId, token }: ChargeWithCardParams) =
     }
 
     const origin = watch("origin");
+    const amount = watch("amount");
 
     // Sincronizamos el valor de origin con el de destination
     useEffect(() => {
@@ -50,6 +54,18 @@ const ChargeWithCardForm = ({ cards, accountId, token }: ChargeWithCardParams) =
             setValue("destination", origin);
         }
     }, [origin, setValue]);
+
+
+    // Esto es para setear el horario cuando se este realizando el deposito
+    useEffect(() => {
+        var dateSuccess:string = dateFormatter(new Date().toISOString());
+        if(document !== null){
+            const dateField = document.getElementById("date-success");
+            if(dateField) {
+                dateField.textContent = dateSuccess;
+            }
+        }
+    },[step])
 
 
     const decrementStep = () => {
@@ -72,13 +88,16 @@ const ChargeWithCardForm = ({ cards, accountId, token }: ChargeWithCardParams) =
         }
     };
 
+    const navigate = () => {
+        router.push('/dashboard');
+    }
+
     const onSubmit = (data: FormChargeWithCardData) => {
-        createNewDeposit(99999, data, token).then(response => {
-            if (response === 0) {
-                toast.success("Depósito realizado correctamente")
-                router.push("/activity");
+        createNewDeposit(accountId, data, token).then(response => {
+            if (response === 1) {
+                toast.error("Se ha producido un error al realizar el depósito")
             } else {
-                toast.error(error.message)
+                incrementStep();
             }
         }).catch(error => {
             toast.error(error.message)
@@ -107,7 +126,7 @@ const ChargeWithCardForm = ({ cards, accountId, token }: ChargeWithCardParams) =
                     </div>
                     <div id='buttons-container'>
                         <Link href="/cards/new-card"><CiCirclePlus /><h3 className='font-bold'>Nueva tarjeta</h3></Link>
-                        <button type="button" onClick={goToNextStep}>Continuar</button>
+                        <button type="button" className={`${origin === "" ? 'bg-ylwBlck cursor-not-allowed' : 'bg-ylw'}`} onClick={goToNextStep} disabled={origin === ""}>Continuar</button>
                     </div>
                 </section>
             </>}
@@ -118,7 +137,7 @@ const ChargeWithCardForm = ({ cards, accountId, token }: ChargeWithCardParams) =
                     {(errors.amount) && <i className='text-red-500'>{errors.amount.message}</i>}
                     <div className='flex justify-between'>
                         <h4></h4>
-                        <button type="button" onClick={goToNextStep}>Continuar</button>
+                        <button type="button" className={`${amount <= 0 ? 'bg-ylwBlck cursor-not-allowed' : 'bg-ylw'}`} onClick={goToNextStep} disabled={amount <= 0}>Continuar</button>
                     </div>
                 </section>}
 
@@ -129,13 +148,13 @@ const ChargeWithCardForm = ({ cards, accountId, token }: ChargeWithCardParams) =
                         <p>Vas a transferir</p>
                         <FaPenToSquare onClick={decrementStep} />
                     </div>
-                    <h3 className='font-bold text-white text-[16px] mt-4'>{}</h3>
+                    <h3 className='font-bold text-white text-[16px] mt-4'>${amount}</h3>
                     <div>
                         <ul className='text-white'>
                             <li className='text-xs'>Para</li>
                             <li className='font-bold text-lg my-4'>Cuenta Propia</li>
                             <li className='text-[16px]'>Brubank</li>
-                            <li className='text-sm mt-2'>CVU: </li>
+                            <li className='text-sm mt-2'>CVU: {cvu}</li>
                         </ul>
                     </div>
                 </article>
@@ -143,6 +162,25 @@ const ChargeWithCardForm = ({ cards, accountId, token }: ChargeWithCardParams) =
 
             </section>}
 
+            {step === 3 &&
+                <>
+                    <ActionSuccessCard />
+                    <section id="success-section" className='bg-blck'>
+                        <p id="date-success"></p>
+                        <ul className='text-white'>
+                            <li className="font-bold text-ylw" id="amount-deposited">${amount}</li>
+                            <li className='text-xs'>Para</li>
+                            <li id="deposited-to" className='font-bold text-ylw'>Cuenta Propia</li>
+                            <li className='text-[16px]'>Brubank</li>
+                            <li className='text-xs my-2'>CVU: {cvu}</li>
+                        </ul>
+                    </section>
+                        <div id="button-container">
+                        <button id="home-btn" className="bg-[#CECECE]" onClick={navigate}>Ir a Inicio</button>
+                        <p className="bg-ylw" id="download-voucher-btn">Descargar comprobante</p>
+                        </div>
+                </>
+            }
         </form>
     )
 }

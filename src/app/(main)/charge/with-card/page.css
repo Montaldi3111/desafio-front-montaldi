@@ -102,7 +102,6 @@ main {
         @apply font-bold;
         @apply text-[16px];
         @apply text-black;
-        @apply bg-ylw;
         @apply rounded-sm;
     }
 
@@ -132,7 +131,6 @@ main {
         @apply w-[30vw];
         @apply max-w-[300px];
         @apply p-4;
-        @apply bg-ylw;
         @apply font-bold;
         @apply text-[16px];
         @apply text-black;
@@ -177,5 +175,60 @@ main {
         @apply text-[16px];
         @apply text-black;
         @apply rounded-sm;
+    }
+
+    form #success-section {
+        @apply w-full;
+        @apply py-10;
+        @apply px-12;
+        @apply rounded-sm;
+    }
+
+    form #success-section #date-success {
+        @apply text-[16px];
+        @apply text-white;
+    }
+
+    form #success-section ul #amount-deposited {
+        @apply my-2;
+        @apply text-lg;
+    }
+
+    form #success-section ul #deposited-to {
+        @apply mt-2;
+        @apply mb-4;
+        @apply text-lg;
+    }
+
+    form #button-container {
+        @apply mt-4;
+        @apply flex;
+        @apply justify-end;
+        @apply gap-x-8;
+    }
+
+    form #button-container #home-btn, form #button-container #download-voucher-btn {
+        @apply w-[15vw];
+        @apply max-w-[250px];
+        @apply p-4;
+        @apply font-bold;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+    }
+
+    form #button-container #home-btn:hover {
+        @apply cursor-pointer;
+        @apply text-white;
+        @apply bg-graySlate;
+        @apply underline;
+    }
+
+    form #button-container #download-voucher-btn:hover {
+        @apply cursor-pointer;
+        @apply text-ylw;
+        @apply bg-graySlate;
+        @apply underline;
     }
 }

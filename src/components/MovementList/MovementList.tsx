@@ -12,6 +12,7 @@ type MovementCardParams = {
 }
 const MovementList = async ({ accountId, token }: MovementCardParams) => {
     const transactions: TransactionType[] = await getAllTransactions(accountId, token)
+    const first10Transactions = transactions.slice(0,10);
     return (
         <article id="movement-list" className=''>
             <SearchBar />
@@ -19,7 +20,7 @@ const MovementList = async ({ accountId, token }: MovementCardParams) => {
                 <p className='font-bold text-black'>Tu actividad</p>
                 <div></div>
                 {
-                    (transactions && transactions.length > 0) ? transactions.map((transaction: TransactionType, index: number) => {
+                    (transactions && transactions.length > 0) ? first10Transactions.map((transaction: TransactionType, index: number) => {
                         return <MovementCard key={index} movement={transaction} />
                     }) : <p className='text-center font-lg font-bold my-4'>No hay registro de tu actividad</p>
                 }

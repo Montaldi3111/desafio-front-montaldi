@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+#success-card {
+    @apply w-full;
+    @apply mb-5;
+    @apply p-4;
+    @apply bg-ylw;
+    @apply text-center;
+    @apply text-xl;
+    @apply rounded-sm;
+}
+
+#success-card svg {
+    @apply size-16;
+    @apply mx-auto;
+    @apply mb-4;
+    @apply text-black;
+}

@@ -8,7 +8,7 @@ import { getAllCards } from '@/services/cards/cards.service'
 import { Toaster } from 'sonner'
 const ChargeWithCard = async () => {
     const token:string = headers().get("x-digital-access-token") ?? "";
-    const {id} : {id:number} = await getUserAccount(token)
+    const {cvu, id} : {cvu: string, id:number} = await getUserAccount(token)
     const cards:CardType[] = await getAllCards(String(id), token);
     return (
         <main className='bg-lightGray'>
@@ -17,7 +17,7 @@ const ChargeWithCard = async () => {
             </section>
             <section className='w-full'>
                 <Toaster richColors visibleToasts={1}/>
-                <ChargeWithCardForm cards={cards} accountId={id} token={token}/>
+                <ChargeWithCardForm cards={cards} accountId={id} cvu={cvu} token={token}/>
             </section>
         </main>
     )
