@@ -23,7 +23,7 @@ const getAuthenticationHeaders = (request : NextRequest, accessToken : string, s
   })
 }
 export const config = {
-  matcher: ["/dashboard", "/register/success", "/profile", "/cards", "/cards/new-card", "/charge", "/charge/with-card"]
+  matcher: ["/dashboard", "/register/success", "/profile", "/cards", "/cards/new-card", "/charge", "/charge/with-card", "/activity"]
 }
 
  // ['/profile', '/cards', '/cards/new-card', '/dashboard', "/register/success"]

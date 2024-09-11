@@ -3,6 +3,7 @@ import { FaArrowRight } from 'react-icons/fa6'
 import SearchBar from '../SearchBar/SearchBar'
 import MovementCard from '../Cards/MovementCard/MovementCard'
 import "./movementList.css"
+import Link from 'next/link'
 
 type MovementCardParams = {
     accountId: number,
@@ -24,10 +25,10 @@ const MovementList = async ({ accountId, token }: MovementCardParams) => {
                 }
                 { // no tendría sentido mostrar esta parte si no hay movimientos en la cuenta
                     transactions.length > 0 && <div className='w-[100%] flex flex-row justify-between items-center border-t-[1px] border-black text-black font-bold'>
-                        <p className='mt-2'>Ver toda tu actividad</p>
-                        <button className='text-xl p-2 cursor-pointer'>
+                        <Link href="/activity" className='mt-2'>Ver toda tu actividad</Link>
+                        <Link href="/activity" className='text-xl p-2 cursor-pointer'>
                             <FaArrowRight className="mt-2" />
-                        </button>
+                        </Link>
                     </div>
                 }
             </div>

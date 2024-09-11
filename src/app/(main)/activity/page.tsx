@@ -5,26 +5,14 @@ import { FaSliders } from 'react-icons/fa6'
 import "./page.css"
 import MovementCard from '@/components/Cards/MovementCard/MovementCard'
 import SearchFilter from '@/components/SearchFilter/SearchFilter'
+import { headers } from 'next/headers'
+import { getUserAccount } from '@/services/account/account.service'
+import { getAllTransactions } from '@/services/transactions/transactions.service'
 
-const transactions: any = [
-    {
-        operation: "Depósito",
-        amount: 1000,
-        date: "03-05-2023"
-    },
-    {
-        operation: "Retíro",
-        amount: 5000,
-        date: "09-02-2023"
-    },
-    {
-        operation: "Depósito",
-        amount: 2000,
-        date: "02-01-2023"
-    },
-]
-
-const ActivityPage = () => {
+const ActivityPage = async () => {
+    const token:string = headers().get("x-digital-access-token")?? "";
+    const {id} : {id: number} = await getUserAccount(token);
+    const transactions = await getAllTransactions(id, token)
     return (
         <main className='bg-lightGray'>
             <section>
