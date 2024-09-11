@@ -7,12 +7,13 @@
 @media (min-width: 300px) and (max-width:500px){
     #movement-details{
         @apply w-[100%];
-        @apply my-2;
-        @apply p-2;
+        @apply px-2;
+        @apply py-6;
         @apply flex;
         @apply flex-row;
         @apply justify-between;
-        @apply border-t-[1px];
+        @apply items-center;
+        @apply border-b-[1px];
         @apply border-black;
         @apply text-sm;
     }
@@ -23,17 +24,25 @@
         @apply items-center;
     }
 
-    #movement-details #circle {
-        @apply w-2;
-        @apply h-2;
-        @apply mr-4;
+    #movement-details #title #circle {
+        @apply w-6;
+        @apply h-6;
+        @apply mr-2;
         @apply rounded-full;
         @apply bg-ylw;
         @apply p-[10px];
     }
 
-    #movement-details #details {
-        @apply items-center;
+    #movement-details #title #transaction-name {
+        @apply text-sm;
+    }
+
+    #movement-details #transaction-import {
+        @apply text-sm;
+    }
+
+    #movement-details #date {
+        @apply text-xs;
     }
 }
 
@@ -42,12 +51,13 @@
 @media (min-width: 500px) and (max-width:768px){
     #movement-details{
         @apply w-[100%];
-        @apply my-2;
-        @apply p-2;
+        @apply py-4;
+        @apply px-2;
         @apply flex;
         @apply flex-row;
         @apply justify-between;
-        @apply border-t-[1px];
+        @apply items-center;
+        @apply border-b-[1px];
         @apply border-black;
         @apply text-sm;
     }
@@ -59,16 +69,16 @@
     }
 
     #movement-details #circle {
-        @apply w-2;
-        @apply h-2;
+        @apply w-8;
+        @apply h-8;
         @apply mr-4;
         @apply rounded-full;
         @apply bg-ylw;
         @apply p-[10px];
     }
 
-    #movement-details #details {
-        @apply items-center;
+    #movement-details #date {
+        @apply text-xs;
     }
 }
 

@@ -22,15 +22,15 @@ const ChargeMethodsContainer = ({cvu, alias} : ChargeMethodsParams) => {
             <>
                 <div id="transfer-card" className='bg-blck' onClick={handleChange}>
                     <div>
-                        <FaRegCircleUser />
-                        <h3 className='font-bold'>Transferencía bancaria</h3>
+                        <FaRegCircleUser id="user-circle-icon"/>
+                        <h3 className=''>Transferencía bancaria</h3>
                     </div>
                     <FaArrowRight />
                 </div>
                 <div id="select-card" className='bg-blck' onClick={()=>router.push("/charge/with-card")}>
                     <div>
                         <Image src="/cards-icon.png" alt="select-card" width={128} height={128} />
-                        <h3 className='font-bold'>Seleccionar tarjeta</h3>
+                        <h3 className=''>Seleccionar tarjeta</h3>
                     </div>
                     <FaArrowRight />
                 </div>

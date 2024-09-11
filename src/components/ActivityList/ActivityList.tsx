@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react'
 import MovementCard from '../Cards/MovementCard/MovementCard'
 import './activityList.css'
+import SearchFilter from '../SearchFilter/SearchFilter'
+import { FaSliders } from 'react-icons/fa6'
 
 
 const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => {
@@ -27,7 +29,16 @@ const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => 
 
     return (
         <>
-            <div><h3 className='font-bold'>Tu actividad</h3></div>
+            <div id="header-list">
+                <h3 className='font-bold'>Tu actividad</h3>
+                <div id="filter-mobile-container" className='tablet:hidden desktop:hidden'>
+                <SearchFilter />
+                    <span id="filter-container">
+                        <h3>Filtrar</h3>
+                        <FaSliders />
+                    </span>
+                </div>
+            </div>
             <div id="movement-list">
                 {
                     (transactions && transactions.length > 0) ? currentTransactions.map((transaction: any, index: number) => (

@@ -12,11 +12,11 @@ const ChargeWithCard = async () => {
     const cards:CardType[] = await getAllCards(String(id), token);
     return (
         <main className='bg-lightGray'>
+            <Toaster richColors visibleToasts={1}/>
             <section>
                 <Menu />
             </section>
             <section className='w-full'>
-                <Toaster richColors visibleToasts={1}/>
                 <ChargeWithCardForm cards={cards} accountId={id} cvu={cvu} token={token}/>
             </section>
         </main>

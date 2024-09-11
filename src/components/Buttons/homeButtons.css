@@ -12,11 +12,12 @@
         @apply flex-col;
         @apply items-center;
     }
-    #home-buttons button{
+    #home-buttons a{
         @apply bg-ylw;
         @apply mb-4;
         @apply p-4;
         @apply font-bold;
+        @apply text-center;
         @apply text-[16px];
         @apply rounded-sm;
         @apply shadow-md;
@@ -41,11 +42,12 @@
         @apply flex-col;
         @apply items-center;
     }
-    #home-buttons button{
+    #home-buttons a{
         @apply bg-ylw;
         @apply mb-4;
         @apply p-4;
         @apply font-bold;
+        @apply text-center;
         @apply text-lg;
         @apply rounded-sm;
         @apply shadow-md;
@@ -69,10 +71,11 @@
         @apply flex;
         @apply flex-row;
     }
-    #home-buttons button{
+    #home-buttons a{
         @apply bg-ylw;
         @apply p-6;
         @apply font-bold;
+        @apply text-center;
         @apply text-xl;
         @apply rounded-sm;
         @apply shadow-md;

@@ -15,14 +15,14 @@ const MovementCard = ({movement} : MovementCardParams) => {
             <div id="title">
             <p id="circle"></p>
             {movement.type === "Deposit" || movement.type === "Transference" ?
-             <p id="transaction-name">{movement.type === "Deposit" ? "Has depositado dinero" : "Te transfirieron dinero"}</p>
+             <p id="transaction-name">{movement.type === "Deposit" ? "Ingresaste dinero" : "Te transfirieron dinero"}</p>
               :
               <p id="transaction-name">{movement.description}</p>
               }
             </div>
             <div id="details">
             <p id="transaction-import">${movement.amount}</p>
-            <p className="text-gray-500" id="date">{day + " de " + month + " del " + year}</p>
+            {/* <p className="text-gray-500" id="date">{day + " de " + month + " del " + year}</p> */}
             </div>
         </span>
   )

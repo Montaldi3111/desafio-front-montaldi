@@ -4,7 +4,7 @@
 
 /* Mobile CSS */
 
-@media (min-width: 300px) {
+@media (min-width: 300px) and (max-width:500px) {
     #searchBar-container {
         @apply w-[100%];
         @apply mb-4;
@@ -20,21 +20,22 @@
 
     #searchBar-container svg {
         @apply text-gray-400;
+        @apply mx-2;
     }
     #searchBar-container #search {
         @apply w-full;
-        @apply ml-2;
         @apply p-2;
     }
 }
 
 /* Tablet CSS */
 
-@media (min-width: 500px) {
+@media (min-width: 500px) and (max-width:768px) {
     #searchBar-container {
         @apply w-[60vw];
         @apply mb-4;
-        @apply p-2;
+        @apply py-2;
+        @apply px-1;
         @apply flex;
         @apply flex-row;
         @apply border-2;
@@ -45,11 +46,12 @@
     }
 
     #searchBar-container svg {
+        @apply mx-2;
         @apply text-gray-400;
+        @apply text-center;
     }
     #searchBar-container #search {
         @apply w-full;
-        @apply ml-2;
         @apply p-2;
     }
 }

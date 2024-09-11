@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { CiCirclePlus } from 'react-icons/ci';
-import { FaPenToSquare } from 'react-icons/fa6';
+import { FaArrowRight, FaPenToSquare } from 'react-icons/fa6';
 import { toast } from 'sonner';
 import * as yup from "yup"
 import ActionSuccessCard from '../Cards/ActionSuccessCard/ActionSuccessCard';
@@ -58,14 +58,14 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
 
     // Esto es para setear el horario cuando se este realizando el deposito
     useEffect(() => {
-        var dateSuccess:string = dateFormatter(new Date().toISOString());
-        if(document !== null){
+        var dateSuccess: string = dateFormatter(new Date().toISOString());
+        if (document !== null) {
             const dateField = document.getElementById("date-success");
-            if(dateField) {
+            if (dateField) {
                 dateField.textContent = dateSuccess;
             }
         }
-    },[step])
+    }, [step])
 
 
     const decrementStep = () => {
@@ -93,20 +93,25 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
     }
 
     const onSubmit = (data: FormChargeWithCardData) => {
-        createNewDeposit(accountId, data, token).then(response => {
-            if (response === 1) {
-                toast.error("Se ha producido un error al realizar el depósito")
-            } else {
-                incrementStep();
-            }
-        }).catch(error => {
-            toast.error(error.message)
-        })
+        incrementStep();
+        // createNewDeposit(accountId, data, token).then(response => {
+        //     if (response === 1) {
+        //         toast.error("Se ha producido un error al realizar el depósito")
+        //     } else {
+        //         incrementStep();
+        //     }
+        // }).catch(error => {
+        //     toast.error(error.message)
+        // })
     }
 
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
+            <div id="current-page">
+                <FaArrowRight />
+                <p className='underline'>Cargar dinero</p>
+            </div>
             {step === 0 && <>
                 <section id="select-card-section" className='bg-blck'>
                     <h3 className='font-bold'>Seleccionar tarjeta</h3>
@@ -129,8 +134,12 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
                         <button type="button" className={`${origin === "" ? 'bg-ylwBlck cursor-not-allowed' : 'bg-ylw'}`} onClick={goToNextStep} disabled={origin === ""}>Continuar</button>
                     </div>
                 </section>
+                <div id="out-section">
+                    <h4></h4>
+                    <button type="button" id="button-out-section" className={`${origin === "" ? 'bg-ylwBlck cursor-not-allowed' : 'bg-ylw'}`} onClick={goToNextStep} disabled={origin === ""}>Continuar</button>
+                </div>
             </>}
-            {step === 1 &&
+            {step === 1 && <>
                 <section id="amount-section" className='bg-blck'>
                     <h3 className='font-bold'>¿Cuánto querés ingresar a la cuenta?</h3>
                     <input type="number" placeholder='$0' {...register("amount")} />
@@ -139,28 +148,41 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
                         <h4></h4>
                         <button type="button" className={`${amount <= 0 ? 'bg-ylwBlck cursor-not-allowed' : 'bg-ylw'}`} onClick={goToNextStep} disabled={amount <= 0}>Continuar</button>
                     </div>
-                </section>}
+                </section>
+                <div id="out-section">
+                    <h4></h4>
+                    <button type="button" id="button-out-section" className={`${amount <= 0 ? 'bg-ylwBlck cursor-not-allowed' : 'bg-ylw'}`} onClick={goToNextStep} disabled={origin === ""}>Continuar</button>
+                </div>
+            </>
+            }
 
-            {step === 2 && <section id="check-info-section" className='bg-blck'>
-                <article>
-                    <h3 className='font-bold text-ylw'>Revisá que está todo bien</h3>
-                    <div>
-                        <p>Vas a transferir</p>
-                        <FaPenToSquare onClick={decrementStep} />
-                    </div>
-                    <h3 className='font-bold text-white text-[16px] mt-4'>${amount}</h3>
-                    <div>
-                        <ul className='text-white'>
-                            <li className='text-xs'>Para</li>
-                            <li className='font-bold text-lg my-4'>Cuenta Propia</li>
-                            <li className='text-[16px]'>Brubank</li>
-                            <li className='text-sm mt-2'>CVU: {cvu}</li>
-                        </ul>
-                    </div>
-                </article>
-                <button type="submit" onClick={handleSubmit(onSubmit)}>Continuar</button>
+            {step === 2 && <>
+                <section id="check-info-section" className='bg-blck'>
+                    <article className=''>
+                        <h3 className='font-bold text-ylw'>Revisá que está todo bien</h3>
+                        <div>
+                            <p>Vas a transferir</p>
+                            <FaPenToSquare onClick={decrementStep} />
+                        </div>
+                        <h3 className='font-bold text-white text-[16px] mt-4'>${amount}</h3>
+                        <div>
+                            <ul className='text-white'>
+                                <li className='text-xs'>Para</li>
+                                <li className='font-bold text-lg my-4'>Cuenta Propia</li>
+                                <li className='text-[16px]'>Brubank</li>
+                                <li className='text-sm mt-2'>CVU: {cvu}</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <button type="submit" onClick={handleSubmit(onSubmit)}>Transferir</button>
 
-            </section>}
+                </section>
+                <div id="out-section">
+                    <h4></h4>
+                    <button type="button" id="button-out-section" onClick={goToNextStep}>Transferir</button>
+                </div>
+            </>
+            }
 
             {step === 3 &&
                 <>
@@ -175,10 +197,10 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
                             <li className='text-xs my-2'>CVU: {cvu}</li>
                         </ul>
                     </section>
-                        <div id="button-container">
+                    <div id="button-container">
                         <button id="home-btn" className="bg-[#CECECE]" onClick={navigate}>Ir a Inicio</button>
                         <p className="bg-ylw" id="download-voucher-btn">Descargar comprobante</p>
-                        </div>
+                    </div>
                 </>
             }
         </form>

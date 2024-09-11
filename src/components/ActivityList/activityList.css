@@ -2,38 +2,164 @@
 @tailwind components;
 @tailwind utilities;
 
-#activities-list {
-    @apply w-[80%];
-    @apply mx-auto;
-    @apply mb-4;
-    @apply flex;
-    @apply flex-col;
-    @apply flex-wrap;
-    @apply p-4;
-    @apply rounded-[12px];
+@media (min-width: 300px) and (max-width:500px) {
+
+        #activities-list {
+            @apply w-[90%];
+            @apply mx-auto;
+            @apply mb-4;
+            @apply flex;
+            @apply flex-col;
+            @apply flex-wrap;
+            @apply p-4;
+            @apply rounded-[12px];
+        }
+
+        #activities-list #header-list {
+            @apply flex;
+            @apply flex-row;
+            @apply items-center;
+            @apply justify-between;
+            @apply border-b-[1px];
+            @apply border-black;
+        }
+        
+        #activities-list div h3 {
+            @apply pb-2;
+            @apply text-[16px];
+            @apply border-black;
+        }
+
+        #activities-list div #filter-mobile-container{
+            @apply flex;
+        }
+
+        #activities-list div #filter-mobile-container #filter-container {
+            @apply flex;
+            @apply items-center;
+        }
+
+        #activities-list div #filter-mobile-container #filter-container {
+            @apply flex;
+            @apply items-center;
+        }
+
+        #activities-list div #filter-mobile-container #filter-container h3{
+            @apply underline;
+            @apply font-semibold;
+            @apply text-[16px];
+        }
+
+        #activities-list div #filter-mobile-container #filter-container svg{
+            @apply w-6;
+            @apply h-5;
+            @apply pb-2;
+        }
+
+        
+        #activities-list #movement-list{
+            @apply mt-0;
+            @apply items-center;
+        }
+        
+        #activities-list #page-btn-container {
+            @apply flex;
+            @apply flex-row;
+            @apply justify-center;
+            @apply items-center;
+        }
+        
+        #activities-list #page-btn {
+            @apply mt-8;
+            @apply mx-2;
+            @apply mb-2;
+            @apply py-2;
+            @apply px-3;
+            @apply font-bold;
+            @apply text-[16px];
+            @apply rounded-[8px];
+        }
 }
 
-#activities-list div h3 {
-    @apply pb-4;
-    @apply text-[16px];
-    @apply border-b-[1px];
-    @apply border-black;
+@media (min-width: 500px) and (max-width:768px){
+
+    #activities-list {
+        @apply w-[85%];
+        @apply mx-auto;
+        @apply mb-4;
+        @apply flex;
+        @apply flex-col;
+        @apply flex-wrap;
+        @apply p-4;
+        @apply rounded-[12px];
+    }
+    
+    #activities-list div h3 {
+        @apply pb-2;
+        @apply text-[16px];
+        @apply border-b-[1px];
+        @apply border-black;
+    }
+    
+    #activities-list #movement-list{
+        @apply mt-0;
+        @apply items-center;
+    }
+    
+    #activities-list #page-btn-container {
+        @apply flex;
+        @apply flex-row;
+        @apply justify-center;
+        @apply items-center;
+    }
+    
+    #activities-list #page-btn {
+        @apply mt-4;
+        @apply mx-2;
+        @apply mb-6;
+        @apply py-2;
+        @apply px-3;
+        @apply font-bold;
+        @apply text-[16px];
+    }
 }
 
-#activities-list #movement-list{
-    @apply mt-0;
-    @apply items-center;
-}
 
-#activities-list #page-btn-container {
-    @apply flex;
-    @apply flex-row;
-    @apply justify-center;
-}
-
-#activities-list #page-btn {
-    @apply m-2;
-    @apply py-2;
-    @apply px-4;
-    @apply font-bold;
+@media (min-width: 768px){
+    
+    #activities-list {
+        @apply w-[80%];
+        @apply mx-auto;
+        @apply mb-4;
+        @apply flex;
+        @apply flex-col;
+        @apply flex-wrap;
+        @apply p-4;
+        @apply rounded-[12px];
+    }
+    
+    #activities-list div h3 {
+        @apply pb-4;
+        @apply text-[16px];
+        @apply border-b-[1px];
+        @apply border-black;
+    }
+    
+    #activities-list #movement-list{
+        @apply mt-0;
+        @apply items-center;
+    }
+    
+    #activities-list #page-btn-container {
+        @apply flex;
+        @apply flex-row;
+        @apply justify-center;
+    }
+    
+    #activities-list #page-btn {
+        @apply m-2;
+        @apply py-2;
+        @apply px-4;
+        @apply font-bold;
+    }
 }

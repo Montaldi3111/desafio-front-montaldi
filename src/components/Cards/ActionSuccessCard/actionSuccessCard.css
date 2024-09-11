@@ -2,19 +2,42 @@
 @tailwind utilities;
 @tailwind components;
 
-#success-card {
-    @apply w-full;
-    @apply mb-5;
-    @apply p-4;
-    @apply bg-ylw;
-    @apply text-center;
-    @apply text-xl;
-    @apply rounded-sm;
+@media (min-width: 300px) and (max-width: 768px) {
+    #success-card {
+        @apply w-[90%];
+        @apply mx-auto;
+        @apply mb-5;
+        @apply p-4;
+        @apply bg-ylw;
+        @apply text-center;
+        @apply text-[16px];
+        @apply rounded-sm;
+    }
+    
+    #success-card svg {
+        @apply size-12;
+        @apply mx-auto;
+        @apply mb-4;
+        @apply text-black;
+    }
 }
 
-#success-card svg {
-    @apply size-16;
-    @apply mx-auto;
-    @apply mb-4;
-    @apply text-black;
+@media (min-width: 768px) {
+    #success-card {
+        @apply w-full;
+        @apply mb-5;
+        @apply p-4;
+        @apply bg-ylw;
+        @apply text-center;
+        @apply text-xl;
+        @apply rounded-sm;
+    }
+    
+    #success-card svg {
+        @apply size-16;
+        @apply mx-auto;
+        @apply mb-4;
+        @apply text-black;
+    }
+    
 }

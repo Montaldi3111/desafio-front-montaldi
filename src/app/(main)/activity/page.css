@@ -7,6 +7,117 @@ main {
     @apply flex;
 }
 
+main #current-page {
+    @apply hidden;
+}
+
+@media (min-width: 300px) and (max-width:500px) {
+
+    main {
+        @apply flex;
+        @apply flex-col;
+    }
+
+    main #current-page {
+        @apply w-[90%];
+        @apply mt-4;
+        @apply mx-auto;
+        @apply flex;
+        @apply items-center;
+    }
+
+    main #current-page svg{
+        @apply mr-2;
+        @apply text-graySlate;
+    }
+
+    main #current-page p {
+        @apply underline;
+        @apply text-[16px];
+    }
+
+    main #activity-container {
+        @apply w-full;
+        @apply mt-4;
+        @apply flex;
+        @apply flex-col;
+    }
+
+    main #activity-container #search-bar-container {
+        @apply w-[90%];
+        @apply mx-auto;
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+    }
+
+    main #activity-container #search-bar-container #searchBar-container {
+        @apply w-full;
+    }
+
+    main #activity-container #filter-container {
+        @apply hidden;
+    }
+
+    main #activity-container #filter-container:hover {
+        @apply underline;
+        @apply cursor-pointer;
+    }
+
+    main #activity-container #filter-container svg {
+        @apply w-4;
+        @apply h-4;
+    }
+}
+
+@media (min-width: 500px) and (max-width:768px) {
+    main #activity-container {
+        @apply w-full;
+        @apply mt-14;
+        @apply flex;
+        @apply flex-col;
+    }
+
+    main #activity-container #search-bar-container {
+        @apply w-[85%];
+        @apply mx-auto;
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+    }
+
+    main #activity-container #search-bar-container #searchBar-container {
+        @apply w-[60%];
+    }
+
+    main #activity-container #filter-container {
+        @apply w-[40%];
+        @apply mb-4;
+        @apply ml-4;
+        @apply p-[1.1rem];
+        @apply bg-ylw;
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+        @apply shadow-sm;
+        @apply shadow-gray-400;
+    }
+
+    main #activity-container #filter-container:hover {
+        @apply underline;
+        @apply cursor-pointer;
+    }
+
+    main #activity-container #filter-container svg {
+        @apply w-4;
+        @apply h-4;
+    }
+}
+
 @media (min-width: 768px) {
     main #activity-container {
         @apply w-full;

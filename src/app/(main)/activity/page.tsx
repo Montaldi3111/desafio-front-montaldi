@@ -1,7 +1,7 @@
 import Menu from '@/components/Menu/Menu'
 import SearchBar from '@/components/SearchBar/SearchBar'
 import React from 'react'
-import { FaSliders } from 'react-icons/fa6'
+import { FaArrowRight, FaSliders } from 'react-icons/fa6'
 import MovementCard from '@/components/Cards/MovementCard/MovementCard'
 import SearchFilter from '@/components/SearchFilter/SearchFilter'
 import { headers } from 'next/headers'
@@ -19,6 +19,10 @@ const ActivityPage = async () => {
             <section>
                 <Menu />
             </section>
+            <div id="current-page">
+                <FaArrowRight />
+                <p>Tu actividad</p>
+            </div>
             <section id="activity-container">
                 <article id="search-bar-container">
                     <SearchBar />
