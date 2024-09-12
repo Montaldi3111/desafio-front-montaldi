@@ -15,7 +15,7 @@ const Profile = async () => {
   const userData: UserType = await getUserData(user_id, token)
   return (
     <main className='bg-lightGray flex flex-row h-full'>
-      <Toaster richColors visibleToasts={1} position='bottom-left' />
+      <Toaster richColors closeButton visibleToasts={1} position='bottom-left' />
       <section>
         <Menu />
       </section>

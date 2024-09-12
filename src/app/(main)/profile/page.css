@@ -12,7 +12,7 @@ main #actual-page {
 
 /* Mobile CSS */
 
-@media (min-width: 300px) and (max-width: 500px){
+@media (min-width: 300px) and (max-width: 768px){
 
     main #info {
         @apply mx-auto;
@@ -36,7 +36,8 @@ main #actual-page {
         @apply w-[90vw];
         @apply mx-auto;
         @apply mt-4;
-        @apply p-4;
+        @apply px-4;
+        @apply py-6;
         @apply bg-ylw;
         @apply items-center;
         @apply flex;
@@ -52,16 +53,14 @@ main #actual-page {
 
 /* Tablet CSS */
 
-@media (min-width: 500px) and (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px) {
 
     #actual-page {
         @apply hidden;
     }
 
     #manage-payments {
-        @apply min-w-[334px];
-        @apply w-[60vw];
-        @apply max-w-[500px];
+        @apply w-[80%];
         @apply mx-auto;
         @apply bg-ylw;
         @apply mt-4;
@@ -82,7 +81,7 @@ main #actual-page {
 
 /* Laptop, Desktop CSS */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 
     main #actual-page {
         @apply hidden;

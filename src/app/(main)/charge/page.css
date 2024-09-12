@@ -11,7 +11,7 @@ main #current-page {
     @apply hidden;
 }
 
-@media (min-width: 300px) and (max-width:500px) {
+@media (min-width: 300px) and (max-width:768px) {
     main {
         @apply flex;
         @apply flex-col;
@@ -114,7 +114,7 @@ main #current-page {
     }
 }
 
-@media (min-width: 500px) and (max-width:768px) {
+@media (min-width: 768px) and (max-width:1024px) {
     main {
         @apply flex;
     }
@@ -127,12 +127,12 @@ main #current-page {
     }
 
     main #charge-methods #transfer-card{
-        @apply w-[85%];
-        @apply max-w-[400px];
+        @apply w-[87%];
+        @apply h-[160px];
         @apply mx-auto;
         @apply mb-10;
         @apply py-8;
-        @apply px-4;
+        @apply px-6;
         @apply flex;
         @apply justify-between;
         @apply items-center;
@@ -158,16 +158,21 @@ main #current-page {
 
     main #charge-methods svg {
         @apply text-ylw;
+        @apply w-8;
+        @apply h-8;
+    }
+
+    main #charge-methods #arrow-right {
         @apply w-6;
         @apply h-6;
     }
 
     main #charge-methods #select-card {
-        @apply w-[85%];
-        @apply max-w-[400px];
+        @apply w-[87%];
+        @apply h-[160px];
         @apply mx-auto;
         @apply py-8;
-        @apply px-4;
+        @apply px-6;
         @apply flex;
         @apply justify-between;
         @apply items-center;
@@ -185,14 +190,15 @@ main #current-page {
     }
 
     main #select-card img {
-        @apply w-8;
-        @apply h-6;
+        @apply w-9;
+        @apply h-8;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     main {
         @apply flex;
+        @apply w-full;
     }
 
     main #charge-methods {
@@ -200,6 +206,10 @@ main #current-page {
         @apply mt-10;
         @apply flex;
         @apply flex-col;
+    }
+
+    main #charge-methods #cvu-alias-card {
+        @apply w-[80%];
     }
 
     main #charge-methods #transfer-card{

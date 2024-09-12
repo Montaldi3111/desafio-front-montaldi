@@ -4,7 +4,7 @@
 
 /* Mobile CSS */
 
-@media (min-width: 300px){
+@media (min-width: 300px) and (max-width:768px){
     #home-buttons {
         @apply w-[100%];
         @apply mt-4;
@@ -25,16 +25,18 @@
 
     #home-buttons #charge-money{
         @apply w-[100%];
+        @apply max-w-[600px];
     }
 
     #home-buttons #payments{
         @apply w-[100%];
+        @apply max-w-[600px];
     }
 }
 
 /* Tablet CSS */
 
-@media (min-width: 500px){
+@media (min-width: 768px) and (max-width:1024px){
     #home-buttons {
         @apply w-[60vw];
         @apply mt-4;
@@ -64,7 +66,7 @@
 
 /* Laptop, Desktop CSS */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     #home-buttons {
         @apply w-[60vw];
         @apply mt-4;
@@ -83,7 +85,7 @@
 
     #home-buttons #charge-money{
         @apply w-[50%];
-        @apply max-w-[50vw];
+        @apply max-w-[350px];
         @apply mr-4;
     }
 

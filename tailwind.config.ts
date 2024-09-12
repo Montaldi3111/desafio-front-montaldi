@@ -5,6 +5,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/stories/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -14,7 +15,8 @@ const config: Config = {
         "ylwBlck": "#C0AD06",
         "blck": "#181818",
         "lightGray": "#E3DFCF",
-        "skyBlue": "#D2FFEC"
+        "skyBlue": "#D2FFEC",
+        "overlay": "#808080"
       },
       fontFamily: {
         "head1": ["Archive", "sans-serif"],

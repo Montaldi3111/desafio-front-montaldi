@@ -8,10 +8,11 @@ main #home-shortcut {
 
 /* Mobile CSS */
 
-@media (min-width: 300px) and (max-width:500px) {
+@media (min-width: 300px) and (max-width:768px) {
     main #home-shortcut {
-        @apply w-[80vw];
-        @apply mx-4;
+        @apply w-[90%];
+        @apply max-w-[600px];
+        @apply mx-auto;
         @apply pt-4;
         @apply flex;
         @apply text-left;
@@ -28,17 +29,17 @@ main #home-shortcut {
 
     main #account-details {
         @apply w-[90vw];
+        @apply h-[240vh];
         @apply mx-auto;
         @apply flex;
         @apply flex-col;
-        @apply justify-center;
         @apply items-center;
     }
 }
 
 /* Tablet CSS */
 
-@media (min-width: 500px) and (max-width: 767px){
+@media (min-width: 768px) and (max-width: 1024px){
 
     main {
         @apply flex;
@@ -61,7 +62,7 @@ main #home-shortcut {
 
 /* Desktop CSS */
 
-@media (min-width: 767px) {
+@media (min-width: 1024px) {
 
     main {
         @apply h-[200vh];
@@ -70,7 +71,6 @@ main #home-shortcut {
     }
 
     main #account-details {
-        @apply w-[60vw];
         @apply h-full;
         @apply mx-auto;
         @apply flex;

@@ -8,10 +8,9 @@ main {
 
 /* Mobile CSS */
 
-@media (min-width: 300px) and (max-width:500px){
+@media (min-width: 300px) and (max-width:768px){
     #user-details {
         @apply w-[90vw];
-        @apply max-w-[360px];
         @apply mx-auto;
         @apply bg-white;
         @apply py-6;
@@ -61,15 +60,12 @@ main {
 
 /* Tablet CSS */
 
-@media (min-width: 500px) and (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     #user-details {
-        @apply min-w-[334px];
-        @apply w-[60vw];
-        @apply max-w-[500px];
+        @apply w-[80%];
         @apply mx-auto;
         @apply bg-white;
-        @apply py-4;
-        @apply px-2;
+        @apply p-4;
         @apply rounded-sm;
         @apply shadow;
         @apply text-sm;
@@ -117,7 +113,7 @@ main {
 
 /* Laptop, Desktop CSS */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     #user-details {
         @apply mx-auto;
         @apply w-[100%];

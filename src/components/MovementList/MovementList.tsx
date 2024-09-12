@@ -25,7 +25,7 @@ const MovementList = async ({ accountId, token }: MovementCardParams) => {
                     }) : <p className='text-center font-lg font-bold my-4'>No hay registro de tu actividad</p>
                 }
                 { // no tendría sentido mostrar esta parte si no hay movimientos en la cuenta
-                    transactions.length > 0 && <div className='w-[100%] flex flex-row justify-between items-center border-t-[1px] border-black text-black font-bold'>
+                    transactions.length > 0 && <div className='w-[100%] flex flex-row justify-between items-center text-black font-bold'>
                         <Link href="/activity" className='mt-2'>Ver toda tu actividad</Link>
                         <Link href="/activity" className='text-xl p-2 cursor-pointer'>
                             <FaArrowRight className="mt-2" />

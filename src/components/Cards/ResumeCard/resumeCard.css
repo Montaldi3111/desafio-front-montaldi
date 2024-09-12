@@ -4,9 +4,10 @@
 
 /* Mobile CSS */
 
-@media (min-width: 300px) and (max-width:500px) {
+@media (min-width: 300px) and (max-width:768px) {
     #principal-card{
         @apply w-[100%];
+        @apply max-w-[600px];
         @apply p-4;
         @apply flex;
         @apply flex-col;
@@ -51,7 +52,7 @@
 
 /* Tablet CSS */
 
-@media (min-width: 500px) and (max-width:767px) {
+@media (min-width: 768px) and (max-width:1024px) {
     #principal-card{
         @apply w-[60vw];
         @apply p-6;
@@ -94,7 +95,7 @@
 
 /* Laptop, Desktop CSS */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     #principal-card{
         @apply w-[60vw];
         @apply h-fit;

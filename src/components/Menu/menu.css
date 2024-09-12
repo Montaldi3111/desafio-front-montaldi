@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 #menu {
-    @apply h-full;
+    @apply h-[full];
     @apply bg-ylw;
 }
 
 /* Mobile CSS */
 
-@media (min-width:300px) and (max-width:500px) {
+@media (min-width:300px) and (max-width:768px) {
 
     #menu-home {
         @apply hidden;
@@ -22,7 +22,7 @@
     header nav #profile-buttons #menu{
         @apply absolute;
         @apply w-[219px];
-        @apply h-screen;
+        @apply h-[246.1vh];
         @apply top-14;
         @apply left-0;
         @apply flex;
@@ -38,7 +38,7 @@
 
 /* Tablet CSS */
 
-@media (min-width: 500px) and (max-width:768px) {
+@media (min-width: 768px) and (max-width:1024px) {
     header #menu-hi-message {
         @apply hidden;
     }
@@ -59,7 +59,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 
     header #menu-hi-message {
         @apply hidden;

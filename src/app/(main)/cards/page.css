@@ -2,18 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (min-width: 300px) and (max-width:500px) {
+@media (min-width: 300px) and (max-width:768px) {
     main {
         @apply flex;
         @apply bg-lightGray;
+        @apply h-[220vh];
     }
 
     #container {
         @apply w-full;
         @apply flex;
         @apply flex-col;
-        @apply justify-around;
-        @apply gap-y-10;
+        @apply gap-y-4;
     }
 
     #container #current-page {
@@ -32,7 +32,7 @@
     }
 
     #new-card {
-        @apply w-[92%];
+        @apply w-[95%];
         @apply h-[150px];
         @apply mx-auto;
         @apply p-4;
@@ -62,8 +62,8 @@
     }
 
     #new-card #add-card #circle-plus {
-        @apply w-10;
-        @apply h-10;
+        @apply w-8;
+        @apply h-8;
     }
 
     #new-card #add-card #first-container {
@@ -72,8 +72,8 @@
     }
 
     #new-card #add-card #first-container h2 {
-        @apply text-[16px];
-        @apply ml-4;
+        @apply text-lg;
+        @apply ml-3;
         @apply hover:underline;
     }
 
@@ -89,7 +89,7 @@
     }
 
     #cards-list {
-        @apply w-[92%];
+        @apply w-[95%];
         @apply mx-auto;
         @apply mb-6;
         @apply py-4;
@@ -134,19 +134,19 @@
     }
 }
 
-@media (min-width: 500px) and (max-width:768px) {
+@media (min-width: 768px) and (max-width:1024px) {
     main {
-        @apply h-screen;
+        @apply h-[220vh];
         @apply flex;
         @apply bg-lightGray;
     }
 
     #container {
         @apply w-full;
+        @apply mt-12;
         @apply flex;
         @apply flex-col;
-        @apply justify-center;
-        @apply gap-y-10;
+        @apply gap-y-4;
     }
 
     #container #current-page {
@@ -180,7 +180,7 @@
         @apply hover:text-white;
     }
 
-    #new-card #add-card #circle-plus {
+    #new-card #add-card #first-container #circle-plus {
         @apply w-8;
         @apply h-8;
     }
@@ -211,7 +211,7 @@
         @apply w-[85%];
         @apply mx-auto;
         @apply py-10;
-        @apply px-4;
+        @apply px-8;
         @apply bg-white;
         @apply rounded-xs;
         @apply text-[16px];
@@ -220,7 +220,8 @@
     #cards-list h3 {
         @apply mb-4;
         @apply pb-2;
-        @apply border-b-2;
+        @apply border-b-[1px];
+        @apply border-black;
         @apply text-[16px];
     }
 
@@ -230,7 +231,8 @@
         @apply flex;
         @apply items-center;
         @apply justify-between;
-        @apply border-b-2;
+        @apply border-b-[1px];
+        @apply border-black;
         @apply text-[16px];
     }
 
@@ -240,8 +242,8 @@
     }
 
     #cards-list span div h4 {
-        @apply w-6;
-        @apply h-6;
+        @apply w-8;
+        @apply h-8;
         @apply mr-4;
         @apply bg-ylw;
         @apply rounded-full;
@@ -253,19 +255,19 @@
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     main {
-        @apply h-screen;
+        @apply h-[220vh];
         @apply flex;
         @apply bg-lightGray;
     }
 
     #container {
         @apply w-full;
-        @apply mt-10;
+        @apply mt-7;
         @apply flex;
         @apply flex-col;
-        @apply gap-y-10;
+        @apply gap-y-4;
     }
 
     #container #current-page {
@@ -274,11 +276,11 @@
 
     #new-card {
         @apply w-[80%];
-        @apply h-48;
         @apply mx-auto;
         @apply p-6;
         @apply flex;
         @apply flex-col;
+        @apply justify-between;
         @apply bg-blck;
         @apply rounded-xs;
         @apply shadow-md;
@@ -298,8 +300,8 @@
     }
 
     #new-card #add-card #circle-plus {
-        @apply w-12;
-        @apply h-12;
+        @apply w-9;
+        @apply h-9;
     }
 
     #new-card #add-card #first-container {
@@ -341,7 +343,9 @@
         @apply flex;
         @apply items-center;
         @apply justify-between;
-        @apply border-b-2;
+        @apply border-b-[1px];
+        @apply border-black;
+
     }
 
     #cards-list span div {
@@ -350,8 +354,8 @@
     }
 
     #cards-list span div h4 {
-        @apply w-10;
-        @apply h-10;
+        @apply w-8;
+        @apply h-8;
         @apply mr-4;
         @apply bg-ylw;
         @apply rounded-full;

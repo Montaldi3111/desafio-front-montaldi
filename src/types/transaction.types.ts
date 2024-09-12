@@ -1,7 +1,7 @@
 type TransactionType = {
     account_id: number,
     amount: number,
-    dated: string,
+    dated: string | Date,
     description: string,
     destination: string,
     id: number,

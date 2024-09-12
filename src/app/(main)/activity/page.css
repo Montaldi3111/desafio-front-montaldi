@@ -135,15 +135,13 @@ main #current-page {
         @apply gap-x-5;
     }
 
-    main #activity-container #filter-container {
+    main #activity-container #filter-menu-container #filter-container {
         @apply w-[20%];
         @apply mb-4;
-        @apply bg-ylw;
         @apply p-[1.1rem];
         @apply flex;
-        @apply justify-between;
-        @apply items-center;
         @apply text-center;
+        @apply justify-end;
         @apply text-[16px];
         @apply text-black;
         @apply rounded-sm;
@@ -154,5 +152,11 @@ main #current-page {
     main #activity-container #filter-container:hover {
         @apply underline;
         @apply cursor-pointer;
+    }
+
+    main #activity-container #filter-menu-container {
+        @apply flex;
+        @apply flex-col;
+        @apply justify-end;
     }
 }

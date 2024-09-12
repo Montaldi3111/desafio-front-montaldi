@@ -4,9 +4,10 @@
 
 /* Mobile CSS */
 
-@media (min-width: 300px) and (max-width:500px) {
+@media (min-width: 300px) and (max-width:768px) {
     #searchBar-container {
         @apply w-[100%];
+        @apply max-w-[600px];
         @apply mb-4;
         @apply p-2;
         @apply flex;
@@ -30,7 +31,7 @@
 
 /* Tablet CSS */
 
-@media (min-width: 500px) and (max-width:768px) {
+@media (min-width: 768px) and (max-width:1024px) {
     #searchBar-container {
         @apply w-[60vw];
         @apply mb-4;
@@ -59,7 +60,7 @@
 /* Laptop, Desktop CSS */
 
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     #searchBar-container {
         @apply w-full;
         @apply p-2;

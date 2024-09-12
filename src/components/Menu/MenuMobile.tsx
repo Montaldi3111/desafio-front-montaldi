@@ -28,8 +28,9 @@ const Menu = ({ showMenu, setShowMenu, firstname, lastname }: MenuProps) => {
     }
   }
 
-  return (
-    <div id={showMenu ? "menu" : "hidden"}>
+  if(showMenu) {
+    return (
+      <div className="h-full" id="menu">
       <span className="relative bg-graySlate font-bold text-ylw px-2" id="menu-hi-message">
         <FaX className="relative mt-4 left-44" onClick={() => setShowMenu(!showMenu)} />
         <div className='ml-4 pb-4'>
@@ -44,7 +45,8 @@ const Menu = ({ showMenu, setShowMenu, firstname, lastname }: MenuProps) => {
       <Link href="/cards">Tarjetas</Link>
       <p className='text-graySlate mt-4 text-sm cursor-pointer' onClick={handleLogout}>Cerrar sesión</p>
     </div>
-  )
+    )
+  }
 }
 
 export default Menu

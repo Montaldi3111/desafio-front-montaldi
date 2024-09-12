@@ -14,7 +14,7 @@ export default function Home() {
   }
 
   return (
-    <main className="w-full h-screen">
+    <main className="w-full">
       <section id="image-container">
       <Image id="home-img" src="/image.png" alt="Digital Money House" width={2300} height={900} className="w-full"/>
       </section>

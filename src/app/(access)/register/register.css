@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-main {
-    @apply h-full;
-}
-
 #form input {
     @apply border-2;
     @apply rounded-sm;
@@ -29,10 +25,10 @@ form #input-error {
 
 /* Mobile CSS */
 
-@media (min-width: 300px) and (max-width: 500px) {
+@media (min-width: 300px) and (max-width: 768px) {
 
     main {
-        @apply h-full;
+        @apply h-[110vh];
     }
 
     form h1{
@@ -90,7 +86,11 @@ form #input-error {
 
 /* Tablet CSS */
 
-@media (min-width: 500px) and (max-width:768px){
+@media (min-width: 768px) and (max-width:1024px){
+
+    main {
+        @apply h-screen;
+    }
 
     form h1 {
         @apply pt-14;
@@ -140,7 +140,11 @@ form #input-error {
 
 /* Laptop, Desktop CSS */
 
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
+
+    main {
+        @apply h-screen;
+    }
 
     main h1{
         @apply pt-14;

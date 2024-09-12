@@ -4,13 +4,13 @@
 
 /* Mobile CSS */
 
-@media (min-width: 300px) {
+@media (min-width: 300px) and (max-width:768px) {
     #cvu-alias-card {
         @apply bg-blck;
         @apply w-[90vw];
         @apply mt-4;
         @apply mx-auto;
-        @apply p-6;
+        @apply p-4;
         @apply text-white;
         @apply rounded-sm;
         @apply shadow;
@@ -22,7 +22,6 @@
     }
 
     #cvu-alias-card #cvu-container {
-        @apply mb-4;
         @apply pb-4;
         @apply flex;
         @apply justify-between;
@@ -31,21 +30,40 @@
         @apply border-white;
     }
 
+    #cvu-alias-card #cvu-container ul #cvu {
+        @apply text-[16px];
+    }
+
+    #cvu-alias-card #cvu-container svg {
+        @apply w-6;
+        @apply h-6;
+        @apply mb-6;
+    }
+
     #cvu-alias-card #alias-container {
+        @apply pt-4;
         @apply flex;
         @apply justify-between;
         @apply items-center;
+    }
+
+    #cvu-alias-card #alias-container ul #alias {
+        @apply text-[16px];
+    }
+
+    #cvu-alias-card #alias-container svg{
+        @apply w-6;
+        @apply h-6;
+        @apply mb-6;
     }
 
 }
 
 /* Tablet CSS */
 
-@media (min-width: 500px) and (max-width: 768px){
+@media (min-width: 768px) and (max-width: 1024px) {
     #cvu-alias-card {
-        @apply min-w-[334px];
-        @apply w-[60vw];
-        @apply max-w-[500px];
+        @apply w-[80%];
         @apply mt-4;
         @apply mx-auto;
         @apply p-6;
@@ -69,17 +87,35 @@
         @apply border-0;
     }
 
+    #cvu-alias-card #cvu-container ul #cvu {
+        @apply text-[16px];
+    }
+
+    #cvu-alias-card #cvu-container svg {
+        @apply w-8;
+        @apply h-8;
+    }
+
     #cvu-alias-card #alias-container {
         @apply flex;
         @apply justify-between;
         @apply items-center;
     }
 
+    #cvu-alias-card #alias-container ul #alias {
+        @apply text-[16px];
+    }
+
+    #cvu-alias-card #alias-container svg {
+        @apply w-8;
+        @apply h-8;
+    }
+
 }
 
 /* Laptop, Desktop CSS */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     #cvu-alias-card {
         @apply bg-blck;
         @apply mx-auto;
@@ -105,10 +141,28 @@
         @apply items-center;
     }
 
+    #cvu-alias-card #cvu-container ul #cvu {
+        @apply text-[16px];
+    }
+
+    #cvu-alias-card #cvu-container svg {
+        @apply w-9;
+        @apply h-8;
+    }
+
     #cvu-alias-card #alias-container {
         @apply flex;
         @apply justify-between;
         @apply items-center;
+    }
+
+    #cvu-alias-card #alias-container ul #alias {
+        @apply text-[16px];
+    }
+
+    #cvu-alias-card #alias-container svg {
+        @apply w-9;
+        @apply h-8;
     }
 
 }

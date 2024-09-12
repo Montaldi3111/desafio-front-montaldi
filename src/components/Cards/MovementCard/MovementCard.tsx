@@ -22,7 +22,7 @@ const MovementCard = ({movement} : MovementCardParams) => {
             </div>
             <div id="details">
             <p id="transaction-import">${movement.amount}</p>
-            {/* <p className="text-gray-500" id="date">{day + " de " + month + " del " + year}</p> */}
+            <p className="text-gray-500" id="date">{day + " de " + month + " del " + year}</p>
             </div>
         </span>
   )

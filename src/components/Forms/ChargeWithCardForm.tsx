@@ -10,7 +10,7 @@ import { FaArrowRight, FaPenToSquare } from 'react-icons/fa6';
 import { toast } from 'sonner';
 import * as yup from "yup"
 import ActionSuccessCard from '../Cards/ActionSuccessCard/ActionSuccessCard';
-import { dateFormatter } from '@/utils/dateFormatter';
+import { dateFormatter } from '@/utils/dateFunctions';
 type ChargeWithCardParams = {
     cards: CardType[],
     accountId: number,
@@ -93,16 +93,15 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
     }
 
     const onSubmit = (data: FormChargeWithCardData) => {
-        incrementStep();
-        // createNewDeposit(accountId, data, token).then(response => {
-        //     if (response === 1) {
-        //         toast.error("Se ha producido un error al realizar el depósito")
-        //     } else {
-        //         incrementStep();
-        //     }
-        // }).catch(error => {
-        //     toast.error(error.message)
-        // })
+        createNewDeposit(accountId, data, token).then(response => {
+            if (response === 1) {
+                toast.error("Se ha producido un error al realizar el depósito")
+            } else {
+                incrementStep();
+            }
+        }).catch(error => {
+            toast.error(error.message)
+        })
     }
 
 

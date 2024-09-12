@@ -11,7 +11,7 @@ const Home = async () => {
   const token:string = headers().get("x-digital-access-token") ?? "";
   const userData:UserAccountType = await getUserAccount(token);
   return (
-    <main className='bg-lightGray'>
+    <main className='bg-lightGray w-full'>
       <section>
         <Menu/>
       </section>
