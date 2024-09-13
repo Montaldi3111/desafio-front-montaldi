@@ -1,6 +1,6 @@
 import React from 'react'
-import "./homeButtons.css"
 import Link from 'next/link'
+import "./homeButtons.css"
 const HomeButtons = () => {
     return (
         <article id="home-buttons" className='bg-lightGray'>

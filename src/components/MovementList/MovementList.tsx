@@ -21,7 +21,7 @@ const MovementList = async ({ accountId, token }: MovementCardParams) => {
                 <div></div>
                 {
                     (transactions && transactions.length > 0) ? first10Transactions.map((transaction: TransactionType, index: number) => {
-                        return <MovementCard key={index} movement={transaction} />
+                        return <Link href={`/activity/${transaction.id}`} key={index}><MovementCard movement={transaction} /></Link>
                     }) : <p className='text-center font-lg font-bold my-4'>No hay registro de tu actividad</p>
                 }
                 { // no tendría sentido mostrar esta parte si no hay movimientos en la cuenta

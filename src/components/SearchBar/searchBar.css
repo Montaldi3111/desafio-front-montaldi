@@ -66,9 +66,9 @@
         @apply p-2;
         @apply flex;
         @apply flex-row;
+        @apply items-center;
         @apply border-2;
         @apply border-skyBlue;
-        @apply items-center;
         @apply rounded-[12px];
         @apply shadow-md;
     }

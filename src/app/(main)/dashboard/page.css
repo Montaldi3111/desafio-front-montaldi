@@ -42,6 +42,7 @@ main #home-shortcut {
 @media (min-width: 768px) and (max-width: 1024px){
 
     main {
+        @apply h-[200vh];
         @apply flex;
         @apply flex-row;
     }

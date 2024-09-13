@@ -1,5 +1,14 @@
+// Funcion para saber que día de la semana es a partir de una fecha ISO ingresada
 
-// Me devuelve una fecha en formato legible
+export function getDayOfWeek(isoDate: string): string {
+    const date = new Date(isoDate);
+    const dayOfWeek = date.toLocaleString('es-ES', { weekday: 'long' });
+
+    return dayOfWeek;
+}
+
+
+// Función para transformar una fecha en formato ISO en un formato más legible
 export function dateFormatter(isoDate: string): string {
     const date = new Date(isoDate);
 

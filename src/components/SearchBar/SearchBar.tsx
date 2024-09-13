@@ -3,7 +3,7 @@ import "./searchBar.css"
 
 const SearchBar = () => {
   return (
-    <span id="searchBar-container" className='bg-white'>
+    <span id="searchBar-container" className='bg-white w-full'>
         <FaMagnifyingGlass />
         <input type="text" name="search" id="search" placeholder='Buscar en tu actividad'/>
     </span>

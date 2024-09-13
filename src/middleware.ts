@@ -3,9 +3,14 @@ import type { NextRequest } from 'next/server'
  
 export async function middleware(request: NextRequest) {
   try {
+    const {pathname} = request.nextUrl;
     const token = request.cookies.get("token")?.value ?? "";
     const session:string = request.cookies.get("session")?.value ?? "";
-    if(!token) return NextResponse.redirect(new URL('/login', request.url))
+
+    if(!token && session !== "true") {
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
+
     return getAuthenticationHeaders(request, token, session);
   } catch (error) {
     throw new Error("Could not get user account");
@@ -23,7 +28,14 @@ const getAuthenticationHeaders = (request : NextRequest, accessToken : string, s
   })
 }
 export const config = {
-  matcher: ["/dashboard", "/register/success", "/profile", "/cards", "/cards/new-card", "/charge", "/charge/with-card", "/activity"]
+  matcher: ["/dashboard",
+    "/register/success",
+    "/profile",
+    "/cards",
+    "/cards/new-card",
+    "/charge",
+    "/charge/with-card",
+    "/activity",
+    "/activity/:id*"]
 }
 
- // ['/profile', '/cards', '/cards/new-card', '/dashboard', "/register/success"]

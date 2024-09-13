@@ -2,16 +2,19 @@
 import { useEffect, useState } from 'react'
 import MovementCard from '../Cards/MovementCard/MovementCard'
 import './activityList.css'
-import SearchFilter from '../SearchFilter/SearchFilter'
-import { FaSliders } from 'react-icons/fa6'
 import { filterAndSortTransactions, filterTransactions } from '@/utils/dateFunctions'
+import SearchFilterContainer from '../containers/SearchFilterContainer'
+import { useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 
+const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => {
 
-const ActivityList = ({ filterValue, transactions }: { filterValue: string, transactions: TransactionType[] }) => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [copyTransaction, setCopyTransaction] = useState<TransactionType[]>(transactions);
-    // seteo de valores para la paginación
+    const searchParams = useSearchParams();
+    const filterValue = searchParams.get('filter') ?? "desc-date";
     
+    // seteo de valores para la paginación
     const itemsPerPage = 10; // cant. de items por página
     const totalPages = Math.ceil(copyTransaction.length / itemsPerPage) // número de páginas totales (me devuelve un entero)
     const lastItem = itemsPerPage * currentPage; // índice del ultimo elemento del arreglo
@@ -36,18 +39,14 @@ const ActivityList = ({ filterValue, transactions }: { filterValue: string, tran
         <>
             <div id="header-list">
                 <h3 className='font-bold'>Tu actividad</h3>
-                <div id="filter-mobile-container" className='tablet:hidden desktop:hidden'>
-                <SearchFilter />
-                    <span id="filter-container">
-                        <h3>Filtrar</h3>
-                        <FaSliders />
-                    </span>
+                <div id="mobile-filter-container">
+                <SearchFilterContainer/>
                 </div>
             </div>
             <div id="movement-list">
                 {
-                    (transactions && transactions.length > 0) ? currentTransactions.map((transaction: any, index: number) => (
-                        <MovementCard key={index} movement={transaction} />
+                    (transactions && currentTransactions.length > 0) ? currentTransactions.map((transaction: TransactionType, index: number) => (
+                        <Link href={`/activity/${transaction.id}`} key={index}><MovementCard movement={transaction} /></Link>
                     )) : <p className='text-[16px] font-bold text-center mt-4'>No hay registros de tu actividad</p>
                 }
             </div>

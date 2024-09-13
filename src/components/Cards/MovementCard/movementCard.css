@@ -2,9 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+#movement-details:hover #title {
+    @apply underline;
+}
+
+#movement-details:hover #title #circle{
+    @apply bg-graySlate;
+}
+
+
 /* Mobile CSS */
 
-@media (min-width: 300px) and (max-width:500px){
+@media (min-width: 300px) and (max-width:768px){
     #movement-details{
         @apply w-[100%];
         @apply px-2;
@@ -48,7 +57,7 @@
 
 /* Tablet CSS */
 
-@media (min-width: 500px) and (max-width:768px){
+@media (min-width: 768px) and (max-width:1024px){
     #movement-details{
         @apply w-[100%];
         @apply py-4;
@@ -85,7 +94,7 @@
 
 /* Laptop, Desktop CSS */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     #movement-details{
         @apply w-full;
         @apply py-3;

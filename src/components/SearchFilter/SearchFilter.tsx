@@ -1,10 +1,15 @@
 "use client"
-import React, { useContext, useState } from 'react'
 import { FaAngleDown } from 'react-icons/fa6'
 import "./searchFilter.css"
 import { TfiAngleRight } from 'react-icons/tfi'
+import { useEffect, useState } from 'react'
 const SearchFilter = ({setVisible}: {setVisible: (value:any) => void}) => {
-
+    
+    const [width, setWidth] = useState<number>(0);
+    useEffect(() => {
+        setWidth(window.innerWidth);
+    },[])
+    const visible = width >= 768 && width < 1024;
     return (
         <form className='flex flex-col' id="search-filter-container">
             <article id="title">
@@ -46,7 +51,10 @@ const SearchFilter = ({setVisible}: {setVisible: (value:any) => void}) => {
                         <span>Otro período</span>
                         <TfiAngleRight />
                     </label>
+                    <div className="flex justify-between">
+                    {visible && <h4></h4>}
                     <button onClick={()=>setVisible}>Aplicar</button>
+                    </div>
                 </div>
             </article>
         </form>

@@ -11,11 +11,12 @@ main #current-page {
     @apply hidden;
 }
 
-@media (min-width: 300px) and (max-width:500px) {
+@media (min-width: 300px) and (max-width:768px) {
 
     main {
         @apply flex;
         @apply flex-col;
+        @apply h-[215vh];
     }
 
     main #current-page {
@@ -46,31 +47,28 @@ main #current-page {
     main #activity-container #search-bar-container {
         @apply w-[90%];
         @apply mx-auto;
-        @apply flex;
-        @apply justify-between;
-        @apply items-center;
     }
 
     main #activity-container #search-bar-container #searchBar-container {
         @apply w-full;
+        @apply max-w-[700px];
+        @apply mx-auto;
     }
 
-    main #activity-container #filter-container {
+    main #activity-container #search-bar-container #filter-container {
         @apply hidden;
-    }
-
-    main #activity-container #filter-container:hover {
-        @apply underline;
-        @apply cursor-pointer;
-    }
-
-    main #activity-container #filter-container svg {
-        @apply w-4;
-        @apply h-4;
     }
 }
 
-@media (min-width: 500px) and (max-width:768px) {
+@media (min-width: 768px) and (max-width:1024px) {
+    main {
+        @apply h-[175vh];
+    }
+    
+    #activities-list #header-list #mobile-filter-container {
+        @apply hidden;
+    }
+    
     main #activity-container {
         @apply w-full;
         @apply mt-14;
@@ -87,13 +85,17 @@ main #current-page {
     }
 
     main #activity-container #search-bar-container #searchBar-container {
-        @apply w-[60%];
+        @apply w-[70%];
+    }
+
+    main #activity-container #filter-menu-container {
+        @apply w-[30%];
+        @apply mb-4;
+        @apply ml-4;
     }
 
     main #activity-container #filter-container {
-        @apply w-[40%];
-        @apply mb-4;
-        @apply ml-4;
+        @apply w-full;
         @apply p-[1.1rem];
         @apply bg-ylw;
         @apply flex;
@@ -107,6 +109,7 @@ main #current-page {
         @apply shadow-gray-400;
     }
 
+
     main #activity-container #filter-container:hover {
         @apply underline;
         @apply cursor-pointer;
@@ -118,7 +121,16 @@ main #current-page {
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
+
+    main {
+        @apply h-[175vh];
+    }
+
+    #activities-list #header-list #mobile-filter-container {
+        @apply hidden;
+    }
+
     main #activity-container {
         @apply w-full;
         @apply mt-14;
@@ -129,24 +141,35 @@ main #current-page {
     main #activity-container #search-bar-container {
         @apply w-[80%];
         @apply mx-auto;
+        @apply mb-5;
         @apply flex;
-        @apply justify-center;
+        @apply justify-between;
         @apply items-center;
         @apply gap-x-5;
     }
 
-    main #activity-container #filter-menu-container #filter-container {
+    main #activity-container #filter-menu-container {
         @apply w-[20%];
-        @apply mb-4;
+        @apply max-w-[170px];
+    }
+
+    main #activity-container #filter-menu-container #filter-container {
+        @apply w-full;
         @apply p-[1.1rem];
         @apply flex;
+        @apply justify-between;
         @apply text-center;
-        @apply justify-end;
         @apply text-[16px];
         @apply text-black;
         @apply rounded-sm;
         @apply shadow-sm;
         @apply shadow-gray-400;
+    }
+
+    main #activity-container #filter-menu-container #filter-container svg{
+        @apply w-5;
+        @apply h-5;
+        @apply mt-[2px];
     }
 
     main #activity-container #filter-container:hover {

@@ -123,7 +123,7 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
                                     <p>Terminada en {String(card.number_id).slice(12, 16)}</p>
 
                                 </div>
-                                <input type="radio" id="card-number" value={card.number_id} {...register("origin")} />
+                                <input type="radio" id="card-number" value={card.first_last_name} {...register("origin")} />
                             </span>
                         ))}
                         {(errors.origin) && <i className='text-red-500'>{errors.origin.message}</i>}

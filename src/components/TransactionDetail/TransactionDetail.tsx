@@ -1,12 +1,14 @@
 import React from 'react'
 import { FaRegCircleCheck } from 'react-icons/fa6'
 import './transactionDetail.css'
+import { dateFormatter } from '@/utils/dateFunctions';
 
 type TransactionDetailParams = {
     transaction: TransactionType;
 }
 
 const TransactionDetail = ({transaction} : TransactionDetailParams) => {
+    const dated:string = dateFormatter(transaction.dated);
   return (
     <article className='bg-blck' id="details-container">
                 <span  id="transaction-date">
@@ -14,7 +16,7 @@ const TransactionDetail = ({transaction} : TransactionDetailParams) => {
                         <FaRegCircleCheck />
                         <h1 className='font-bold text-ylw'>Aprobada</h1>
                     </div>
-                    <p>Creada el {String(transaction.dated)}</p>
+                    <p>Creada el {dated}</p>
                 </span>
                 <div id="transaction-type">
                     <p className='font-bold text-white'>{transaction.type === "Deposit" ? "Deposito de dinero" : "Transferencia de dinero"}</p>

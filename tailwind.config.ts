@@ -35,9 +35,9 @@ const config: Config = {
         "6xl": "56px",
       },
       screens: {
-        "phone": "300px",
-        "tablet": "500px",
-        "desktop": "768px"
+        "phone": {'min':'300px', 'max': '768px'},
+        "tablet":  {'min':'768px', 'max': '1024px'},
+        "desktop":  {'min':'1024px'},
       }
     }
   },

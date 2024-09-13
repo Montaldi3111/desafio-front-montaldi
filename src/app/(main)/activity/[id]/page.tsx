@@ -1,32 +1,19 @@
 import Menu from '@/components/Menu/Menu'
 import { dateFormatter } from '@/utils/dateFunctions'
-import React, { FC } from 'react'
 import "./page.css"
 import TransactionDetail from '@/components/TransactionDetail/TransactionDetail'
-import { useParams } from 'next/navigation'
+import Link from 'next/link'
+import { FaArrowRight } from 'react-icons/fa6'
 import { headers } from 'next/headers'
 import { getUserAccount } from '@/services/account/account.service'
 import { getOneTransaction } from '@/services/transactions/transactions.service'
-import Link from 'next/link'
-import { FaArrowRight } from 'react-icons/fa6'
 
 
-const DetailPage = async ({ params }) => {
+const DetailPage = async ({params}) => {
   const idParams = params.id;
-  // const token = headers().get("x-digital-access-token") ?? "";
-  // const {id} = await getUserAccount(token);
-  // const transaction = await getOneTransaction(String(id), idParams, token);
-  const transaction = {
-    id: 473,
-    account_id: 207,
-    type: "Deposit",
-    description: "Deposito de dinheiro",
-    origin: "Francisco Klondie",
-    destination: "Francisco Klondie",
-    amount: 1000,
-    dated: dateFormatter("2024-09-10T18:21:27.13Z")
-  }
-  console.log(idParams)
+  const token = headers().get("x-digital-access-token") ?? "";
+  const {id} = await getUserAccount(token);
+  const transaction = await getOneTransaction(String(id), idParams, token);
   return (
     <main className='bg-lightGray'>
       <section>
