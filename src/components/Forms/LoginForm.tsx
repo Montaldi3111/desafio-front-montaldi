@@ -1,14 +1,13 @@
 "use client"
-import { getUserAccount, getUserId } from '@/services/account/account.service';
+import LoginSchema from '@/schemes/login.schemes';
 import { loginRequest } from '@/services/auth/auth.service';
-import { getUserData } from '@/services/user/user.service';
+import { AccessDeniedError } from '@/types/errors.types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { setCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { FaArrowLeft } from 'react-icons/fa6';
-import * as yup from 'yup';
 
 type FormLoginData = {
   email: string;
@@ -23,18 +22,14 @@ function maskPassword (pass:string):string {
 
 const LoginForm = () => {
 
-  const schema = yup.object({
-    email: yup.string().email().required(),
-    password: yup.string().required(),
-  }).required()
-
   const { register, handleSubmit, formState: { errors } } = useForm<FormLoginData>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(LoginSchema),
     defaultValues: {
       email: '',
       password: ''
     }
   })
+  const [serverError, setServerError] = useState<string | null>(null)
   const [foward, setFoward] = useState<boolean>(false); // false => Solo muestra el input de email. true => muestra el input de password
   const router = useRouter();
 
@@ -43,6 +38,7 @@ const LoginForm = () => {
   }
 
   const onSubmit = (data: FormLoginData) => {
+    setServerError(null)
     loginRequest(data).then((response:string) => {
       const maskedpassword:string = maskPassword(data.password);
       setCookie("password", maskedpassword, {
@@ -56,8 +52,12 @@ const LoginForm = () => {
       })
     }).then(() => {
       router.push("/dashboard");
-    }).catch(err => {
-      throw new Error(err.message)
+    }).catch(error => {
+        if(error instanceof AccessDeniedError) {
+          setServerError("Credenciales inválidas");
+        } else {
+          setServerError("Se ha producido un error al intentar ingresar");
+        }
     })
   }
 
@@ -80,6 +80,7 @@ const LoginForm = () => {
           {errors?.email?.type === "email" && <p id="error-msg" className='text-red-500 flex text-sm items-center justify-center'><i className='mr-2'>Email inválido.</i><FaArrowLeft className="hover:cursor-pointer" onClick={handleChange} /></p>}
           {errors?.password && <p id="error-msg" className='text-red-500 flex text-sm items-center justify-center'><i>Debes ingresar una contraseña</i></p>}
         </div>
+          {serverError && <i id="error-msg" className='text-red-500 flex text-sm items-center justify-center'>{serverError}<FaArrowLeft className="hover:cursor-pointer ml-4 text-red-500" onClick={handleChange} /></i>}
         <div className='flex flex-col items-center'>
           <button className='bg-ylw text-blck my-5 py-4 rounded-sm shadow-md font-bold' id="login-btn" onClick={handleSubmit(onSubmit)}>Ingresar</button>
         </div>

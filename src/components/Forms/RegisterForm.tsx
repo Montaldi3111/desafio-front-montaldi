@@ -4,6 +4,9 @@ import { useForm } from 'react-hook-form';
 import { createUser } from '@/services/user/user.service';
 import { useRouter } from 'next/navigation';
 import * as yup from 'yup'
+import RegisterSchema from '@/schemes/register.schemes';
+import { useState } from 'react';
+import { RegisterError } from '@/types/errors.types';
 
 type FormRegisterData = {
   dni: string;
@@ -15,22 +18,12 @@ type FormRegisterData = {
   phone: string;
 }
 
-const schema = yup.object({
-  dni: yup.string().required(),
-  firstName: yup.string().required(),
-  lastName: yup.string().required(),
-  email: yup.string().email().required(),
-  password: yup.string().required(),
-  repeat_password: yup.string().required(),
-  phone: yup.string().required()
-}).required();
-
 const RegisterForm = () => {
 
   const router = useRouter()
-
+  const [serverError, setServerError] = useState<string|null>(null)
   const { register, handleSubmit, formState: { errors } } = useForm<FormRegisterData>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(RegisterSchema),
     defaultValues: {
       dni: '',
       firstName: '',
@@ -43,8 +36,15 @@ const RegisterForm = () => {
   });
 
   const onSubmit = (data : FormRegisterData) => {
+    setServerError(null);
     createUser(data).then(() => {
       router.push("/register/success")
+    }).catch(error => {
+      if(error instanceof RegisterError) {
+        setServerError("Ya existe un usuario con este mail");
+      } else {
+        setServerError("Ha ocurrido un error inesperado");
+      }
     })
   }
 
@@ -52,6 +52,8 @@ const RegisterForm = () => {
     <>
       <form id="form" className='flex flex-col justify-center items-center' onSubmit={handleSubmit(onSubmit)}>
         <h1 className='text-lg font-bold font-head text-center'>Crear Cuenta</h1>
+        {serverError && <i id="form-error">Email ya registrado</i>}
+
         <section id="top-input-container">
           <div className='flex flex-col mr-4'>
             <input type="text" id={errors?.firstName && "input-error"} placeholder='Nombre*' {...register("firstName")} />

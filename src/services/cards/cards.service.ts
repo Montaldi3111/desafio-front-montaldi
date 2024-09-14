@@ -1,11 +1,14 @@
+import { CardError, ServerError } from "@/types/errors.types";
+import { MissingTokenError } from '../../types/errors.types';
+
 const API_URL = "https://digitalmoney.digitalhouse.com/api";
 const API_ENDPOINT = "/accounts"
 
 
 // GET users cards by accountID and token
 // Returns an array of cards
-export const getAllCards = async (account_id : string, accessToken? : string) : Promise<CardType[]> => {
-    if(accessToken) {
+export const getAllCards = async (account_id: string, accessToken?: string): Promise<CardType[]> => {
+    if (accessToken) {
         try {
             const resp = await fetch(`${API_URL}${API_ENDPOINT}/${account_id}/cards`, {
                 method: "GET",
@@ -13,23 +16,23 @@ export const getAllCards = async (account_id : string, accessToken? : string) : 
                     "Authorization": accessToken
                 }
             })
-            if(resp.ok) {
+            if (resp.ok) {
                 const cards = await resp.json();
                 return cards;
             } else {
-                throw new Error("AccountId or access token not found");
+                throw new CardError("No se han encontrado tarjetas relacionadas a esa cuenta");
             }
         } catch (error) {
-            throw new Error("Could not retrieve server information")
+            throw new ServerError("Algo malo ha sucedido, intente de nuevo más tarde")
         }
     } else {
-        throw new Error("Missing access token");
+        throw new MissingTokenError("No se ha introducido un token");
     }
 }
 
-export const addNewCard = async (account_id:number, cardData:FormCardData, accessToken?:string) : Promise<number> => {
-    // Esto realiza una petición para agregar una tarjeta en la cuenta del usuario
-    if(accessToken) {
+// POST Función para agregar una tarjeta en la cuenta del usuario
+export const addNewCard = async (account_id: number, cardData: FormCardData, accessToken?: string): Promise<number> => {
+    if (accessToken) {
         try {
             const resp = await fetch(`${API_URL}${API_ENDPOINT}/${account_id}/cards`, {
                 method: "POST",
@@ -39,45 +42,45 @@ export const addNewCard = async (account_id:number, cardData:FormCardData, acces
                 },
                 body: JSON.stringify({
                     cod: Number(cardData.cod),
-                    expiration_date: String(cardData.expiration_date).slice(0,2)+"/20"+String(cardData.expiration_date).slice(2,5),
+                    expiration_date: String(cardData.expiration_date).slice(0, 2) + "/20" + String(cardData.expiration_date).slice(2, 5),
                     first_last_name: cardData.first_last_name,
                     number_id: Number(cardData.number_id)
                 })
             })
-            if(resp.ok) {
-                return 0; // En caso de realizar el método de manera exitosa
+            if (resp.ok) {
+                return 0; // Acción exitosa
             } else {
-                return 1; // En caso de que el método falló
+                throw new CardError("No se pudo cargar la tarjeta, intente de nuevo");
             }
         } catch (error) {
-            throw new Error("Error al conectar con el servidor")
+            throw new ServerError("Algo malo ha sucedido, intente de nuevo más tarde")
         }
     } else {
-        throw new Error("Missing access token");
+        throw new MissingTokenError("No se ha introducido un token");
     }
 }
 
 // Elimina una tarjeta dado una cuenta y el id de la tarjeta
 
-export const deleteCard = async (account_id:number, card_id:number, accessToken?:string) : Promise<number> => {
-    if(accessToken) {
+export const deleteCard = async (account_id: number, card_id: number, accessToken?: string): Promise<number> => {
+    if (accessToken) {
         console.log(account_id, card_id)
         try {
-            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${account_id}/cards/${card_id}`,{
+            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${account_id}/cards/${card_id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": accessToken
                 }
             })
-            if(resp.ok) {
-                return 0; // En caso de realizar el método de manera exitosa
+            if (resp.ok) {
+                return 0; // Acción exitosa
             } else {
-                return 1; // En caso de que el método falló
+                throw new CardError("No se pudo eliminar la tarjeta, intente de nuevo");
             }
         } catch (error) {
-            throw new Error("Could not retrieve server information")
+            throw new ServerError("Algo malo ha sucedido, intente de nuevo más tarde")
         }
     } else {
-        throw new Error("Missing access token");
+        throw new MissingTokenError("No se ha introducido un token");
     }
 }

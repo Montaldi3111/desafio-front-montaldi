@@ -1,3 +1,5 @@
+import { MissingTokenError, ServerError, UserAccountError } from "@/types/errors.types";
+
 const API_URL = "https://digitalmoney.digitalhouse.com/api";
 const API_ENDPOINT = "/account";
 
@@ -17,13 +19,13 @@ export const getUserAccount = async (accessToken?: string): Promise<UserAccountT
                 const data = await res.json();
                 return data as UserAccountType;
             } else {
-                throw new Error("Could not retrieve account data");
+                throw new UserAccountError("No se ha encontrado a ese usuario");
             }
         } catch (error) {
-            throw new Error("Could not retrieve server information");
+            throw new ServerError("Algo malo ha sucedido, intente de nuevo más tarde");
         }
     } else {
-        throw new Error("Missing Access Token");
+        throw new MissingTokenError("No se ha introducido un token");
     }
 }
 
@@ -37,12 +39,12 @@ export const getUserBalance = async (accessToken?: string): Promise<number> => {
             if (userData) {
                 return userData.available_amount;
             } else {
-                throw new Error("Could not retrieve user's balance account");
+                throw new UserAccountError("No se pudo encontrar el balance del usuario");
             }
         } catch (error) {
-            throw new Error("Could not retrieve server information")
+            throw new ServerError("Algo malo ha sucedido, intente de nuevo más tarde")
         }
     } else {
-        throw new Error("Missing access token");
+        throw new MissingTokenError("No se ha introducido un token");
     }
 }

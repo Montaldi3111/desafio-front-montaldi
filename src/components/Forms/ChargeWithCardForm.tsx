@@ -11,6 +11,8 @@ import { toast } from 'sonner';
 import * as yup from "yup"
 import ActionSuccessCard from '../Cards/ActionSuccessCard/ActionSuccessCard';
 import { dateFormatter } from '@/utils/dateFunctions';
+import ChangeScheme from '@/schemes/changeCard.scheme';
+import { ServerError, TransferenceError } from '@/types/errors.types';
 type ChargeWithCardParams = {
     cards: CardType[],
     accountId: number,
@@ -19,18 +21,8 @@ type ChargeWithCardParams = {
 }
 
 const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardParams) => {
-    const router = useRouter();
-
-    const schema = yup.object({
-        amount: yup.number().required().min(1, "Mínima cantidad de ingreso es 1"),
-        dated: yup.string(),
-        destination: yup.string(),
-        origin: yup.string().required("Selecciona una tarjeta")
-    }).required();
-
-
     const { register, handleSubmit, formState: { errors }, trigger, watch, setValue } = useForm<FormChargeWithCardData>({
-        resolver: yupResolver(schema),
+        resolver: yupResolver(ChangeScheme),
         defaultValues: {
             amount: 0,
             dated: new Date().toISOString(),
@@ -38,24 +30,15 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
             origin: ""
         }
     })
-
-
+    
+    const router = useRouter();
     const [step, setStep] = useState<number>(0)
-    const incrementStep = () => {
-        setStep(step + 1)
-    }
-
+    const [serverError, setServerError] = useState<string|null>(null);
     const origin = watch("origin");
     const amount = watch("amount");
 
-    // Sincronizamos el valor de origin con el de destination
-    useEffect(() => {
-        if (origin) {
-            setValue("destination", origin);
-        }
-    }, [origin, setValue]);
 
-
+    
     // Esto es para setear el horario cuando se este realizando el deposito
     useEffect(() => {
         var dateSuccess: string = dateFormatter(new Date().toISOString());
@@ -66,12 +49,25 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
             }
         }
     }, [step])
-
+    
+    
+    // Sincronizamos el valor de origin con el de destination
+    useEffect(() => {
+        if (origin) {
+            setValue("destination", origin);
+        }
+    }, [origin, setValue]);
+    
+    
+    
 
     const decrementStep = () => {
         setStep(step - 1)
     }
-
+    
+    const incrementStep = () => {
+        setStep(step + 1)
+    }
 
     const goToNextStep = async () => {
         // Necesito válidar el paso 1 y 2
@@ -84,7 +80,7 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
         }
 
         if (isValid) {
-            incrementStep(); // Avanzamos si la validación es correcta
+            incrementStep(); // Se avanza si la validación es correcta
         }
     };
 
@@ -93,14 +89,22 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
     }
 
     const onSubmit = (data: FormChargeWithCardData) => {
+        setServerError(null);
         createNewDeposit(accountId, data, token).then(response => {
-            if (response === 1) {
-                toast.error("Se ha producido un error al realizar el depósito")
-            } else {
+            if (response === 0) {
                 incrementStep();
             }
         }).catch(error => {
-            toast.error(error.message)
+            switch(error) {
+                case (error instanceof TransferenceError): {
+                    setServerError("No se pudo realizar el depósito, intente de nuevo");
+                    toast.error(serverError);
+                }
+                case (error instanceof ServerError): {
+                    setServerError("Algo malo ha sucedido, intente de nuevo más tarde");
+                    toast.error(serverError);
+                }
+            }
         })
     }
 

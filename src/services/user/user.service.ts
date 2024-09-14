@@ -1,8 +1,10 @@
+import { AccessDeniedError, MissingTokenError, RegisterError, ServerError, UserAccountError } from "@/types/errors.types";
+
 const API_URL = "https://digitalmoney.digitalhouse.com/api";
 const API_ENDPOINT = "/users";
 
 // Create a new user
-export const createUser = async (data:FormRegisterData) : Promise<any> => {
+export const createUser = async (data: FormRegisterData): Promise<any> => {
     try {
         const response = await fetch(`${API_URL}${API_ENDPOINT}`, {
             method: "POST",
@@ -19,43 +21,43 @@ export const createUser = async (data:FormRegisterData) : Promise<any> => {
             })
         })
 
-        if(response.ok) {
+        if (response.ok) {
             return response.json();
         } else {
-            throw new Error("Could not create user");
+            throw new RegisterError("El usuario ya existe con ese mail");
         }
-        
+
     } catch (error) {
-        throw new Error("Could not retrieve server information");
+        throw new ServerError("Algo malo ha sucedido, intente de nuevo más tarde");
     }
 }
 
-export const getUserData = async (user_id : number, accessToken? : string) : Promise<UserType> => {
-    if(accessToken) {
+export const getUserData = async (user_id: number, accessToken?: string): Promise<UserType> => {
+    if (accessToken) {
         try {
-            const resp:Response = await fetch(`${API_URL}${API_ENDPOINT}/${user_id}`, {
+            const resp: Response = await fetch(`${API_URL}${API_ENDPOINT}/${user_id}`, {
                 method: "GET",
                 headers: {
                     "Authorization": accessToken
                 }
             })
-    
-            if(resp.ok) {
-                const userData:Promise<UserType> = await resp.json();
+
+            if (resp.ok) {
+                const userData: Promise<UserType> = await resp.json();
                 return userData;
             } else {
-                throw new Error("Could not find user with that token");
+                throw new UserAccountError("No se ha encontrado ese usuario");
             }
         } catch (error) {
-            throw new Error("Could not retrieve server information");
+            throw new ServerError("Algo malo ha sucedido, intentlo más tarde");
         }
     } else {
-        throw new Error("Missing access token");
+        throw new MissingTokenError("No se ha introducido un token");
     }
 }
 
-export const updateUserData = async (user_id : number, data : EditUserType, accessToken? : string) : Promise<number> => {
-    if(accessToken) {
+export const updateUserData = async (user_id: number, data: EditUserType, accessToken?: string): Promise<number> => {
+    if (accessToken) {
         try {
             const resp = await fetch(`${API_URL}${API_ENDPOINT}/${user_id}`, {
                 method: "PATCH",
@@ -69,15 +71,15 @@ export const updateUserData = async (user_id : number, data : EditUserType, acce
                     phone: data.phone,
                 })
             })
-            if(resp.ok) {
+            if (resp.ok) {
                 return 0;
             } else {
-                return 1
+                throw new UserAccountError("No se pudo editar ese campo, intente de nuevo")
             }
         } catch (error) {
-            throw new Error("Could not retrieve server information");
+            throw new ServerError("Algo malo ha sucedido, intente de nuevo más tarde");
         }
     } else {
-        throw new Error("Missing access token");
+        throw new MissingTokenError("No se ha introducido un token");
     }
 }

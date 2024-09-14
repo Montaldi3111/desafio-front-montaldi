@@ -9,6 +9,8 @@ import { getCookie } from "cookies-next";
 import { toast } from "sonner";
 import { ChangeProvider } from "@/context/changeContext";
 import { useState } from "react";
+import EditUserScheme from "@/schemes/editUser.scheme";
+import { ServerError } from "@/types/errors.types";
 
 function restructreUser (data:FormEditProfileData) {
         const user = {
@@ -21,14 +23,10 @@ function restructreUser (data:FormEditProfileData) {
 
 
 const EditUserProfileForm = ({ userId, userData, pass }: { userId:number, userData: UserType, pass: string }) => {
-    const schema = yup.object({
-        first_last_name: yup.string(),
-        phone: yup.string(),
-    }).required()
 
     
     const methods = useForm<FormEditProfileData>({
-        resolver: yupResolver(schema),
+        resolver: yupResolver(EditUserScheme),
         defaultValues: {
             first_last_name: userData.firstname + " " + userData.lastname,
             dni: "20"+userData.dni+"4",
@@ -36,11 +34,14 @@ const EditUserProfileForm = ({ userId, userData, pass }: { userId:number, userDa
         }
     });
 
-    const {handleSubmit, formState: {errors}} = methods;
+    const {handleSubmit, reset, formState: {errors}} = methods;
     const token = getCookie("token") ?? "";
     const router = useRouter();
     const [isEditable, setIsEditable] = useState<boolean>(false)
+    const [serverError, setServerError] = useState<string|null>(null);
+
     const onSubmit = (data: FormEditProfileData) => {
+        setServerError(null);
         setIsEditable(true);
         const editUserData:any = restructreUser(data);
         updateUserData(userId, editUserData, token).then((response:number) => {
@@ -48,13 +49,16 @@ const EditUserProfileForm = ({ userId, userData, pass }: { userId:number, userDa
                 toast.success("Datos actualizados")
             }
             else {
-                toast.error("Se ha producido un error al actualizar los datos")
+                setServerError("Error al editar el campo")
+                toast.error(serverError)
                 window.location.reload();
             }
-        }).catch((err:any) => {
-            toast.error(err.message)
-            router.push("/profile")
+        }).catch((error) => {
+            if(error instanceof ServerError) {
+                setServerError("Algo malo ha sucedido, intente de nuevo más tarde");
+            }
         }).finally(() => {
+            reset();
             setIsEditable(false);
             router.refresh();
         })

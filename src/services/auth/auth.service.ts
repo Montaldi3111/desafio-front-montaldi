@@ -1,3 +1,5 @@
+import { AccessDeniedError } from "@/types/errors.types";
+
 const API_URL = "https://digitalmoney.digitalhouse.com/api"
 
 // Esta función realiza una petición de login a la API y devuelve un token
@@ -19,10 +21,10 @@ export const loginRequest = async (data: LoginUserType) : Promise<string> => {
             const data = await response.json();
             return data.token;
         } else {
-            throw new Error("Invalid email or password");
+            throw new AccessDeniedError("Credenciales inválidas");
         }
     } catch (error) {
-        throw new Error("Could not retrieve server information");
+        throw new AccessDeniedError("Algo malo ha sucedido, intente de nuevo más tarde");
     }
 }
 
@@ -37,6 +39,6 @@ export const logoutSession = async(): Promise<boolean> => {
             return false;
         }
     } catch (error) {
-        throw new Error("Could not retrieve server information");
+        throw new AccessDeniedError("Algo malo ha sucedido, intente de nuevo más tarde");
     }
 }
