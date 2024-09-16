@@ -189,7 +189,7 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
 
             {step === 3 &&
                 <>
-                    <ActionSuccessCard />
+                    <ActionSuccessCard message={"Ya cargamos el dinero en tu cuenta"}/>
                     <section id="success-section" className='bg-blck'>
                         <p id="date-success"></p>
                         <ul className='text-white'>

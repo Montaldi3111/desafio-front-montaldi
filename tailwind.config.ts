@@ -16,7 +16,8 @@ const config: Config = {
         "blck": "#181818",
         "lightGray": "#E3DFCF",
         "skyBlue": "#D2FFEC",
-        "overlay": "#808080"
+        "overlay": "#808080",
+        "redError": "#E91010"
       },
       fontFamily: {
         "head1": ["Archive", "sans-serif"],

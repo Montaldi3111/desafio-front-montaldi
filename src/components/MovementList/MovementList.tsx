@@ -15,7 +15,7 @@ const MovementList = async ({ accountId, token }: MovementCardParams) => {
     const first10Transactions = transactions.slice(0,10);
     return (
         <article id="movement-list" className=''>
-            <SearchBar />
+            <SearchBar placeholder='Buscar en tu actividad'/>
             <div id="movements" className='bg-white'>
                 <p className='font-bold text-black'>Tu actividad</p>
                 <div></div>

@@ -36,6 +36,8 @@ export const config = {
     "/charge",
     "/charge/with-card",
     "/activity",
-    "/activity/:id*"]
+    "/activity/:id*",
+    "/pay"
+  ]
 }
 

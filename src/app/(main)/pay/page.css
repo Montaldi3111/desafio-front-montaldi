@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 1024px) {
+    main {
+        @apply flex;
+        @apply h-[200vh];
+        @apply w-full;
+    }
+
+    main #container {
+        @apply w-[70%];
+        @apply mt-16;
+        @apply mx-auto;
+    }
+
+    main #searchBar-container {
+        @apply w-full;
+        @apply mx-auto;
+    }
+}

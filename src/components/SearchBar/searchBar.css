@@ -6,7 +6,7 @@
 
 @media (min-width: 300px) and (max-width:768px) {
     #searchBar-container {
-        @apply w-[100%];
+        @apply w-full;
         @apply max-w-[600px];
         @apply mb-4;
         @apply p-2;
@@ -64,6 +64,7 @@
     #searchBar-container {
         @apply w-full;
         @apply p-2;
+        @apply mx-0;
         @apply flex;
         @apply flex-row;
         @apply items-center;

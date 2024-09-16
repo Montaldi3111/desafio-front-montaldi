@@ -26,3 +26,10 @@ type FormChargeWithCardData = {
     destination: string;
     origin: string;
 }
+
+type CompanyPaymentFormData = {
+    amount: number;
+    dated: string;
+    destination: string;
+    origin: string;
+}

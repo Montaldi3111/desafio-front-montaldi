@@ -5,7 +5,7 @@ const SearchBarFilterContainer = () => {
   return (
     <>
       
-        <SearchBar />
+        <SearchBar placeholder={"Buscar en tu actividad"}/>
         <SearchFilterContainer />
 
     </>
