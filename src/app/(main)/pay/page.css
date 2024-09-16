@@ -2,6 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
+main #current-page {
+    @apply hidden;
+}
+
+@media (min-width: 300px) and (max-width: 768px) {
+
+    
+    main {
+        @apply flex;
+        @apply flex-col;
+        @apply h-[200vh];
+        @apply w-full;
+    }
+
+    main #current-page {
+        @apply w-[90%];
+        @apply my-5;
+        @apply mx-auto;
+        @apply flex;
+        @apply items-center;
+    }
+
+    main #current-page svg {
+        @apply mr-2;
+        @apply text-graySlate;
+    }
+
+    main #current-page h3 {
+        @apply underline;
+    }
+
+    main #container {
+        @apply w-[95%];
+        @apply mx-auto;
+    }
+
+    main #searchBar-container {
+        @apply w-full;
+        @apply mx-auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    main {
+        @apply flex;
+        @apply h-[200vh];
+        @apply w-full;
+    }
+
+    main #container {
+        @apply w-[70%];
+        @apply mx-auto;
+    }
+
+    main #searchBar-container {
+        @apply w-full;
+        @apply mx-auto;
+    }
+}
+
 @media (min-width: 1024px) {
     main {
         @apply flex;

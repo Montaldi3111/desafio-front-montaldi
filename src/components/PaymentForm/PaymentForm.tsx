@@ -21,8 +21,8 @@ type CompanyListParams = {
 }
 
 const CompanyList = ({ services, cards }: CompanyListParams) => {
-    const [step, setStep] = useState<number>(0); // esto es para moverse por el formulario
-    const [serverError, setServerError] = useState<string | null>(null); // manejo de errores
+    const [step, setStep] = useState<number>(3); // esto es para moverse por el formulario
+    const [serverError, setServerError] = useState<string | null>("true"); // manejo de errores
 
     // esto es por si el usuario no tiene que pagar
     const [notFound, setNotFound] = useState<boolean>(false);
@@ -32,7 +32,7 @@ const CompanyList = ({ services, cards }: CompanyListParams) => {
         resolver: yupResolver(CompanyTransferScheme),
     });
 
-    const {register, handleSubmit, formState: {errors}} = methods
+    const { register, handleSubmit, formState: { errors } } = methods
 
     const incrementStep = () => {
         setStep(step + 1);
@@ -55,7 +55,7 @@ const CompanyList = ({ services, cards }: CompanyListParams) => {
                     <>
                         <SearchBar placeholder='Buscá entre más de 5000 empresas' />
                         <article id="company-list-container" className='bg-white'>
-                            <h2 className='font-bold'>Más Recientes</h2>
+                            <h2 className='font-bold'>Más recientes</h2>
                             {services && services.length > 0 ? services.map((service, index) => (
                                 <fieldset key={index}>
                                     <CompanyCard service={service} step={step} handleStep={incrementStep} />
@@ -67,27 +67,40 @@ const CompanyList = ({ services, cards }: CompanyListParams) => {
                 }
                 {
                     step === 1 &&
-                    <article id="container-2" className='bg-blck'>
-                        <div id="input-container">
-                            <h1 className='font-bold text-xl text-ylw'>Número de cuenta sin el primer 2</h1>
-                            <input type="number" id="cvu-input" />
-                            <p className='text-xs text-white'>Son 11 números sin espacios, sin el "2" iniciar. Agregá ceros adelante si tenés menos</p>
-                        </div>
-                        <div id="btn-container">
-                            <h4 className='mobile:hidden tablet:hidden'></h4>
-                            <button className="bg-ylw" onClick={incrementStep}>
-                                Continuar
-                            </button>
-                        </div>
+                    <>
+                        <article id="container-2" className='bg-blck'>
+                            <div id="input-container">
+                                <h1 className='font-bold text-xl text-ylw'>Número de cuenta sin el primer 2</h1>
+                                <input type="number" id="cvu-input" />
+                                <p className='text-xs text-white'>Son 11 números sin espacios, sin el "2" iniciar. Agregá ceros adelante si tenés menos</p>
+                            </div>
+                            <div id="btn-container">
+                                <h4 className='mobile:hidden tablet:hidden'></h4>
+                                <button className="bg-ylw" onClick={incrementStep}>
+                                    Continuar
+                                </button>
+                            </div>
 
-                    </article>
+                        </article>
+                        <div id="btn-mobile-container">
+                            <h4></h4>
+                            <button id="btn-mobile" className='bg-ylw' onClick={incrementStep}>Continuar</button>
+                        </div>
+                    </>
                 }
-                {step === 2 && notFound && <article id="error-container">
-                <div id="error-card-container" className='bg-blck'>
-                    <ActionErrorCard title={"No encontramos facturas asociadas a ese dato"} subtitle={"Revisá el dato ingresado. Si es correcto, es posible que la empresa aún no haya cargado tu factura."}/>
-                </div>
-                <button onClick={decrementStep} className='bg-ylw'>Revisar dato</button>
-                </article>
+                {step === 2 && notFound &&
+                    <>
+                        <article id="error-container">
+                            <div id="error-card-container" className='bg-blck'>
+                                <ActionErrorCard title={"No encontramos facturas asociadas a ese dato"} subtitle={"Revisá el dato ingresado. Si es correcto, es posible que la empresa aún no haya cargado tu factura."} />
+                            </div>
+                            <button onClick={decrementStep} className='bg-ylw'>Revisar dato</button>
+                        </article>
+                        <div id="btn-error-mobile-container">
+                            <h4></h4>
+                            <button id="btn-error-mobile" className='bg-ylw' onClick={decrementStep}>Revisar dato</button>
+                        </div>
+                    </>
                 }
                 {
                     (step === 2 && !notFound) &&
@@ -103,36 +116,36 @@ const CompanyList = ({ services, cards }: CompanyListParams) => {
                             </span>
                         </div>
                         <div id="cards-list" className='bg-white'>
-                            <h3 className='font-bold'>Tus Tarjetas</h3>
-                            {cards && cards.length > 0? cards.map((card: CardType, index: number) => (
+                            <h3 className='font-bold'>Tus tarjetas</h3>
+                            {cards && cards.length > 0 ? cards.map((card: CardType, index: number) => (
                                 <span id="card-info" key={index}>
                                     <div className='flex items-center'>
                                         <h4 id="circle"></h4>
-                                    <p>Terminada en {String(card.number_id).slice(12,16)}</p>
+                                        <p>Terminada en {String(card.number_id).slice(12, 16)}</p>
                                     </div>
-                                    <input type="radio" id="card-number" value={card.first_last_name} {...register("origin")}/>
-                                    </span>
+                                    <input type="radio" id="card-number" value={card.first_last_name} {...register("origin")} />
+                                </span>
                             )) : <p className='font-bold text-center text-[16px]'>Usted no ha cargado ninguna tarjeta</p>}
                         </div>
-                            <button onClick={incrementStep} className='bg-ylw'>Pagar</button>
+                        <button onClick={incrementStep} className='bg-ylw'>Pagar</button>
                     </article>
                 }
                 {
                     (step === 3 && !serverError) &&
                     <article id="success-section">
-                        <ActionSuccessCard message={"Ya realizaste tu pago"}/>
+                        <ActionSuccessCard message={"Ya realizaste tu pago"} />
                         <div className='bg-blck' id="payment-info">
                             <ul>
-                                <li className='text-white'>16 de septiembre 2024 a 10:30 hs</li>
+                                <li className='text-white mobile:text-xs'>16 de septiembre 2024 a 10:30 hs</li>
                                 <li className='text-ylw text-lg font-bold'>$1130,45</li>
                             </ul>
                             <ul>
-                                <li className='text-white'>Para</li>
+                                <li className='text-white mobile:xs'>Para</li>
                                 <li className='text-ylw text-xl font-bold'>Netflix</li>
                             </ul>
                             <ul>
-                                <li className='text-white font-bold'>Tarjeta</li>
-                                <li className='text-white font-bold'>American Expres ************4687</li>
+                                <li className='text-white'>Tarjeta</li>
+                                <li className='text-white'>American Expres ************4687</li>
                             </ul>
                         </div>
                         <div id="btn-container">
@@ -143,12 +156,18 @@ const CompanyList = ({ services, cards }: CompanyListParams) => {
                     </article>
                 }
                 {step === 3 && serverError &&
-                <article id="error-container">
-                    <div id="error-card-container" className='bg-blck'>
-                        <ActionErrorCard title={"Hubo un problema con tu pago"} subtitle={"Puede deberse a fondos insuficientes. Comunicate con la entidad emisora de la tarjeta"}/>
-                    </div>
-                    <button onClick={decrementStep} className='bg-ylw'>Revisar dato</button>
-                </article>
+                    <>
+                        <article id="error-container">
+                            <div id="error-card-container" className='bg-blck'>
+                                <ActionErrorCard title={"Hubo un problema con tu pago"} subtitle={"Puede deberse a fondos insuficientes. Comunicate con la entidad emisora de la tarjeta"} />
+                            </div>
+                            <button onClick={decrementStep} className='bg-ylw'>Revisar dato</button>
+                        </article>
+                        <div id="btn-error-mobile-container">
+                            <h4></h4>
+                            <button onClick={decrementStep} id="btn-error-mobile" className='bg-ylw'>Volver a intentarlo</button>
+                        </div>
+                    </>
                 }
 
             </form>

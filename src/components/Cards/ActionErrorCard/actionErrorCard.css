@@ -2,6 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (min-width: 300px) and (max-width: 768px) {
+
+    #error-card-container #title-card {
+        @apply w-full;
+        @apply text-center;
+        @apply items-center;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply border-b-[1px];
+        @apply border-gray-500;
+    }
+
+    #error-card-container #title-card svg {
+        @apply w-10;
+        @apply h-10;
+        @apply fill-current;
+        @apply text-redError;
+    }
+
+    #error-card-container #title-card h3 {
+        @apply w-full;
+        @apply max-w-[400px];
+        @apply mt-5;
+        @apply pb-2;
+        @apply text-lg;
+    }
+
+    #error-card-container #subtitle-card p{
+        @apply w-full;
+        @apply mt-4;
+        @apply text-center;
+        @apply text-xs;
+    }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    #error-card-container #title-card {
+        @apply w-full;
+        @apply text-center;
+        @apply items-center;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply border-b-[1px];
+        @apply border-gray-500;
+    }
+
+    #error-card-container #title-card svg {
+        @apply w-16;
+        @apply h-16;
+        @apply fill-current;
+        @apply text-redError;
+    }
+
+    #error-card-container #title-card h3 {
+        @apply w-[65%];
+        @apply max-w-[350px];
+        @apply mt-5;
+        @apply pb-2;
+    }
+
+    #error-card-container #subtitle-card p{
+        @apply w-[400px];
+        @apply mt-4;
+        @apply text-center;
+    }
+
+}
+
 @media (min-width: 1024px) {
 
     #error-card-container #title-card {

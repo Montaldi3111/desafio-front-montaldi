@@ -13,7 +13,7 @@ const CompanyCard = ({service, step, handleStep} : CompanyCardParams) => {
   return (
     <span id="card-information">
         <div>
-            <Image src={`/${imageName}.png`} alt={service.name} width={75} height={45}/>
+            <Image src={`/${imageName}.png`} alt={service.name} width={800} height={600}/>
             <p>{service.name}</p>
         </div>
         <button onClick={handleStep}>Seleccionar</button>

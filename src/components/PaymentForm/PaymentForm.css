@@ -2,6 +2,573 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (min-width: 300px) and (max-width:768px){
+    #company-list-container {
+        @apply w-full;
+        @apply mt-5;
+        @apply px-5;
+        @apply py-6;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #company-list-container h2 {
+        @apply pb-5;
+        @apply text-[16px];
+    }
+
+    #container-2 {
+        @apply w-full;
+        @apply mt-4;
+        @apply px-6;
+        @apply py-4;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-end;
+        @apply text-left;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #container-2 #input-container {
+        @apply w-full;
+    }
+
+    #container-2 #input-container h1 {
+        @apply w-[85%];
+        @apply mb-8;
+    }
+
+    #container-2 #input-container input {
+        @apply w-full;
+        @apply max-w-[350px];
+        @apply mb-3;
+        @apply p-3;
+        @apply text-lg;
+        @apply rounded-xs;
+        @apply border-2;
+        @apply border-skyBlue;
+    }
+
+    #container-2 #input-container p {
+        @apply w-[85%];
+        @apply text-xs;
+    }
+
+    #btn-mobile-container {
+        @apply mt-5;
+        @apply flex;
+        @apply justify-end;
+    }
+
+    #btn-mobile {
+        @apply w-[45%];
+        @apply max-w-[200px];
+        @apply py-3;
+        @apply px-5;
+        @apply font-bold;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #container-2 #btn-container {
+        @apply hidden;
+    }
+    
+     #container-2 button {
+        @apply w-[70%];
+        @apply max-w-[600px];
+        @apply py-3;
+        @apply px-5;
+        @apply font-bold;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #payment-section {
+        @apply w-full;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-end;
+        
+    }
+    
+    #payment-section #total-pay {
+        @apply w-full;
+        @apply p-6;
+        @apply flex;
+        @apply flex-col;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #payment-section #total-pay span {
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+
+    }
+
+    #payment-section #total-pay #company-info {
+        @apply pb-4;
+        @apply tracking-wide;
+    }
+
+    #payment-section #total-pay #company-info h1{
+        @apply mt-6;
+        @apply text-lg;
+    }
+
+    #payment-section #total-pay #company-info u{
+        @apply mb-8;
+        @apply text-xs;
+    }
+    
+    #payment-section #total-pay #final-price{
+        @apply mt-4;
+        @apply text-[16px];
+    }
+
+    #payment-section #cards-list {
+        @apply w-full;
+        @apply mt-4;
+        @apply p-8;
+        @apply flex;
+        @apply flex-col;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #payment-section #cards-list h3 {
+        @apply pb-4;
+        @apply border-b-[1px];
+        @apply border-black;
+    }
+
+    #payment-section #cards-list span {
+        @apply py-5;
+        @apply flex;
+        @apply items-center;
+        @apply justify-between;
+        @apply border-b-[1px];
+        @apply border-black;
+    }
+
+    #payment-section #cards-list span #circle {
+        @apply w-8;
+        @apply h-8;
+        @apply rounded-full;
+        @apply bg-ylw;
+        @apply mr-4;
+    }
+
+    #payment-section button {
+        @apply w-[55%];
+        @apply max-w-[250px];
+        @apply mt-5;
+        @apply p-4;
+        @apply font-bold;
+        @apply items-center;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #success-section {
+        @apply w-full;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-end;
+    }
+
+    #success-card {
+        @apply min-w-[270px];
+    }
+
+    #success-section #payment-info {
+        @apply w-full;
+        @apply p-5;
+        @apply rounded-sm;
+    }
+
+    #success-section #payment-info:nth-last-child() {
+        @apply font-normal;
+    }
+
+    #success-section #payment-info ul {
+        @apply mb-4;
+    }
+
+    #success-section #payment-info ul li {
+        @apply pb-2;
+    }
+
+    #success-section #btn-container {
+        @apply w-full;
+        @apply flex;
+        @apply flex-col-reverse;
+        @apply items-center;
+    }
+
+    #success-section button, #success-section a {
+        @apply w-[100%];
+        @apply mt-5;
+        @apply p-5;
+        @apply font-bold;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #success-section #btn-container #home-btn:hover {
+        @apply underline;
+    }
+
+    #success-section #btn-container #download-btn {
+        @apply ml-2;
+        @apply hover:underline;
+    }
+
+    #error-container {
+        @apply w-full;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-end;
+    }
+
+    #error-card-container {
+        @apply w-full;
+        @apply p-5;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-center;
+        @apply rounded-xs;
+    }
+
+    #error-container button {
+        @apply hidden;
+    }
+
+    #btn-error-mobile-container {
+        @apply w-full;
+        @apply flex;
+        @apply justify-end;
+    }
+
+    #btn-error-mobile-container button {
+        @apply w-[60%];
+        @apply max-w-[250px];
+        @apply mt-5;
+        @apply py-3;
+        @apply px-5;
+        @apply font-bold;
+        @apply text-[16px];
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #btn-error-mobile {
+        @apply w-[60%];
+        @apply max-w-[250px];
+        @apply mt-5;
+        @apply py-3;
+        @apply px-5;
+        @apply font-bold;
+        @apply text-[16px];
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+
+}
+
+@media (min-width: 768px) and (max-width:1024px){
+    #company-list-container {
+        @apply w-full;
+        @apply mt-5;
+        @apply px-10;
+        @apply py-8;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #company-list-container h2 {
+        @apply pb-5;
+        @apply text-lg;
+        @apply border-b-2;
+        @apply border-lightGray;
+    }
+
+    #container-2 {
+        @apply w-full;
+        @apply mt-16;
+        @apply px-10;
+        @apply py-8;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #container-2 #input-container {
+        @apply w-full;
+        @apply max-w-[600px];
+    }
+
+    #container-2 #input-container h1 {
+        @apply w-full;
+        @apply mb-8;
+    }
+
+    #container-2 #input-container input {
+        @apply w-full;
+        @apply mb-3;
+        @apply p-3;
+        @apply text-lg;
+        @apply rounded-xs;
+        @apply border-2;
+        @apply border-skyBlue;
+    }
+
+    #container-2 #btn-container {
+        @apply w-full;
+        @apply mt-4;
+        @apply flex;
+        @apply justify-between;
+    }
+
+     #btn-mobile-container {
+        @apply hidden;
+    }
+    
+     #container-2 button {
+        @apply w-full;
+        @apply max-w-[600px];
+        @apply p-4;
+        @apply font-bold;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+    }
+
+    #payment-section {
+        @apply w-full;
+        @apply mt-14;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-end;
+        
+    }
+    
+    #payment-section #total-pay {
+        @apply w-full;
+        @apply py-6;
+        @apply px-12;
+        @apply flex;
+        @apply flex-col;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #payment-section #total-pay span {
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+
+    }
+
+    #payment-section #total-pay #company-info {
+        @apply tracking-wide;
+        @apply pb-10;
+    }
+    
+    #payment-section #total-pay #final-price{
+        @apply pt-7;
+        @apply text-lg;
+    }
+
+    #payment-section #cards-list {
+        @apply w-full;
+        @apply mt-4;
+        @apply p-8;
+        @apply flex;
+        @apply flex-col;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #payment-section #cards-list h3 {
+        @apply pb-4;
+        @apply border-b-[1px];
+        @apply border-black;
+    }
+
+    #payment-section #cards-list span {
+        @apply py-5;
+        @apply flex;
+        @apply items-center;
+        @apply justify-between;
+        @apply border-b-[1px];
+        @apply border-black;
+    }
+
+    #payment-section #cards-list span #circle {
+        @apply w-8;
+        @apply h-8;
+        @apply rounded-full;
+        @apply bg-ylw;
+        @apply mr-4;
+    }
+
+    #payment-section button {
+        @apply w-[25%];
+        @apply max-w-[250px];
+        @apply mt-5;
+        @apply p-4;
+        @apply font-bold;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #success-section {
+        @apply w-full;
+        @apply mt-16;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-end;
+    }
+
+    #success-section #payment-info {
+        @apply w-full;
+        @apply py-9;
+        @apply px-14;
+        @apply rounded-sm;
+    }
+
+    #success-section #payment-info ul {
+        @apply mb-4;
+        @apply font-bold;
+    }
+
+    #success-section #payment-info ul li {
+        @apply pb-2;
+    }
+
+    #success-section #btn-container {
+        @apply w-full;
+        @apply flex;
+        @apply justify-end;
+        @apply items-center;
+    }
+
+    #success-section button, #success-section a {
+        @apply w-[100%];
+        @apply mt-5;
+        @apply p-5;
+        @apply font-bold;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #success-section #btn-container #home-btn:hover {
+        @apply underline;
+    }
+
+    #success-section #btn-container a {
+        @apply mr-2;
+    }
+
+    #success-section #btn-container #download-btn {
+        @apply ml-2;
+        @apply hover:underline;
+    }
+
+    #btn-error-mobile-container {
+        @apply hidden;
+    }
+
+    #error-container {
+        @apply w-full;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-end;
+    }
+
+    #error-card-container {
+        @apply w-full;
+        @apply max-w-[600px];
+        @apply mt-16;
+        @apply px-10;
+        @apply py-8;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-center;
+        @apply rounded-xs;
+    }
+
+    #error-container button {
+        @apply w-full;
+        @apply max-w-[600px];
+        @apply mt-5;
+        @apply mx-auto;
+        @apply p-5;
+        @apply font-bold;
+        @apply text-[16px];
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+}
+
 @media (min-width: 1024px) {
     #company-list-container {
         @apply w-full;
@@ -54,6 +621,10 @@
         @apply rounded-xs;
         @apply border-2;
         @apply border-skyBlue;
+    }
+
+    #btn-mobile-container {
+        @apply hidden;
     }
 
     #container-2 #btn-container {
@@ -175,6 +746,7 @@
 
     #success-section #payment-info ul {
         @apply mb-4;
+        @apply font-bold;
     }
 
     #success-section #payment-info ul li {
@@ -205,6 +777,10 @@
 
     #success-section #btn-container #home-btn:hover {
         @apply underline;
+    }
+
+    #btn-error-mobile-container {
+        @apply hidden;
     }
 
     #error-container {

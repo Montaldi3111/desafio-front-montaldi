@@ -2,6 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (min-width: 300px) and (max-width:768px){
+    #card-information {
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+        @apply border-t-[1px];
+        @apply border-lightGray;
+    }
+    
+    #card-information div {
+        @apply py-3;
+        @apply flex;
+        @apply items-center;
+    }
+
+    #card-information img {
+        @apply mr-3;
+        @apply w-16;
+        @apply h-8;
+    }
+
+    #card-information div {
+        @apply text-sm;
+    }
+
+    #card-information button {
+        @apply text-[16px];
+        @apply font-bold;
+        @apply hover:underline;
+    }
+}
+
+@media (min-width: 768px) and (max-width:1024px){
+    #card-information {
+        @apply flex;
+        @apply justify-between;
+        @apply items-center;
+        @apply border-b-2;
+        @apply border-lightGray;
+    }
+
+    #card-information div {
+        @apply py-3;
+        @apply flex;
+        @apply items-center;
+    }
+
+    #card-information img {
+        @apply mr-9;
+        @apply w-24;
+        @apply h-9;
+    }
+
+    #card-information div {
+        @apply text-[16px];
+    }
+
+    #card-information button {
+        @apply text-[16px];
+        @apply font-bold;
+        @apply hover:underline;
+    }
+}
+
 @media (min-width: 1024px) {
     #card-information {
         @apply flex;
