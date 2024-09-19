@@ -1,5 +1,6 @@
 "use client"
 import { deleteCard } from "@/services/cards/cards.service";
+import { useRouter } from "next/navigation";
 import { toast, Toaster } from "sonner";
 
 type PaymentCardParams = {
@@ -10,6 +11,7 @@ type PaymentCardParams = {
 }
 
 const PaymentCard = ({token, cardId, accountId, cardNumber}:PaymentCardParams) => {
+  const router = useRouter();
   const numbers:string = String(cardNumber).slice(12,16);
   const handleDeleteCard = () => {
     deleteCard(accountId, cardId, token).then(response => {
@@ -18,6 +20,8 @@ const PaymentCard = ({token, cardId, accountId, cardNumber}:PaymentCardParams) =
         } else {
             toast.error("Se ha producido un error al eliminar la tarjeta")
         }
+    }).finally(() => {
+      router.refresh();
     }).catch(err => toast.error(err.message))
   }
   return (

@@ -12,25 +12,31 @@ import { useState } from "react";
 import EditUserScheme from "@/schemes/editUser.scheme";
 import { ServerError } from "@/types/errors.types";
 
-function restructreUser (data:FormEditProfileData) {
+function restructreUser (data?:EditProfileForm) {
+    if(data !== undefined){
         const user = {
-            firstname: data.first_last_name.split(" ")[0],
-            lastname: data.first_last_name.split(" ")[1],
+            firstname: data.first_last_name?.split(" ")[0],
+            lastname: data.first_last_name?.split(" ")[1],
             phone: data.phone,
+            password: data.password,
         }
         return user;
+    } else {
+        return 0
+    }
 }
 
 
 const EditUserProfileForm = ({ userId, userData, pass }: { userId:number, userData: UserType, pass: string }) => {
 
     
-    const methods = useForm<FormEditProfileData>({
-        resolver: yupResolver(EditUserScheme),
+    const methods = useForm<EditProfileForm>({
+        resolver: yupResolver<EditProfileForm>(EditUserScheme),
         defaultValues: {
             first_last_name: userData.firstname + " " + userData.lastname,
-            dni: "20"+userData.dni+"4",
+            dni: "20"+userData.dni+"7",
             phone: userData.phone,
+            password: userData.password,
         }
     });
 
@@ -40,10 +46,11 @@ const EditUserProfileForm = ({ userId, userData, pass }: { userId:number, userDa
     const [isEditable, setIsEditable] = useState<boolean>(false)
     const [serverError, setServerError] = useState<string|null>(null);
 
-    const onSubmit = (data: FormEditProfileData) => {
+    const onSubmit = (data: EditProfileForm) => {
         setServerError(null);
         setIsEditable(true);
         const editUserData:any = restructreUser(data);
+        console.log(editUserData);
         updateUserData(userId, editUserData, token).then((response:number) => {
             if(response === 0){
                 toast.success("Datos actualizados")
@@ -58,8 +65,8 @@ const EditUserProfileForm = ({ userId, userData, pass }: { userId:number, userDa
                 setServerError("Algo malo ha sucedido, intente de nuevo más tarde");
             }
         }).finally(() => {
-            reset();
             setIsEditable(false);
+            reset();
             router.refresh();
         })
     }
@@ -68,18 +75,18 @@ const EditUserProfileForm = ({ userId, userData, pass }: { userId:number, userDa
         <ChangeProvider>
         <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
-            <ul>
+            <div id="form-field">
                 <EditProfileField isEditable={isEditable} fieldName={"first_last_name"} label={"Nombre y Apellido"} value={userData.firstname + " " + userData.lastname}/>
-            </ul>
-            <ul>
+            </div>
+            <div id="form-field">
                 <EditProfileField isEditable={isEditable} fieldName={"dni"} label={"CUIT"} value={"20"+userData.dni+"4"}/>
-            </ul>
-            <ul>
+            </div>
+            <div id="form-field">
                 <EditProfileField isEditable={isEditable} fieldName={"phone"} label={"Teléfono"} value={userData.phone}/>
-            </ul>
-            <ul>
+            </div>
+            <div id="form-field">
                 <EditProfileField isEditable={isEditable} fieldName={"password"} label={"Contraseña"} value={pass}/>
-            </ul>
+            </div>
         </form>
         </FormProvider>
         </ChangeProvider>

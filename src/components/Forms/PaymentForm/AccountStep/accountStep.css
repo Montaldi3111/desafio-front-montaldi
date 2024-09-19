@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+@media (min-width: 300px) and (max-width:768px) {
+    
+}
+
+@media (min-width: 768px) and (max-width:1024px) {
+    
+}
+
+@media (min-width: 1024px) {
+    main {
+        @apply flex;
+        @apply h-[220vh];
+    }
+    #container-2 {
+        @apply w-[80%];
+        @apply mt-5;
+        @apply px-10;
+        @apply py-8;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #container-2 #input-container {
+        @apply w-[60%];
+        @apply max-w-[450px];
+    }
+
+    #container-2 #input-container h1 {
+        @apply w-full;
+        @apply mb-8;
+    }
+
+    #container-2 #input-container input {
+        @apply w-full;
+        @apply mb-3;
+        @apply p-3;
+        @apply text-lg;
+        @apply rounded-xs;
+        @apply border-2;
+        @apply border-skyBlue;
+    }
+
+    #btn-mobile-container {
+        @apply hidden;
+    }
+
+    #container-2 #btn-container {
+        @apply w-full;
+        @apply flex;
+        @apply justify-between;
+    }
+    
+     #container-2 button {
+        @apply w-[25%];
+        @apply max-w-[250px];
+        @apply p-4;
+        @apply font-bold;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+    }
+}

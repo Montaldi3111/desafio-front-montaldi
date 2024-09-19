@@ -26,17 +26,21 @@ const Cards = async () => {
                     <div id='card-header'>
                         <h3 className='text-white font-bold'>Agregá tu tarjeta de débito o crédito</h3>
                     </div>
+                    {cards.length < 10 ? 
                     <Link href="/cards/new-card">
-                        <span id='add-card'>
-                            <div id='first-container'>
-                                <CiCirclePlus id="circle-plus" />
-                                <h2 className='text-ylw text-lg font-bold'>Nueva tarjeta</h2>
-                            </div>
-                            <div id="second-container">
-                                <FaArrowRight id="arrow-right" />
-                            </div>
-                        </span>
-                    </Link>
+                    <span id='add-card'>
+
+                        <div id='first-container'>
+                            <CiCirclePlus id="circle-plus" />
+                            <h2 className='text-ylw text-lg font-bold'>Nueva tarjeta</h2>
+                        </div>
+                        <div id="second-container">
+                            <FaArrowRight id="arrow-right" />
+                        </div>
+
+                    </span>
+                </Link>
+                    : <p className='text-redError font-bold'>Límite de 10 tarjetas alcanzado</p>}
                 </article>
                 <article id="cards-list">
                     {cards.length > 0 ? <>

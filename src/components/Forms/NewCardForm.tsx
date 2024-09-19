@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { addNewCard } from '@/services/cards/cards.service'
 import { useRouter } from 'next/navigation'
 import { toast, Toaster } from 'sonner'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Cards from "react-credit-cards-2"
 import 'react-credit-cards-2/dist/es/styles-compiled.css';
 import CardScheme from '@/schemes/card.scheme'
@@ -26,7 +26,7 @@ const NewCardForm = ({ account_id, token }: NewCardFormParams) => {
 
   const router = useRouter();
   const [serverError, setServerError] = useState<string | null>(null)
-  
+
   const { register, handleSubmit, watch, formState: { errors } } = useForm<FormCardData>({
     resolver: yupResolver(CardScheme),
     defaultValues: {
@@ -41,9 +41,11 @@ const NewCardForm = ({ account_id, token }: NewCardFormParams) => {
     setServerError(null)
     addNewCard(account_id, data, token).then((response) => {
       if (response === 0) {
-        router.push("/cards")
-        router.refresh();
+        toast.success("Tarjeta agregada")
       }
+    }).finally(() => {
+      router.push("/cards")
+      router.refresh();
     }).catch(error => {
       switch (error) {
         case (error instanceof CardError): {
@@ -68,7 +70,6 @@ const NewCardForm = ({ account_id, token }: NewCardFormParams) => {
   return (
     <>
       <form className='bg-white' onSubmit={handleSubmit(onSubmit)}>
-        <Toaster richColors visibleToasts={1} position='bottom-left' />
         <Cards number={cardValues.number_id || ""}
           expiry={cardValues.expiration_date || ""}
           cvc={cardValues.cod || ""}

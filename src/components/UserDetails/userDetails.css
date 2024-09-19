@@ -6,9 +6,14 @@ main {
     @apply h-screen;
 }
 
+main ul li {
+    @apply list-none;
+    @apply p-0;
+}
+
 /* Mobile CSS */
 
-@media (min-width: 300px) and (max-width:768px){
+@media (min-width: 300px) and (max-width:768px) {
     #user-details {
         @apply w-[90vw];
         @apply mx-auto;
@@ -23,7 +28,9 @@ main {
     #user-details h3 {
         @apply font-bold;
         @apply text-[16px];
-        @apply mb-2;
+        @apply pb-4;
+        @apply border-b-[1px];
+        @apply border-lightGray;
     }
 
     #details-container {
@@ -31,31 +38,46 @@ main {
         @apply flex-col;
     }
 
-    #details-container ul {
-        @apply grid;
-        @apply grid-cols-12;
-        @apply items-center;
+    #details-container #detail-header {
+        @apply text-[16px];
+    }
+    
+    #details-container #user-info {
+        @apply text-[16px];
+        @apply text-gray-500;
+    }
+
+    #details-container #detail-header,
+    #details-container #user-info,
+    #details-container svg {
+        @apply my-2;
+    }
+
+    #details-container form div {
         @apply border-b-[1px];
         @apply border-lightGray;
     }
 
-    #details-container ul #detail-header {
-        @apply w-fit;
-        @apply col-span-6;
-        @apply font-semibold;
-        @apply text-blck;
+    #details-container form #input-buttons-container {
+        @apply flex;
+        @apply flex-row;
+        @apply justify-between;
+        @apply items-center;
     }
 
-    #details-container ul #user-info {
+    #details-container form #input-buttons-container input {
         @apply bg-white;
-        @apply col-span-11;
-        @apply text-[12px];
+        @apply text-[16px];
+        @apply text-gray-500;
     }
 
-    #details-container #detail-header, #details-container #user-info, #details-container svg{
-        @apply my-2;
+    #details-container form #input-buttons-container #check-x-field svg {
+        @appply w-8;
+        @apply h-8;
+        @apply my-0;
     }
-    
+
+
 }
 
 /* Tablet CSS */
@@ -82,7 +104,7 @@ main {
         @apply flex-col;
     }
 
-    #details-container ul {
+    #details-container #email-field {
         @apply grid;
         @apply grid-cols-12;
         @apply items-center;
@@ -90,24 +112,50 @@ main {
         @apply border-lightGray;
     }
 
-    #details-container ul #detail-header {
-        @apply text-[14px];
-        @apply font-semibold;
+    #details-container #email-field h4 {
+        @apply col-span-5;
+    }
+
+    #details-container form #form-field {
+        @apply grid;
+        @apply grid-cols-12;
+        @apply items-center;
+        @apply border-b-[1px];
+        @apply border-lightGray;
+    }
+
+    #details-container form #detail-header {
+        @apply text-[16px];
         @apply text-blck;
         @apply col-span-5;
     }
 
-    #details-container ul #user-info {
-        @apply bg-white;
-        @apply pr-4;
-        @apply col-span-5;
-        @apply text-[12px];
+    #details-container #input-buttons-container {
+        @apply col-span-7;
+        @apply grid;
+        @apply grid-cols-12;
+        @apply items-center;
     }
 
-    #details-container #detail-header, #details-container #user-info, #details-container svg{
+    #details-container form input {
+        @apply w-full;
+        @apply bg-white;
+        @apply text-gray-500;
+        @apply pr-4;
+        @apply col-span-10;
+        @apply text-[16px];
+    }
+
+    #details-container #detail-header,
+    #details-container input,
+    #details-container svg {
         @apply my-2;
     }
-    
+
+    #details-container form #input-buttons-container span {
+        @apply flex;
+    }
+
 
 }
 
@@ -135,44 +183,56 @@ main {
         @apply flex-col;
     }
 
-    #details-container ul {
+    #details-container #email-field {
         @apply grid;
         @apply grid-cols-12;
         @apply items-center;
-        @apply justify-center;
         @apply border-b-[1px];
         @apply border-lightGray;
     }
 
-    #details-container ul #detail-header {
-        @apply text-[16px];
-        @apply col-span-4;
+    #details-container #email-field h4 {
+        @apply col-span-5;
     }
 
-    #details-container ul #user-info {
-        @apply bg-white;
+    #details-container form #form-field {
+        @apply grid;
+        @apply grid-cols-12;
+        @apply items-center;
+        @apply border-b-[1px];
+        @apply border-lightGray;
+    }
+
+    #details-container form #detail-header {
         @apply text-[16px];
-        @apply text-graySlate;
+        @apply text-blck;
+        @apply col-span-5;
+    }
+
+    #details-container #input-buttons-container {
         @apply col-span-7;
-    }
-
-    #details-container ul svg {
-        @apply w-6;
-        @apply text-xl;
-    }
-
-    #details-container #detail-header, #details-container #user-info, #details-container svg{
-        @apply my-2;
-    }
-
-    #details-container ul #check-x-field {
-        @apply flex;
-        @apply justify-between;
+        @apply grid;
+        @apply grid-cols-12;
         @apply items-center;
     }
 
-    #details-container ul #check-x-field svg {
-        @apply size-4;
+    #details-container form input {
+        @apply w-full;
+        @apply bg-white;
+        @apply text-gray-500;
+        @apply pr-4;
+        @apply col-span-10;
+        @apply text-[16px];
+    }
+
+    #details-container #detail-header,
+    #details-container input,
+    #details-container svg {
+        @apply my-2;
+    }
+
+    #details-container form #input-buttons-container span {
+        @apply flex;
     }
 
 }

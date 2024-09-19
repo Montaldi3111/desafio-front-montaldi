@@ -13,7 +13,7 @@ const MovementCard = ({movement} : MovementCardParams) => {
             <div id="title">
             <p id="circle"></p>
             {movement.type === "Deposit" || movement.type === "Transference" ?
-             <p id="transaction-name">{movement.type === "Deposit" ? "Ingresaste dinero" : "Te transfirieron dinero"}</p>
+             <p id="transaction-name">{movement.type === "Deposit" ? "Deposito" : "Transferencia"}</p>
               :
               <p id="transaction-name">{movement.description}</p>
               }

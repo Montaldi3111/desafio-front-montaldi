@@ -55,7 +55,6 @@ main #home-shortcut {
         @apply mx-auto;
         @apply flex;
         @apply flex-col;
-        @apply justify-center;
         @apply items-center;
     }
 }

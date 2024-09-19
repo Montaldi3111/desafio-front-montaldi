@@ -6,11 +6,13 @@ import { filterAndSortTransactions, filterTransactions } from '@/utils/dateFunct
 import SearchFilterContainer from '../containers/SearchFilterContainer'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import { useSearch } from '@/hooks/useSearch'
 
 const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => {
 
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [copyTransaction, setCopyTransaction] = useState<TransactionType[]>(transactions);
+    const {inputValue} = useSearch();
     const searchParams = useSearchParams();
     const filterValue = searchParams.get('filter') ?? "desc-date";
     
@@ -35,6 +37,10 @@ const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => 
         setCurrentPage(page)
     }
 
+    const filteredTransactions = currentTransactions.filter((transaction: TransactionType) => 
+        transaction.description.toLowerCase().includes(inputValue.toLowerCase())
+      );
+
     return (
         <>
             <div id="header-list">
@@ -45,7 +51,7 @@ const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => 
             </div>
             <div id="movement-list">
                 {
-                    (transactions && currentTransactions.length > 0) ? currentTransactions.map((transaction: TransactionType, index: number) => (
+                    (transactions && currentTransactions.length > 0) ? filteredTransactions.map((transaction: TransactionType, index: number) => (
                         <Link href={`/activity/${transaction.id}`} key={index}><MovementCard movement={transaction} /></Link>
                     )) : <p className='text-[16px] font-bold text-center mt-4'>No hay registros de tu actividad</p>
                 }

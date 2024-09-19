@@ -15,7 +15,7 @@ const NewCard = async () => {
         <FaArrowRight />
         <h3>Tarjetas</h3>
       </div>
-      <Toaster richColors visibleToasts={1} position='bottom-center'/>
+      <Toaster richColors visibleToasts={1} position='bottom-left'/>
       <NewCardForm account_id={id} token={token}/>
     </main>
   )

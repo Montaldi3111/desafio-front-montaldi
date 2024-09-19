@@ -6,10 +6,13 @@ import HomeButtons from '@/components/Buttons/HomeButtons'
 import MovementList from '@/components/MovementList/MovementList'
 import Menu from '@/components/Menu/Menu'
 import "./page.css"
+import { getAllTransactions } from '@/services/transactions/transactions.service';
 const Home = async () => {
 
   const token:string = headers().get("x-digital-access-token") ?? "";
   const userData:UserAccountType = await getUserAccount(token);
+  const transactions: TransactionType[] = await getAllTransactions(userData.id, token)
+
   return (
     <main className='bg-lightGray w-full'>
       <section>
@@ -22,7 +25,7 @@ const Home = async () => {
       <section id="account-details" className='h-full py-10'>
         <ResumeCard balance={userData.available_amount}/>
         <HomeButtons />
-        <MovementList accountId={userData.id} token={token}/>
+        <MovementList transactions={transactions} />
       </section>
     </main>
   )

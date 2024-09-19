@@ -67,7 +67,8 @@
 
     #principal-card #links {
         @apply text-right;
-        @apply text-xs;
+        @apply text-[16px];
+        @apply font-semibold;
         @apply mb-4;
         @apply underline;
     }
@@ -82,14 +83,16 @@
     }
 
     #principal-card #current-money{
+        @apply min-w-[150px];
         @apply w-fit;
         @apply p-2;
         @apply mt-2;
         @apply font-bold;
-        @apply text-xl;
+        @apply text-2xl;
         @apply border-2;
         @apply border-ylw;
         @apply rounded-full;
+        @apply tracking-wide;
     }
 }
 

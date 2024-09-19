@@ -3,13 +3,24 @@
 @tailwind utilities;
 
 #menu {
-    @apply h-[full];
+    @apply h-full;
     @apply bg-ylw;
 }
 
 /* Mobile CSS */
 
 @media (min-width:300px) and (max-width:768px) {
+
+    #overlay-menu {
+        @apply fixed;
+        @apply top-0;
+        @apply left-0;
+        @apply w-[100vw];
+        @apply h-[100vh];
+        @apply bg-overlay;
+        @apply bg-opacity-50;
+        @apply z-40;
+    }
 
     #menu-home {
         @apply hidden;
@@ -22,14 +33,17 @@
     header nav #profile-buttons #menu{
         @apply absolute;
         @apply w-[219px];
-        @apply h-[246.1vh];
+        @apply h-[100vh];
         @apply top-14;
         @apply left-0;
         @apply flex;
         @apply flex-col;
+        @apply z-50;
     }
 
+
     header nav #profile-buttons #menu a , header nav #profile-buttons #menu p{
+        @apply w-fit;
         @apply mt-4;
         @apply ml-4;
         @apply text-[16px];
@@ -45,7 +59,7 @@
 
     #menu-home{
         @apply w-[32vw];
-        @apply max-w-[150px];
+        @apply max-w-[200px];
         @apply pt-4;
         @apply px-4;
         @apply flex;

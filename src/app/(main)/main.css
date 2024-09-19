@@ -4,7 +4,7 @@
 
 /* Mobile CSS */
 
-@media (min-width:300px) and (max-width:500px){
+@media (min-width:300px) and (max-width:768px){
 
     main {
         @apply relative;
@@ -28,8 +28,12 @@
         @apply w-32;
     }
 
+    #text-content #text-head{
+        @apply text-xl;
+    }
+
     #text-content #line {
-        @apply w-10;
+        @apply w-6;
         @apply mt-1;
         @apply bg-ylw;
         @apply border-2;
@@ -38,7 +42,7 @@
 
     #text-content #text-subcontent{
         @apply text-ylw;
-        @apply text-[16px];
+        @apply text-lg;
         @apply mt-1;
     }
 
@@ -55,11 +59,11 @@
 
 /* Tablet CSS */
 
-@media (min-width:500px) and (max-width:768px) {
+@media (min-width:768px) and (max-width:1024px) {
 
     main {
         @apply relative;
-        @apply h-[100vh];
+        @apply h-[120vh];
     }
 
     main #image-container {
@@ -84,7 +88,7 @@
     }
 
     #text-content #text-head {
-        @apply text-[32px];
+        @apply text-4xl;
     }
 
     #text-content #line {
@@ -93,24 +97,25 @@
 
     #text-content #text-subcontent{
         @apply text-ylw;
-        @apply text-[24px];
+        @apply text-2xl;
         @apply mt-1;
     }
 
     #card-container {
-        @apply h-[268px];
-        @apply max-h-[280px];
-        @apply flex;
-        @apply flex-col;
+        @apply h-max;
         @apply relative;
-        @apply bottom-[19px];
+        @apply flex;
+        @apply flex-wrap;
+        @apply justify-center;
+        @apply gap-x-8;
+        @apply bottom-[18px];
     }
 
 }
 
 /* Laptop and Desktop CSS */
 
-@media (min-width:768px) {
+@media (min-width:1024px) {
 
     main {
         @apply relative;
@@ -135,13 +140,13 @@
     }
 
     #text-content #text-head {
-        @apply text-[32px];
+        @apply text-4xl;
         @apply tracking-wide
     }
 
     #text-content #text-subcontent{
         @apply text-ylw;
-        @apply text-[30px];
+        @apply text-3xl;
         @apply mt-3;
     }
 

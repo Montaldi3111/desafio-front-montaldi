@@ -13,11 +13,11 @@ type FormRegisterData = {
     phone: string;
 }
 
-type FormEditProfileData = {
-    first_last_name: string;
-    dni: string;
-    phone: string;
-    password: string;
+type EditProfileForm = {
+    first_last_name?: string;
+    dni?: string;
+    phone?: string;
+    password?: string;
 }
 
 type FormChargeWithCardData = {

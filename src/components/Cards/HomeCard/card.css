@@ -4,39 +4,48 @@
 
 /* Mobile CSS */
 
-@media (min-width:300px) {
+@media (min-width:300px) and (max-width:768px) {
     #card{
-        @apply mb-4;
-        @apply mx-4;
+        @apply w-[80%];
+        @apply max-w-[400px];
+        @apply mb-3;
+        @apply mx-auto;
         @apply text-sm;
         @apply relative;
         @apply -top-14;
     }
 
     #card-head {
-        @apply text-xl;
+        @apply pb-3;
+        @apply text-[28px];
     }
 
     #card #card-content{
-        @apply mt-2;
+        @apply text-[16px];
+        @apply mt-3;
     }
 
 }
 
 /* Tablet CSS */
 
-@media (min-width:500px) {
+@media (min-width:768px) and (max-width:1024px) {
     #card{
-        @apply mx-auto;
-        @apply w-[72vw];
-        @apply max-w-[490px];
+        @apply w-[50%];
+        @apply max-w-[500px];
+        @apply h-fit;
         @apply mb-4;
         @apply relative;
-        @apply -top-[52px];
+        @apply -top-[60px];
+    }
+
+    #card #card-head {
+        @apply text-3xl;
     }
 
     #card #card-content{
         @apply mt-2;
+        @apply text-lg;
     }
 
 
@@ -44,7 +53,7 @@
 
 /* Laptop and Desktop CSS */
 
-@media (min-width:768px) {
+@media (min-width:1024px) {
 
     #card{
         @apply w-[40%];
@@ -56,17 +65,13 @@
         @apply -top-20;
     }
 
+    #card #card-head {
+        @apply text-3xl;
+    }
+
     #card #card-content {
         @apply mt-2;
-        @apply text-[16px];
+        @apply text-lg;
     }
     
-}
-
-/* Extra Large Screen (Desktop) CSS */
-
-@media (min-width:910px) {
-    #card{
-        @apply max-h-[200px];
-    }
 }

@@ -1,6 +1,13 @@
 import { FaRegCircleXmark } from "react-icons/fa6"
 import "./actionErrorCard.css"
-const ActionErrorCard = ({title, subtitle}) => {
+
+type ActionErrorCardParams = {
+  title: string;
+  subtitle: string;
+ 
+}
+
+const ActionErrorCard = ({title, subtitle} : ActionErrorCardParams) => {
   return (
     <>
     <div id="title-card">

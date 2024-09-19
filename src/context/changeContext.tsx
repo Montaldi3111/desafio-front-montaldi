@@ -11,7 +11,6 @@ interface ChangeProviderProps {
 }
 
 export const ChangeContext = createContext<ChangeContextType | undefined>(undefined);
-
 // este context me permite modificar los datos del perfil deshabilitando el resto de los botones
 // en el momento en que se hace click al boton de editar en un cambio
 

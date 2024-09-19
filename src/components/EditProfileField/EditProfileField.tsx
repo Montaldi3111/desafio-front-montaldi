@@ -14,11 +14,12 @@ type EditProfileFieldParams = {
 }
 
 const EditProfileField = ({ isEditable, fieldName, label, value }: EditProfileFieldParams) => {
-    const context = useContext(ChangeContext);
     const router = useRouter();
     const { register, reset } = useFormContext();
     const [disable, setDisable] = useState<boolean>(true);
-    const { change, setChange } = context;
+    const context = useContext(ChangeContext);
+    const change = context?.change
+    const setChange:any = context?.setChange
 
     const handleEdit = () => {
         setDisable(!disable);
@@ -41,27 +42,29 @@ const EditProfileField = ({ isEditable, fieldName, label, value }: EditProfileFi
 
     return (
         <>
-            <li id="detail-header">{label}</li>
+            <p id="detail-header">{label}</p>
+            <div id="input-buttons-container">
             <input
-                type="text"
+                className={!disable ? 'border-2 px-1 py-2 border-blck rounded-sm':undefined}
+                type={label === "Contraseña" ? "password" : "text"}
                 disabled={disable}
                 readOnly={disable}
-                id="user-info"
                 placeholder={value}
                 defaultValue={value}
                 {...register(fieldName)} />
             {disable ?
                 <span className={`${change && "hidden"}`}>
-                    <li onClick={handleEdit}><FaPen className="text-slate-500" size={15} /></li>
+                    <p onClick={handleEdit}><FaPen className="text-gray-400" size={15} /></p>
                 </span>
                 :
                 <span id="check-x-field" className="items-center">
-                    <button type="submit" className={`cursor-pointer text-green-500 ${isEditable && "hidden"}`}>
+                    <button type="submit" className={`cursor-pointer text-green-500 mr-4 ${isEditable && "hidden"}`}>
                         <FaCheck size={15} />
                     </button>
                     <button className="text-red-500" onClick={handleCancelClick}><FaX size={15}/></button>
                 </span>
             }
+            </div>
 
         </>
     )

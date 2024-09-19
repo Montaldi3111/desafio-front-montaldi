@@ -5,10 +5,8 @@ import './companyCard.css'
 
 type CompanyCardParams = {
   service: ServiceType,
-  step: number,
-  handleStep: () => void,
 }
-const CompanyCard = ({service, step, handleStep} : CompanyCardParams) => {
+const CompanyCard = ({service} : CompanyCardParams) => {
     const imageName = service.name.toLowerCase().replace(/ /g, "");
   return (
     <span id="card-information">
@@ -16,7 +14,7 @@ const CompanyCard = ({service, step, handleStep} : CompanyCardParams) => {
             <Image src={`/${imageName}.png`} alt={service.name} width={800} height={600}/>
             <p>{service.name}</p>
         </div>
-        <button onClick={handleStep}>Seleccionar</button>
+        <button type="button">Seleccionar</button>
     </span>
   )
 }

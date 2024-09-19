@@ -69,6 +69,7 @@ export const updateUserData = async (user_id: number, data: EditUserType, access
                     firstname: data.firstname,
                     lastname: data.lastname,
                     phone: data.phone,
+                    password: data.password
                 })
             })
             if (resp.ok) {

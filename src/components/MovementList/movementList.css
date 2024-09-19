@@ -44,8 +44,13 @@
         @apply shadow-md;
     }
 
-    #movements p {
-        @apply text-sm;
+    #movements #movements-header {
+        @apply pb-4;
+    }
+
+    #movements #activity-anchor{
+        @apply border-t-[1px];
+        @apply border-black;
     }
 }
 

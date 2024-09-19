@@ -8,8 +8,16 @@ import { headers } from 'next/headers'
 import { getUserAccount } from '@/services/account/account.service'
 import { getOneTransaction } from '@/services/transactions/transactions.service'
 
+type ParamType = {
+  id: string;
+}
 
-const DetailPage = async ({params}) => {
+type DetailPageParams = {
+  params: ParamType
+}
+
+const DetailPage = async ({params}:DetailPageParams) => {
+  console.log(params)
   const idParams = params.id;
   const token = headers().get("x-digital-access-token") ?? "";
   const {id} = await getUserAccount(token);

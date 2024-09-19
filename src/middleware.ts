@@ -3,7 +3,6 @@ import type { NextRequest } from 'next/server'
  
 export async function middleware(request: NextRequest) {
   try {
-    const {pathname} = request.nextUrl;
     const token = request.cookies.get("token")?.value ?? "";
     const session:string = request.cookies.get("session")?.value ?? "";
 
@@ -37,7 +36,8 @@ export const config = {
     "/charge/with-card",
     "/activity",
     "/activity/:id*",
-    "/pay"
+    "/pay",
+    "/pay/:id*"
   ]
 }
 

@@ -25,4 +25,5 @@ type EditUserType = {
     firstname: string,
     lastname: string,
     phone: string,
+    password: string
 }

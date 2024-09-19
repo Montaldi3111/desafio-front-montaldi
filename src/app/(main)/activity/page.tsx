@@ -4,9 +4,8 @@ import { FaArrowRight, FaSliders } from 'react-icons/fa6'
 import { headers } from 'next/headers'
 import { getUserAccount } from '@/services/account/account.service'
 import { getAllTransactions } from '@/services/transactions/transactions.service'
-import SearchBarFilterMovementContainer from '@/components/containers/SearchBarFilterMovementContainer'
-import ActivityList from '@/components/ActivityList/ActivityList'
 import "./page.css"
+import ActivityPageContainer from '@/components/containers/ActivityPageContainer'
 
 const ActivityPage = async () => {
 
@@ -23,12 +22,7 @@ const ActivityPage = async () => {
                 <p>Tu actividad</p>
             </div>
             <section id="activity-container">
-                <article id="search-bar-container">
-                    <SearchBarFilterMovementContainer />
-                </article>
-                <article className='bg-white' id="activities-list">
-                    <ActivityList transactions={transactions} />
-                </article>
+                <ActivityPageContainer transactions={transactions}/>
             </section>
         </main>
     )
