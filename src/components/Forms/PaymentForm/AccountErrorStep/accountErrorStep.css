@@ -2,6 +2,105 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (min-width: 300px) and (max-width:768px){
+    #error-container {
+        @apply w-[90%];
+        @apply mt-4;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-end;
+    }
+
+    #error-card-container {
+        @apply w-full;
+        @apply p-5;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-center;
+        @apply rounded-xs;
+    }
+
+    #error-container button {
+        @apply hidden;
+    }
+
+    #btn-error-mobile-container {
+        @apply w-[90%];
+        @apply mx-auto;
+        @apply flex;
+        @apply justify-end;
+    }
+
+    #btn-error-mobile-container button {
+        @apply w-[60%];
+        @apply max-w-[250px];
+        @apply mt-5;
+        @apply py-3;
+        @apply px-5;
+        @apply font-bold;
+        @apply text-[16px];
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #btn-error-mobile {
+        @apply w-[60%];
+        @apply max-w-[250px];
+        @apply mt-5;
+        @apply py-3;
+        @apply px-5;
+        @apply font-bold;
+        @apply text-[16px];
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+}
+
+@media (min-width: 768px) and (max-width:1024px){
+
+    #btn-error-mobile-container {
+        @apply hidden;
+    }
+
+    #error-container {
+        @apply w-[90%];
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-end;
+    }
+
+    #error-card-container {
+        @apply w-full;
+        @apply max-w-[600px];
+        @apply mt-16;
+        @apply px-10;
+        @apply py-8;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-center;
+        @apply rounded-xs;
+    }
+
+    #error-container button {
+        @apply w-full;
+        @apply max-w-[600px];
+        @apply mt-5;
+        @apply mx-auto;
+        @apply p-5;
+        @apply font-bold;
+        @apply text-[16px];
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+}
+
 @media (min-width: 1024px) {
     #btn-error-mobile-container {
         @apply hidden;

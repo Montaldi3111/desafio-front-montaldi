@@ -7,6 +7,7 @@ import CvuAliasCard from '@/components/Cards/CVU-Alias-Card/CvuAliasCard'
 import UserDetails from '@/components/UserDetails/UserDetails'
 import "./page.css"
 import { Toaster } from 'sonner'
+import CurrentPage from '@/components/CurrentPage/CurrentPage'
 
 const Profile = async () => {
 
@@ -20,10 +21,7 @@ const Profile = async () => {
         <Menu />
       </section>
       <section id="info" className='my-4 w-full'>
-        <div id="actual-page">
-          <FaArrowRight />
-          <p>Perfil</p>
-        </div>
+        <CurrentPage />
           <UserDetails userId={user_id} userData={userData} />
         <div id="manage-payments">
           <p className='font-bold'>Gestioná los medios de pago</p>

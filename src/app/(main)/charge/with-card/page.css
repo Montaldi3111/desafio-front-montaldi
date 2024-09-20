@@ -8,27 +8,12 @@ main {
     @apply w-full;
 }
 
-main #current-page {
-    @apply hidden;
-}
 
 main #out-section {
     @apply hidden;
 }
 
 @media (min-width: 300px) and (max-width:768px) {
-
-    main #current-page {
-        @apply w-[90%];
-        @apply mx-auto;
-        @apply flex;
-        @apply items-center;
-        @apply my-8;
-    }
-
-    main #current-page svg {
-        @apply mr-2;
-    }
 
     form {
         @apply w-full;

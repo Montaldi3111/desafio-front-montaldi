@@ -6,13 +6,15 @@ import "./movementList.css"
 import Link from 'next/link'
 import { SearchProvider } from '@/context/searchContext'
 import MovementCardList from '../Cards/MovementCardList/MovementCardList'
+import { filterTransactions } from '@/utils/dateFunctions'
 
 type MovementCardParams = {
     transactions: TransactionType[],
 
 }
 const MovementList = ({ transactions }: MovementCardParams) => {
-    const first10Transactions = transactions.slice(0,10);
+    const orderedTransactions = filterTransactions(transactions, 'desc-date')
+    const first10Transactions = orderedTransactions.slice(0,10);
     return (
         <SearchProvider>
         <article id="movement-list" className=''>

@@ -30,8 +30,8 @@ const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => 
     
     
     useEffect(()=> {
-        setCopyTransaction(filterAndSortTransactions(copyTransaction, filterValue));
-    },[transactions])
+        setCopyTransaction(filterTransactions(copyTransaction, filterValue));
+    },[transactions, copyTransaction, filterValue])
 
     const handlePage = (page: number) => {
         setCurrentPage(page)

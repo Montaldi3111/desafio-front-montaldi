@@ -16,21 +16,6 @@
         @apply gap-y-4;
     }
 
-    #container #current-page {
-        @apply w-[85%];
-        @apply h-fit;
-        @apply mx-auto;
-        @apply mt-4;
-        @apply flex;
-        @apply items-center;
-    }
-
-    #container #current-page h3 {
-        @apply ml-2;
-        @apply h-fit;
-        @apply underline;
-    }
-
     #new-card {
         @apply w-[95%];
         @apply h-[150px];
@@ -149,10 +134,6 @@
         @apply gap-y-4;
     }
 
-    #container #current-page {
-        @apply hidden;
-    }
-
     #new-card {
         @apply w-[85%];
         @apply h-max;
@@ -268,10 +249,6 @@
         @apply flex;
         @apply flex-col;
         @apply gap-y-4;
-    }
-
-    #container #current-page {
-        @apply hidden;
     }
 
     #new-card {

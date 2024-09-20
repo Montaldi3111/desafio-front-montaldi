@@ -7,6 +7,7 @@ import MovementList from '@/components/MovementList/MovementList'
 import Menu from '@/components/Menu/Menu'
 import "./page.css"
 import { getAllTransactions } from '@/services/transactions/transactions.service';
+import CurrentPage from '@/components/CurrentPage/CurrentPage';
 const Home = async () => {
 
   const token:string = headers().get("x-digital-access-token") ?? "";
@@ -18,10 +19,7 @@ const Home = async () => {
       <section>
         <Menu/>
       </section>
-      <div id="home-shortcut" className='hidden'>
-        <FaArrowRight />
-        <p className='underline'>Inicio</p>
-      </div>
+      <CurrentPage />
       <section id="account-details" className='h-full py-10'>
         <ResumeCard balance={userData.available_amount}/>
         <HomeButtons />

@@ -8,3 +8,10 @@ type TransactionType = {
     origin: string,
     type: string
 }
+
+type TransferenceType = {
+    amount: number,
+    dated: string,
+    destination: string,
+    origin: string
+}

@@ -33,3 +33,33 @@ export const createNewDeposit = async (account_id : number, deposit:FormChargeWi
         throw new MissingTokenError("No se ha introducido un token")
     }
 }
+
+export const createNewTransference = async (accountId: number, data:TransferenceType, accessToken? : string) => {
+    if(accessToken) {
+        try {
+            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${accountId}/transferences`, {
+                method: "POST",
+                headers: {
+                    "Authorization": accessToken,
+                },
+                body: JSON.stringify({
+                    "amount": data.amount,
+                    "dated": data.dated,
+                    "destination": data.destination,
+                    "origin": data.origin
+                })
+            })
+
+            if(resp.ok) {
+                const data = await resp.json(); // Acción exitosa
+                return data;
+            } else {
+                throw new TransferenceError("No se pudo realizar la transferencia, intente de nuevo");
+            }
+        } catch (error) {
+            
+        }
+    } else {
+        throw new MissingTokenError("No se ha introducido un token")
+    }
+}

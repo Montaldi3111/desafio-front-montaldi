@@ -30,3 +30,4 @@ export const getServiceById = async (serviceId: string) => {
         throw new ServerError("Algo malo ha sucedido, intente de nuevo más tarde");
     }
 }
+

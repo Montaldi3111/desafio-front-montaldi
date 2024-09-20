@@ -7,34 +7,11 @@ main {
     @apply w-full;
 }
 
-main #current-page {
-    @apply hidden;
-}
 
 @media (min-width: 300px) and (max-width:768px) {
     main {
         @apply flex;
         @apply flex-col;
-    }
-
-    main #current-page {
-        @apply w-[85%];
-        @apply mx-auto;
-        @apply mt-4;
-        @apply mb-4;
-        @apply flex;
-    }
-
-    main #current-page #current-page-arrow{
-        @apply text-graySlate;
-        @apply mr-2;
-        @apply w-4;
-        @apply h-4;
-    }
-
-    main #current-page h3 {
-        @apply underline;
-        @apply text-graySlate;
     }
 
     main #charge-methods {

@@ -4,6 +4,7 @@ import ServiceList from '../../../components/ServiceList/ServiceList';
 import { getAllServices } from '@/services/company/company.service';
 import { FaArrowRight } from 'react-icons/fa6';
 import './page.css'
+import CurrentPage from '@/components/CurrentPage/CurrentPage';
 const Pay = async () => {
     const services = await getAllServices();
     return (
@@ -11,10 +12,7 @@ const Pay = async () => {
             <section>
                 <Menu />
             </section>
-            <div id="current-page">
-                    <FaArrowRight />
-                    <h3>Servicios</h3>
-                </div>
+            <CurrentPage />
             <section id="container">
                 <ServiceList services={services}/>
             </section>

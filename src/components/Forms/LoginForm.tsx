@@ -69,7 +69,10 @@ const LoginForm = () => {
           <div id="email-container">
             <input type="email" id="email" placeholder='Correo electrónico' className='my-5 p-4 border-2 border-skyBlue rounded-sm shadow-md' {...register("email")} />
           </div>
+          <div id="btn-container">
           <button className='bg-ylw text-blck my-5 py-4 rounded-sm shadow-md font-bold' id="login-btn" onClick={handleChange}>Continuar</button>
+          <a href="/register" className='bg-blck border-2 border-ylw text-ylw my-5 py-4 rounded-sm shadow-md font-bold' id="register-btn">Crear Cuenta</a>
+          </div>
         </section>
       }
       {foward && <section id="fieldset-container">
@@ -86,7 +89,6 @@ const LoginForm = () => {
         </div>
       </section>
       }
-      <a href="/register" className='bg-blck border-2 border-ylw text-ylw my-5 py-4 rounded-sm shadow-md font-bold' id="register-btn">Crear Cuenta</a>
     </form>
   )
 }

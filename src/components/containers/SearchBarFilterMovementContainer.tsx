@@ -4,10 +4,8 @@ import SearchFilterContainer from './SearchFilterContainer'
 const SearchBarFilterContainer = () => {
   return (
     <>
-      
-        <SearchBar placeholder={"Buscar en tu actividad"}/>
-        <SearchFilterContainer />
-
+      <SearchBar placeholder={"Buscar en tu actividad"} />
+      <SearchFilterContainer />
     </>
   )
 }

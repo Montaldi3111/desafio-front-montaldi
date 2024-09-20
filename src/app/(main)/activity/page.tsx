@@ -6,6 +6,7 @@ import { getUserAccount } from '@/services/account/account.service'
 import { getAllTransactions } from '@/services/transactions/transactions.service'
 import "./page.css"
 import ActivityPageContainer from '@/components/containers/ActivityPageContainer'
+import CurrentPage from '@/components/CurrentPage/CurrentPage'
 
 const ActivityPage = async () => {
 
@@ -17,10 +18,7 @@ const ActivityPage = async () => {
             <section>
                 <Menu />
             </section>
-            <div id="current-page">
-                <FaArrowRight />
-                <p>Tu actividad</p>
-            </div>
+            <CurrentPage />
             <section id="activity-container">
                 <ActivityPageContainer transactions={transactions}/>
             </section>

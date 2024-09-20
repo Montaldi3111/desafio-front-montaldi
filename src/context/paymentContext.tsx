@@ -4,12 +4,12 @@ import { createContext } from "react";
 interface PaymentContextType {
     step: number,
     notFound: boolean,
-    serverError: boolean | null,
+    serverError: string | null,
     incrementStep: () => void,
     decrementStep: () => void,
     setStep: (value: number) => void,
     setNotFound: (value: boolean) => void,
-    setServerError: (value: boolean | null) => void,
+    setServerError: (value: string | null) => void,
 }
 
 interface PaymentProviderProps {
@@ -23,7 +23,7 @@ export const PaymentContext = createContext<PaymentContextType | undefined>(unde
 export const PaymentProvider:React.FC<PaymentProviderProps> = ({children}) => {
     const [step, setStep] = useState<number>(1);
     const [notFound, setNotFound] = useState<boolean>(false);
-    const [serverError, setServerError] = useState<boolean | null>(null);
+    const [serverError, setServerError] = useState<string | null>(null);
     const incrementStep = () => {
         setStep(step + 1);
         window.scrollTo({

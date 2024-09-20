@@ -3,7 +3,7 @@ import "./login.css"
 import LoginForm from '@/components/Forms/LoginForm';
 const Login = () => {
   return (
-    <main className='bg-lightGray text-center font-body relative'>
+    <main className='bg-lightGray w-full text-center font-body relative'>
     <LoginForm />
     </main>
   )

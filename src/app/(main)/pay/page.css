@@ -2,35 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-main #current-page {
-    @apply hidden;
-}
-
-@media (min-width: 300px) and (max-width: 768px) {
-
-    
+@media (min-width: 300px) and (max-width: 768px) {  
     main {
         @apply flex;
         @apply flex-col;
         @apply h-[200vh];
         @apply w-full;
-    }
-
-    main #current-page {
-        @apply w-[90%];
-        @apply my-5;
-        @apply mx-auto;
-        @apply flex;
-        @apply items-center;
-    }
-
-    main #current-page svg {
-        @apply mr-2;
-        @apply text-graySlate;
-    }
-
-    main #current-page h3 {
-        @apply underline;
     }
 
     main #container {

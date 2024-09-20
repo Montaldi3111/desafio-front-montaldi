@@ -29,7 +29,9 @@ type FormChargeWithCardData = {
 
 type CompanyPaymentFormData = {
     amount: number;
+    accountNumber: string;
     dated: string;
     destination: string;
     origin: string;
+    accountId: string;
 }

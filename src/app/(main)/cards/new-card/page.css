@@ -21,22 +21,6 @@
         @apply h-[130vh];
     }
 
-    main #current-page {
-        @apply w-[95%];
-        @apply max-w-[500px];
-        @apply h-fit;
-        @apply mx-auto;
-        @apply mt-4;
-        @apply flex;
-        @apply items-center;
-    }
-
-    main #current-page h3 {
-        @apply ml-2;
-        @apply h-fit;
-        @apply underline;
-    }
-
     form {
         @apply w-[95%];
         @apply max-w-[500px];
@@ -131,10 +115,6 @@
         @apply h-[120vh];
     }
 
-    main #current-page {
-        @apply hidden;
-    }
-
     form {
         @apply w-[65%];
         @apply h-fit;
@@ -227,10 +207,6 @@
         @apply flex;
         @apply relative;
         @apply h-screen;
-    }
-
-    main #current-page {
-        @apply hidden;
     }
 
     form {

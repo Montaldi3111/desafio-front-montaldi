@@ -6,30 +6,12 @@ main {
     @apply h-screen;
 }
 
-main #actual-page {
-    @apply hidden;
-}
-
 /* Mobile CSS */
 
 @media (min-width: 300px) and (max-width: 768px){
 
     main #info {
         @apply mx-auto;
-    }
-
-    main #actual-page {
-        @apply flex;
-        @apply ml-4;
-        @apply mb-4;
-        @apply items-center;
-    }
-
-    main #actual-page p {
-        @apply ml-2;
-        @apply text-graySlate;
-        @apply font-semibold;
-        @apply underline;
     }
 
      #manage-payments {

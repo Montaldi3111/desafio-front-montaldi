@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width:300px) and (max-width:768px){
+    main {
+        @apply w-full;
+        @apply h-[180vh];
+        @apply flex;
+    }
+}
+
+@media (min-width: 768px) and (max-width:1024px){
+    main {
+        @apply w-full;
+        @apply h-[220vh];
+        @apply flex;
+    }
+}
+
+@media (min-width: 1024px){
+    main {
+        @apply w-full;
+        @apply h-[220vh];
+        @apply flex;
+    }
+}

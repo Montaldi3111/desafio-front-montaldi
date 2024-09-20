@@ -13,6 +13,7 @@ import ActionSuccessCard from '../Cards/ActionSuccessCard/ActionSuccessCard';
 import { dateFormatter } from '@/utils/dateFunctions';
 import ChangeScheme from '@/schemes/changeCard.scheme';
 import { ServerError, TransferenceError } from '@/types/errors.types';
+import CurrentPage from '../CurrentPage/CurrentPage';
 type ChargeWithCardParams = {
     cards: CardType[],
     accountId: number,
@@ -111,10 +112,7 @@ const ChargeWithCardForm = ({ cards, accountId, cvu, token }: ChargeWithCardPara
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div id="current-page">
-                <FaArrowRight />
-                <p className='underline'>Cargar dinero</p>
-            </div>
+            <CurrentPage />
             {step === 0 && <>
                 <section id="select-card-section" className='bg-blck'>
                     <h3 className='font-bold'>Seleccionar tarjeta</h3>

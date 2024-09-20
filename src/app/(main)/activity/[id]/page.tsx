@@ -7,6 +7,7 @@ import { FaArrowRight } from 'react-icons/fa6'
 import { headers } from 'next/headers'
 import { getUserAccount } from '@/services/account/account.service'
 import { getOneTransaction } from '@/services/transactions/transactions.service'
+import CurrentPage from '@/components/CurrentPage/CurrentPage'
 
 type ParamType = {
   id: string;
@@ -27,10 +28,7 @@ const DetailPage = async ({params}:DetailPageParams) => {
       <section>
         <Menu />
       </section>
-      <div id="current-page">
-        <FaArrowRight />
-        <p className='underline'>Tu actividad</p>
-      </div>
+      <CurrentPage />
       <section className='bg-lightGray' id="transaction-container">
         <TransactionDetail transaction={transaction} />
         <div id="btn-container">

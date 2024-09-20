@@ -2,9 +2,6 @@
 import { getUserAccount } from "@/services/account/account.service";
 import { getUserData } from "@/services/user/user.service";
 import { cookies } from "next/headers";
-import Link from "next/link"
-import { FaBars } from "react-icons/fa6";
-import Menu from "../Menu/MenuMobile";
 import HeaderIcons from "../HeadersIcons/HeaderIcons";
 
 const LoginRegisterHeader = async () => {

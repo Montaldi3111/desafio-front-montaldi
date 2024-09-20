@@ -8,6 +8,7 @@ import PaymentCard from '@/components/Cards/PaymentCard/PaymentCard'
 import Link from 'next/link'
 import "./page.css"
 import { Toaster } from 'sonner'
+import CurrentPage from '@/components/CurrentPage/CurrentPage'
 
 const Cards = async () => {
     const token: string = headers().get("x-digital-access-token") ?? "";
@@ -17,30 +18,27 @@ const Cards = async () => {
         <main>
             <Menu />
             <section id="container">
-                <div id="current-page">
-                    <FaArrowRight />
-                    <h3>Tarjetas</h3>
-                </div>
+                <CurrentPage />
                 <article id="new-card">
                     <Toaster richColors visibleToasts={1} position='bottom-left' />
                     <div id='card-header'>
                         <h3 className='text-white font-bold'>Agregá tu tarjeta de débito o crédito</h3>
                     </div>
-                    {cards.length < 10 ? 
-                    <Link href="/cards/new-card">
-                    <span id='add-card'>
+                    {cards.length < 10 ?
+                        <Link href="/cards/new-card">
+                            <span id='add-card'>
 
-                        <div id='first-container'>
-                            <CiCirclePlus id="circle-plus" />
-                            <h2 className='text-ylw text-lg font-bold'>Nueva tarjeta</h2>
-                        </div>
-                        <div id="second-container">
-                            <FaArrowRight id="arrow-right" />
-                        </div>
+                                <div id='first-container'>
+                                    <CiCirclePlus id="circle-plus" />
+                                    <h2 className='text-ylw text-lg font-bold'>Nueva tarjeta</h2>
+                                </div>
+                                <div id="second-container">
+                                    <FaArrowRight id="arrow-right" />
+                                </div>
 
-                    </span>
-                </Link>
-                    : <p className='text-redError font-bold'>Límite de 10 tarjetas alcanzado</p>}
+                            </span>
+                        </Link>
+                        : <p className='text-redError font-bold'>Límite de 10 tarjetas alcanzado</p>}
                 </article>
                 <article id="cards-list">
                     {cards.length > 0 ? <>

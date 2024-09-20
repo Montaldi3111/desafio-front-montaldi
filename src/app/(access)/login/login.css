@@ -26,7 +26,7 @@
 }
 
 /* Mobile CSS */
-@media (min-width: 300px) {
+@media (min-width: 300px) and (max-width:768px) {
 
     form {
         @apply h-screen;
@@ -37,12 +37,21 @@
     }
 
     #form input {
-        @apply w-[75vw];
+        @apply w-[90%];
         @apply max-w-[300px];
     }
 
+    #form #btn-container {
+        @apply w-full;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply items-center;
+    }
+
     #form button, #form a {
-        @apply w-[75vw];
+        @apply w-[90%];
         @apply max-w-[300px];
         @apply text-sm;
     }
@@ -50,7 +59,7 @@
 
 /* Tablet CSS */
 
-@media (min-width: 500px) {
+@media (min-width: 768px) and (max-width: 1024px){
 
     form {
         @apply h-screen;
@@ -63,6 +72,15 @@
     #form input {
         @apply w-[60vw];
         @apply max-w-[350px];
+    }
+
+    #form #btn-container {
+        @apply w-full;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply items-center;
     }
 
     #form button, #form a {
@@ -75,7 +93,7 @@
 
  /* Laptop, Desktop CSS */
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     form {
         @apply h-screen;
         @apply flex;
@@ -87,6 +105,15 @@
     #form input {
         @apply w-[60vw];
         @apply max-w-[350px];
+    }
+
+    #form #btn-container {
+        @apply w-full;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply items-center;
     }
 
     #form button, #form a {

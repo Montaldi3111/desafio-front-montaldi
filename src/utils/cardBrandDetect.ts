@@ -1,4 +1,4 @@
-export function detectCardBrand (cardNumber:string) : string | null {
+export function detectCardBrand (cardNumber:string) : string {
 
     // Primero elimino posibles espacios o guiones del número
     const sanitizedCardNumber = cardNumber.replace(/[\s-]/g, '');
@@ -22,5 +22,5 @@ export function detectCardBrand (cardNumber:string) : string | null {
     }
 
     // Si salio del ciclo es porque no pudo detectar la tarjeta
-    return null;
+    return "Unknown";
 }

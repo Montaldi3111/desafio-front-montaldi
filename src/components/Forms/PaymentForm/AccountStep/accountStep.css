@@ -3,18 +3,144 @@
 @tailwind components;
 
 @media (min-width: 300px) and (max-width:768px) {
+    #container-2 {
+        @apply w-[90%];
+        @apply mt-4;
+        @apply px-6;
+        @apply py-4;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply items-end;
+        @apply text-left;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #container-2 #input-container {
+        @apply w-full;
+    }
+
+    #container-2 #input-container h1 {
+        @apply w-[85%];
+        @apply mb-8;
+    }
+
+    #container-2 #input-container input {
+        @apply w-full;
+        @apply max-w-[350px];
+        @apply mb-3;
+        @apply p-3;
+        @apply text-lg;
+        @apply rounded-xs;
+        @apply border-2;
+        @apply border-skyBlue;
+    }
+
+    #container-2 #input-container p {
+        @apply w-[85%];
+        @apply text-xs;
+    }
+
+    #btn-mobile-container {
+        @apply mt-5;
+        @apply flex;
+        @apply justify-end;
+    }
+
+    #btn-mobile {
+        @apply w-[45%];
+        @apply max-w-[200px];
+        @apply py-3;
+        @apply px-5;
+        @apply font-bold;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #container-2 #btn-container {
+        @apply hidden;
+    }
     
+     #container-2 button {
+        @apply w-[70%];
+        @apply max-w-[600px];
+        @apply py-3;
+        @apply px-5;
+        @apply font-bold;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
 }
 
 @media (min-width: 768px) and (max-width:1024px) {
+    #container-2 {
+        @apply w-[90%];
+        @apply mt-16;
+        @apply px-10;
+        @apply py-8;
+        @apply mx-auto;
+        @apply flex;
+        @apply flex-col;
+        @apply rounded-sm;
+        @apply shadow;
+        @apply shadow-gray-400;
+    }
+
+    #container-2 #input-container {
+        @apply w-full;
+        @apply max-w-[600px];
+    }
+
+    #container-2 #input-container h1 {
+        @apply w-full;
+        @apply mb-8;
+    }
+
+    #container-2 #input-container input {
+        @apply w-full;
+        @apply mb-3;
+        @apply p-3;
+        @apply text-lg;
+        @apply rounded-xs;
+        @apply border-2;
+        @apply border-skyBlue;
+    }
+
+    #container-2 #btn-container {
+        @apply w-full;
+        @apply mt-4;
+        @apply flex;
+        @apply justify-between;
+    }
+
+     #btn-mobile-container {
+        @apply hidden;
+    }
     
+     #container-2 button {
+        @apply w-full;
+        @apply max-w-[600px];
+        @apply p-4;
+        @apply font-bold;
+        @apply text-center;
+        @apply text-[16px];
+        @apply text-black;
+        @apply rounded-sm;
+    }
 }
 
 @media (min-width: 1024px) {
-    main {
-        @apply flex;
-        @apply h-[220vh];
-    }
+
     #container-2 {
         @apply w-[80%];
         @apply mt-5;

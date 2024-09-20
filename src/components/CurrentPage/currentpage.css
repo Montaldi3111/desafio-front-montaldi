@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 300px) and (max-width:768px){
+    #current-page {
+        @apply w-[90%];
+        @apply py-5;
+        @apply mx-auto;
+        @apply flex;
+        @apply items-center;
+    }
+
+    #current-page svg {
+        @apply mr-2;
+        @apply text-graySlate;
+    }
+
+    #current-page h3 {
+        @apply underline;
+    }
+}
+
+@media (min-width: 768px) and (max-width:1024px){
+    #current-page {
+        @apply hidden;
+    }
+}
+
+@media (min-width: 1024px){
+    #current-page {
+        @apply hidden;
+    }
+}
