@@ -1,12 +1,11 @@
-import { AccessDeniedError, MissingTokenError, RegisterError, ServerError, UserAccountError } from "@/types/errors.types";
+import { API_URL, USERS } from "@/constants/api.constants";
+import { MissingTokenError, RegisterError, ServerError, UserAccountError } from "@/types/errors.types";
 
-const API_URL = "https://digitalmoney.digitalhouse.com/api";
-const API_ENDPOINT = "/users";
 
-// Create a new user
+// POST Registra un nuevo usuario
 export const createUser = async (data: FormRegisterData): Promise<any> => {
     try {
-        const response = await fetch(`${API_URL}${API_ENDPOINT}`, {
+        const response = await fetch(`${API_URL}${USERS}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -32,10 +31,12 @@ export const createUser = async (data: FormRegisterData): Promise<any> => {
     }
 }
 
+// GET devuelve los datos del usuario según su ID
+
 export const getUserData = async (user_id: number, accessToken?: string): Promise<UserType> => {
     if (accessToken) {
         try {
-            const resp: Response = await fetch(`${API_URL}${API_ENDPOINT}/${user_id}`, {
+            const resp: Response = await fetch(`${API_URL}${USERS}/${user_id}`, {
                 method: "GET",
                 headers: {
                     "Authorization": accessToken
@@ -56,10 +57,12 @@ export const getUserData = async (user_id: number, accessToken?: string): Promis
     }
 }
 
+// PATCH edita la información de la cuenta del usuario
+
 export const updateUserData = async (user_id: number, data: EditUserType, accessToken?: string): Promise<number> => {
     if (accessToken) {
         try {
-            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${user_id}`, {
+            const resp = await fetch(`${API_URL}${USERS}/${user_id}`, {
                 method: "PATCH",
                 headers: {
                     "Authorization": accessToken,

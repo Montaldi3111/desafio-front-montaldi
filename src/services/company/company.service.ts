@@ -1,14 +1,14 @@
+import { SERVICE_URL } from "@/constants/api.constants";
 import { ServerError, ServiceError } from "@/types/errors.types";
 
-const API_URL = "https://digitalmoney.digitalhouse.com/service"
 
 
-export const getAllServices = async () => {
+export const getAllServices = async () : Promise<ServiceType[]> => {
     try {
-        const resp = await fetch(API_URL);
+        const resp = await fetch(SERVICE_URL);
         if(resp.ok) {
             const data = await resp.json();
-            return data;
+            return data as ServiceType[];
         } else {
             throw new ServiceError("No se pudo obtener los servicios")
         }
@@ -17,9 +17,11 @@ export const getAllServices = async () => {
     }
 }
 
-export const getServiceById = async (serviceId: string) => {
+// GET Devuelve un servicio según su ID
+
+export const getServiceById = async (serviceId: string) : Promise<ServiceType> => {
     try {
-        const resp = await fetch(`${API_URL}/${serviceId}`);
+        const resp = await fetch(`${SERVICE_URL}/${serviceId}`);
         if(resp.ok) {
             const data = await resp.json();
             return data;

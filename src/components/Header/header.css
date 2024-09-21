@@ -3,15 +3,11 @@
 @tailwind utilities;
 
 #login:hover {
-    @apply bg-ylw;
-    @apply text-black;
+    @apply underline;
 }
 
 #register:hover {
-    @apply border-2;
-    @apply border-ylw;
-    @apply bg-blck;
-    @apply text-ylw;
+    @apply underline;
 }
 
 
@@ -147,22 +143,28 @@
         @apply w-[80px];
     }
 
+    header nav span {
+        @apply flex;
+        @apply items-center;
+    }
 
     #login {
-        @apply mr-2;
+        @apply w-[50%];
+        @apply mr-4;
         @apply text-[14px];
         @apply text-center;
-        @apply items-center;
-        @apply p-2;
+        @apply py-2;
+        @apply px-4;
         @apply w-32;
     }
 
     #register {
+        @apply w-[50%];
+        @apply h-10;
         @apply text-[14px];
         @apply text-center;
-        @apply items-center;
-        @apply p-2;
-        @apply w-36;
+        @apply pt-[10px];
+        @apply px-4;
     }
 
     #profile-link {
@@ -184,10 +186,7 @@
     }
 
     #profile-link #user-initials:hover {
-        @apply bg-blck;
-        @apply text-ylw;
-        @apply border-2;
-        @apply border-ylw;
+        @apply cursor-pointer;
     }
 
     #profile-link #user-hi-message:hover {

@@ -1,14 +1,13 @@
 import { ServerError, TransferenceError } from "@/types/errors.types";
 import { MissingTokenError } from '../../types/errors.types';
+import { ACCOUNTS, API_URL, DEPOSITS, TRANSFERENCES } from "@/constants/api.constants";
 
-const API_URL = "https://digitalmoney.digitalhouse.com/api";
-const API_ENDPOINT = "/accounts"
 
-// POST crea un nuevo deposito
-export const createNewDeposit = async (account_id : number, deposit:FormChargeWithCardData ,accessToken? : string) => {
+// POST crea un nuevo deposito para la cuenta pasada por parámetro
+export const createNewDeposit = async (account_id : number, deposit:FormChargeWithCardData ,accessToken? : string) : Promise<number> => {
     if(accessToken) {
         try {
-            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${account_id}/deposits`,{
+            const resp = await fetch(`${API_URL}${ACCOUNTS}/${account_id}${DEPOSITS}`,{
                 method: "POST",
                 headers: {
                     "Authorization": accessToken,
@@ -34,10 +33,12 @@ export const createNewDeposit = async (account_id : number, deposit:FormChargeWi
     }
 }
 
-export const createNewTransference = async (accountId: number, data:TransferenceType, accessToken? : string) => {
+// POST Crea una transferencía asociada a una cuenta
+
+export const createNewTransference = async (accountId: number, data:TransferenceType, accessToken? : string) : Promise<TransactionType | undefined> => {
     if(accessToken) {
         try {
-            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${accountId}/transferences`, {
+            const resp = await fetch(`${API_URL}${ACCOUNTS}/${accountId}${TRANSFERENCES}`, {
                 method: "POST",
                 headers: {
                     "Authorization": accessToken,
@@ -51,13 +52,12 @@ export const createNewTransference = async (accountId: number, data:Transference
             })
 
             if(resp.ok) {
-                const data = await resp.json(); // Acción exitosa
-                return data;
+                const data = await resp.json();
+                return data as TransactionType;
             } else {
                 throw new TransferenceError("No se pudo realizar la transferencia, intente de nuevo");
             }
         } catch (error) {
-            
         }
     } else {
         throw new MissingTokenError("No se ha introducido un token")

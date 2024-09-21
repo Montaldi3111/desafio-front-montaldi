@@ -1,7 +1,5 @@
+import { ACCOUNT, API_URL } from "@/constants/api.constants";
 import { MissingTokenError, ServerError, UserAccountError } from "@/types/errors.types";
-
-const API_URL = "https://digitalmoney.digitalhouse.com/api";
-const API_ENDPOINT = "/account";
 
 // GET user account by token
 
@@ -9,7 +7,7 @@ export const getUserAccount = async (accessToken?: string): Promise<UserAccountT
     // Como el token puede ser undefined, es necesario verificarlo antes de realizar la llamada a la API
     if (accessToken) {
         try {
-            const res = await fetch(`${API_URL}${API_ENDPOINT}`, {
+            const res = await fetch(`${API_URL}${ACCOUNT}`, {
                 method: 'GET',
                 headers: {
                     "Authorization": accessToken,

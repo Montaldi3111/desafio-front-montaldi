@@ -29,7 +29,7 @@ function getDaysDifference(date1: Date, date2: Date): number {
 }
 
 // Función para filtrar las transacciones según el criterio de ordenamiento
-export function filterTransactions(transactions: TransactionType[], filterBy: string): TransactionType[] {
+export function filterTransactions(transactions: TransactionType[], filterBy: string) : TransactionType[] {
     const today = new Date();
 
     switch (filterBy) {
@@ -92,14 +92,4 @@ export function filterTransactions(transactions: TransactionType[], filterBy: st
         default:
             return transactions; // Retorna las transacciones si no se reconoce el filtro
     }
-}
-
-export function filterAndSortTransactions(transactions: TransactionType[], filterBy: string, sortBy?: string): TransactionType[] {
-    const filteredTransactions = filterTransactions(transactions, filterBy); // Filtro transacciones antes de ordenarlas por monto
-
-    if (sortBy === 'amount') {
-        return filteredTransactions.sort((a, b) => b.amount - a.amount); // Ordena por monto si es necesario
-    }
-    // Retorna las transacciones filtradas ya sea ordenadas por monto, sino son ordenadas por el filtro pasado
-    return filteredTransactions;
 }

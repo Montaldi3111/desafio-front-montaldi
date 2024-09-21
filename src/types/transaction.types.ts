@@ -15,3 +15,13 @@ type TransferenceType = {
     destination: string,
     origin: string
 }
+
+type PaymentDataType = {
+    accountNumber: string;
+    account_id: string;
+    amount: number;
+    cardNumber: string;
+    dated: string;
+    destination: string;
+    origin: string;
+}

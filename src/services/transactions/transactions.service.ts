@@ -1,12 +1,10 @@
+import { ACCOUNTS, ACTIVITY, API_URL, TRANSACTIONS } from "@/constants/api.constants";
 import { MissingTokenError, ServerError, TransactionError } from "@/types/errors.types";
-
-const API_URL = process.env.API_URL;
-const API_ENDPOINT = "/accounts";
 
 export const getAllTransactions = async (accountId : number, accessToken? : string) : Promise<TransactionType[]> => {
     if(accessToken) {
         try {
-            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${accountId}/activity`, {
+            const resp = await fetch(`${API_URL}${ACCOUNTS}/${accountId}${ACTIVITY}`, {
                 method: "GET",
                 headers: {
                     "Authorization": accessToken
@@ -29,10 +27,10 @@ export const getAllTransactions = async (accountId : number, accessToken? : stri
 
 // Función para devolverme una transaccion pasando el accountId y la transactionId
 
-export const getOneTransaction = async (accountId:string, transactionId:string, accessToken?:string) => {
+export const getOneTransaction = async (accountId:string, transactionId:string, accessToken?:string) : Promise<TransactionType> => {
     if(accessToken) {
         try {
-            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${accountId}/transactions/${transactionId}`, {
+            const resp = await fetch(`${API_URL}${ACCOUNTS}/${accountId}${TRANSACTIONS}/${transactionId}`, {
                 method: "GET",
                 headers: {
                     "Authorization": accessToken

@@ -16,7 +16,7 @@ const UserDetails = ({ userId, userData }: UserDetailsParams) => {
             <div id="details-container">
                 <span id="email-field">
                 <h4 id="detail-header">Email</h4>
-                <p id="user-info">{userData.email}</p>
+                <p id="user-info" className="text-gray-500">{userData.email}</p>
                 </span>
                 <EditUserProfileForm userId={userId} userData={userData} pass={password} />
             </div>

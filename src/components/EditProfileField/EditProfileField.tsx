@@ -38,7 +38,7 @@ const EditProfileField = ({ isEditable, fieldName, label, value }: EditProfileFi
     useEffect(() => {
         setDisable(true);
         setChange(false);
-    }, [isEditable])
+    }, [isEditable, setChange])
 
     return (
         <>

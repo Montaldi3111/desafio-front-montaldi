@@ -1,8 +1,7 @@
+import { API_URL } from "@/constants/api.constants";
 import { AccessDeniedError } from "@/types/errors.types";
 
-const API_URL = "https://digitalmoney.digitalhouse.com/api"
-
-// Esta función realiza una petición de login a la API y devuelve un token
+// POST Logea al usuario devolviendo un accessToken
 
 export const loginRequest = async (data: LoginUserType) : Promise<string> => {
     try {
@@ -27,6 +26,8 @@ export const loginRequest = async (data: LoginUserType) : Promise<string> => {
         throw new AccessDeniedError("Algo malo ha sucedido, intente de nuevo más tarde");
     }
 }
+
+// POST Realiza un logout del usuario
 
 export const logoutSession = async(): Promise<boolean> => {
     try {

@@ -24,7 +24,7 @@ const PayServiceForm = async (request : any) => {
             </section>
             <section className='w-full'>
             <CurrentPage />
-            <PaymentFormContainer cards={cards} cvu={cvu} token={token} service={service}/>
+            <PaymentFormContainer cards={cards} accountId={id} cvu={cvu} token={token} service={service}/>
             </section>
         </main>
     )

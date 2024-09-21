@@ -20,7 +20,7 @@ const MovementCard = ({movement} : MovementCardParams) => {
             </div>
             <div id="details">
               {movement.type === "Deposit" && <p id="transaction-import">+ ${movement.amount}</p>}
-              {movement.type === "Transfer" && <p id="transaction-import">- ${movement.amount}</p>}
+              {movement.type === "Transfer" && <p id="transaction-import">${movement.amount}</p>}
             <p id="transaction-import"></p>
             <p className="text-gray-500" id="date">{transactionDay}</p>
             </div>

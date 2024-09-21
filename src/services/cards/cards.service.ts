@@ -1,16 +1,13 @@
 import { CardError, ServerError } from "@/types/errors.types";
 import { MissingTokenError } from '../../types/errors.types';
-
-const API_URL = "https://digitalmoney.digitalhouse.com/api";
-const API_ENDPOINT = "/accounts"
-
+import { ACCOUNTS, API_URL, CARDS } from "@/constants/api.constants";
 
 // GET users cards by accountID and token
 // Returns an array of cards
 export const getAllCards = async (account_id: string, accessToken?: string): Promise<CardType[]> => {
     if (accessToken) {
         try {
-            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${account_id}/cards`, {
+            const resp = await fetch(`${API_URL}${ACCOUNTS}/${account_id}${CARDS}`, {
                 method: "GET",
                 headers: {
                     "Authorization": accessToken
@@ -31,10 +28,11 @@ export const getAllCards = async (account_id: string, accessToken?: string): Pro
 }
 
 // POST Función para agregar una tarjeta en la cuenta del usuario
+
 export const addNewCard = async (account_id: number, cardData: FormCardData, accessToken?: string): Promise<number> => {
     if (accessToken) {
         try {
-            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${account_id}/cards`, {
+            const resp = await fetch(`${API_URL}${ACCOUNTS}/${account_id}${CARDS}`, {
                 method: "POST",
                 headers: {
                     "Authorization": accessToken,
@@ -60,13 +58,12 @@ export const addNewCard = async (account_id: number, cardData: FormCardData, acc
     }
 }
 
-// Elimina una tarjeta dado una cuenta y el id de la tarjeta
+// DELETE Borra una tarjeta dado una cuenta y el id de la tarjeta
 
 export const deleteCard = async (account_id: number, card_id: number, accessToken?: string): Promise<number> => {
     if (accessToken) {
-        console.log(account_id, card_id)
         try {
-            const resp = await fetch(`${API_URL}${API_ENDPOINT}/${account_id}/cards/${card_id}`, {
+            const resp = await fetch(`${API_URL}${ACCOUNTS}/${account_id}${CARDS}/${card_id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": accessToken

@@ -33,5 +33,6 @@ type CompanyPaymentFormData = {
     dated: string;
     destination: string;
     origin: string;
-    accountId: string;
+    account_id: string;
+    cardNumber: string;
 }

@@ -2,6 +2,7 @@ import Image from "next/image";
 import LoginRegisterHeader from "../LoginRegisterHeader/LoginRegisterHeader";
 import "./header.css"
 import { cookies } from "next/headers";
+import Link from "next/link";
 
 const Header = () => {
   const cookiesSotre = cookies();
@@ -9,15 +10,15 @@ const Header = () => {
   return (
     <header className="bg-blck">
       <nav className="flex flex-row justify-between items-center">
-        <a href="/" id="logo">
+        <Link href="/" id="logo">
           <Image src="/logo-1.png" alt="logo" width={100} height={10} />
-        </a>
+        </Link>
         { session  == "true" ?
          <LoginRegisterHeader/>
          :
-         <span className="flex justify-evenly">
-          <a href="/login" id="login" className="bg-blck rounded border-2 border-ylw font-bold text-ylw">Ingresar</a>
-          <a href="/register" id="register" className="bg-ylw rounded text-blck font-bold">Crear Cuenta</a>
+         <span className="flex">
+          <Link href="/login" id="login" className="bg-blck rounded border-2 border-ylw font-bold text-ylw">Ingresar</Link>
+          <Link href="/register" id="register" className="bg-ylw rounded text-blck font-bold">Crear Cuenta</Link>
         </span>}
       </nav>
     </header>

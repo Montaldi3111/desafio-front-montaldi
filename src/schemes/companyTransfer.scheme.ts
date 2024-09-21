@@ -9,8 +9,9 @@ const CompanyTransferScheme = yup.object({
         .required("Este campo es obligatorio"),
         dated: yup.string().required(),
         destination: yup.string().required(),
-        origin: yup.string().required("Debes elegir una tarjeta"),
-        accountId: yup.string().required()
+        origin: yup.string().required(),
+        account_id: yup.string().required(),
+        cardNumber: yup.string().required("Debes elegir una tarjeta")
     }).required();
 
 export default CompanyTransferScheme;

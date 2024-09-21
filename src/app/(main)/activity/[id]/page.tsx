@@ -18,7 +18,6 @@ type DetailPageParams = {
 }
 
 const DetailPage = async ({params}:DetailPageParams) => {
-  console.log(params)
   const idParams = params.id;
   const token = headers().get("x-digital-access-token") ?? "";
   const {id} = await getUserAccount(token);

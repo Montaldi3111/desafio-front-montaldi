@@ -4,7 +4,7 @@
 
 main {
     @apply flex;
-    @apply h-[120vh];
+    @apply h-[180vh];
     @apply w-full;
 }
 

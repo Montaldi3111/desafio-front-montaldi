@@ -1,7 +1,7 @@
 export function detectCardBrand (cardNumber:string) : string {
 
     // Primero elimino posibles espacios o guiones del número
-    const sanitizedCardNumber = cardNumber.replace(/[\s-]/g, '');
+    const sanitizedCardNumber = String(cardNumber).replace(/[\s-]/g, '');
 
     // Expresiones regulares de diferentes tipos de tarjetas
     const cardPatterns: {[key:string]: RegExp} = {

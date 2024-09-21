@@ -1,11 +1,15 @@
 "use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./success.css"
 import { useRouter } from 'next/navigation'
+import { deleteCookie, getCookie, getCookies } from 'cookies-next'
 
 const RegisterSuccess = () => {
   const router = useRouter();
+  // useEffect(() => {
+  //   deleteCookie("userRegistered")
+  // },[])
   return (
     <main id="register-success" className='h-screen'>
         <h1>Registro Exitoso</h1>

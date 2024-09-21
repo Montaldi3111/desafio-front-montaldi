@@ -50,7 +50,6 @@ const EditUserProfileForm = ({ userId, userData, pass }: { userId:number, userDa
         setServerError(null);
         setIsEditable(true);
         const editUserData:any = restructreUser(data);
-        console.log(editUserData);
         updateUserData(userId, editUserData, token).then((response:number) => {
             if(response === 0){
                 toast.success("Datos actualizados")

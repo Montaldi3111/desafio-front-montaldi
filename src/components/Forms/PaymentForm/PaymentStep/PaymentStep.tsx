@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import './paymentStep.css'
 import { useStep } from '@/hooks/useStep'
@@ -12,13 +12,19 @@ type PaymentStepParams = {
 }
 
 const PaymentStep = ({ cards, cvu, serviceName, serviceValue }: PaymentStepParams) => {
-    const {step, setStep, notFound, setNotFound, decrementStep} = useStep();
-    const { register, formState: { errors } } = useFormContext();
+    const { notFound, setNotFound, decrementStep} = useStep();
+    const [cardSelected, setCardSelected] = useState<any>();
+    const { setValue, register, formState: { errors } } = useFormContext();
 
     if(serviceValue === 0) {
         setNotFound(!notFound);
         decrementStep();
     }
+
+    useEffect(() => {
+        setValue("amount", serviceValue);
+        setValue("destination", serviceName);
+    }, [serviceValue, setValue, serviceName]);
 
     return (
         <article id="payment-section">
@@ -41,7 +47,7 @@ const PaymentStep = ({ cards, cvu, serviceName, serviceValue }: PaymentStepParam
                             <h4 id="circle"></h4>
                             <p>Terminada en {String(card.number_id).slice(12, 16)}</p>
                         </div>
-                        <input type="radio" id="card-number" value={card.account_id} {...register("accountId")} />
+                        <input type="radio" id="card-number" value={card.number_id} {...register("cardNumber")}/>
                     </span>
                 )) : <p className='font-bold text-center text-[16px]'>Usted no ha cargado ninguna tarjeta</p>}
             </div>

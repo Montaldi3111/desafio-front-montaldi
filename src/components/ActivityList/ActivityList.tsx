@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import MovementCard from '../Cards/MovementCard/MovementCard'
 import './activityList.css'
-import { filterAndSortTransactions, filterTransactions } from '@/utils/dateFunctions'
+import { filterTransactions } from '@/utils/dateFunctions'
 import SearchFilterContainer from '../containers/SearchFilterContainer'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
@@ -31,7 +31,7 @@ const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => 
     
     useEffect(()=> {
         setCopyTransaction(filterTransactions(copyTransaction, filterValue));
-    },[transactions, copyTransaction, filterValue])
+    },[])
 
     const handlePage = (page: number) => {
         setCurrentPage(page)

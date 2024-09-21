@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form';
 import AccountStep from './AccountStep/AccountStep';
 import PaymentStep from './PaymentStep/PaymentStep';
@@ -11,48 +11,50 @@ import CompanyTransferScheme from '@/schemes/companyTransfer.scheme';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createNewTransference } from '@/services/transferences/transferences.service';
 import { clearBody } from '@/utils/clearPaymentBody';
-import { ServerError, TransferenceError } from '@/types/errors.types';
+import { ServerError } from '@/types/errors.types';
 import { toast, Toaster } from 'sonner';
+
 type PaymentFormParams = {
     service: ServiceType;
+    accountId: number;
     cvu: string;
     token: string;
     cards: CardType[];
 }
 
-const PaymentForm = ({service, cvu, token, cards} : PaymentFormParams) => {
+const PaymentForm = ({service, accountId, cvu, token, cards} : PaymentFormParams) => {
     const methods = useForm<CompanyPaymentFormData>({
         resolver: yupResolver(CompanyTransferScheme),
         defaultValues: {
-            amount: -service.invoice_value,
+            amount: service.invoice_value,
             accountNumber: '',
             dated: new Date(Date.now()).toISOString(),
             destination: service.name,
             origin: cvu,
-            accountId: ''
+            account_id: String(accountId),
+            cardNumber: ''
         }
     });
     const { handleSubmit } = methods
     const {step, notFound, serverError, incrementStep, setServerError} = useStep();
-    const [payment, setPayment] = useState({
-        id: 0,
-	    account_id: 0,
-	    type: "",
-	    description: "",
-	    origin: "",
-	    destination: "",
-	    amount: 0,
-	    dated: ""
+    const [paymentData, setPaymentData] = useState<CompanyPaymentFormData>({
+        amount: service.invoice_value,
+        accountNumber: '',
+        dated: new Date(Date.now()).toISOString(),
+        destination: service.name,
+        origin: cvu,
+        account_id: String(accountId),
+        cardNumber: ''
     });
 
     const onSubmit = (data:CompanyPaymentFormData) => {
+        setPaymentData(data);
         setServerError(null);
         const newData = clearBody(data);
-        createNewTransference(Number(newData.accountId), newData, token)
-        .then(resp => {
-            if(resp) {
+        createNewTransference(accountId, newData, token)
+        .then(response => {
+            if(response) {
                 incrementStep();
-                setPayment(resp)
             } else {
                 setServerError('Error al realizar la transferencia');
                 incrementStep();
@@ -63,7 +65,6 @@ const PaymentForm = ({service, cvu, token, cards} : PaymentFormParams) => {
             }
         })
     }
-
   return (
     <>
             <FormProvider {...methods}>
@@ -73,7 +74,7 @@ const PaymentForm = ({service, cvu, token, cards} : PaymentFormParams) => {
                 {step === 1 && !notFound && <AccountStep />}
                 {step === 2 && !notFound && <PaymentStep cards={cards} cvu={cvu} serviceName={service.name} serviceValue={service.invoice_value}/>}
                 {serverError && step === 3 && <ErrorPaymentStep />}
-                {step === 3 && !serverError && <SuccessStep serviceName={service.name} payment={payment} serviceValue={service.invoice_value}/>}
+                {step === 3 && !serverError && <SuccessStep payment={paymentData} />}
                 </form>
             </FormProvider>
     </>
