@@ -45,12 +45,15 @@ const LoginForm = () => {
       const maskedpassword:string = maskPassword(data.password);
       setCookie("password", maskedpassword, {
         expires: new Date(Date.now() + 1000 * 3600),
+        path: "/",
       })
       setCookie("token", response, {
         expires: new Date(Date.now() + 1000 * 3600),
+        path: "/",
       })
       setCookie("session", "true", {
-        expires: new Date(Date.now() + 1000 * 3600),  
+        expires: new Date(Date.now() + 1000 * 3600),
+        path: "/",
       })
     }).then(() => {
       setSpinner(false)
