@@ -38,15 +38,15 @@ export const config = {
   matcher: [
     "/dashboard",
     "/register/success",
-    // "/profile",
-    // "/cards",
-    // "/cards/new-card",
-    // "/charge",
-    // "/charge/with-card",
-    // "/activity",
-    // "/activity/:id*",
-    // "/pay",
-    // "/pay/:id*"
+    "/profile",
+    "/cards",
+    "/cards/new-card",
+    "/charge",
+    "/charge/with-card",
+    "/activity",
+    "/activity/:id*",
+    "/pay",
+    "/pay/:id*"
   ]
 }
 
