@@ -18,14 +18,21 @@ type FormCardData = {
 }
 
 type NewCardFormParams = {
+  totalCards: number,
   account_id: number,
   token: string,
 }
 
-const NewCardForm = ({ account_id, token }: NewCardFormParams) => {
+const NewCardForm = ({ totalCards, account_id, token }: NewCardFormParams) => {
 
   const router = useRouter();
   const [serverError, setServerError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if(totalCards >= 10) {
+      router.push("/cards")
+    }
+  },[router, totalCards])
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm<FormCardData>({
     resolver: yupResolver(CardScheme),

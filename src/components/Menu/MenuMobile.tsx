@@ -30,7 +30,7 @@ const Menu = ({ showMenu, setShowMenu, firstname, lastname }: MenuProps) => {
       deleteCookie("session")
       deleteCookie("token")
       deleteCookie("password")
-      router.push("/login")
+      router.push("/")
       router.refresh();
     } else {
       alert("No se pudo lograr la acción, intentelo de nuevo")

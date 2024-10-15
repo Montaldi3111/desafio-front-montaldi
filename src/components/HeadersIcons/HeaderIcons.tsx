@@ -19,7 +19,7 @@ const HeaderIcons = ({ userFirstname, userLastname }: HeaderIconsProps) => {
   return (
     <>
       {!showMenu ? <>
-        <Link href={"/profile"} id="profile-link"><b id="user-initials">{initials}</b><b id="user-hi-message">Hola, {userFirstname + " " + userLastname}</b></Link>
+        <Link href={"/dashboard"} id="profile-link"><b id="user-initials">{initials}</b><b id="user-hi-message">Hola, {userFirstname + " " + userLastname}</b></Link>
         <FaBars id="burguer-menu" onClick={handleMenu} />
       </>
 

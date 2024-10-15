@@ -8,6 +8,7 @@ import UserDetails from '@/components/UserDetails/UserDetails'
 import "./page.css"
 import { Toaster } from 'sonner'
 import CurrentPage from '@/components/CurrentPage/CurrentPage'
+import Link from 'next/link'
 
 const Profile = async () => {
 
@@ -23,10 +24,10 @@ const Profile = async () => {
       <section id="info" className='my-4 w-full'>
         <CurrentPage />
           <UserDetails userId={user_id} userData={userData} />
-        <div id="manage-payments">
+        <Link href="/cards"  id="manage-payments">
           <p className='font-bold'>Gestioná los medios de pago</p>
           <FaArrowRight />
-        </div>
+        </Link>
         <CvuAliasCard alias={alias} cvu={cvu} />
       </section>
     </main>

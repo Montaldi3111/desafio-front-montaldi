@@ -12,7 +12,7 @@ type CvuAliasCardParams = {
 
 const CvuAliasCard = ({ alias, cvu }: CvuAliasCardParams) => {
 
-    const copyAlias = (text: string): void => {
+    const copyAlias = (text: string) => {
         if (navigator.clipboard) {
             navigator.clipboard.writeText(text).then(() => {
                 toast.success('Alias copiado al portapapeles con exito');
@@ -22,7 +22,7 @@ const CvuAliasCard = ({ alias, cvu }: CvuAliasCardParams) => {
         }
     }
 
-    const copyCVU = (text: string): void => {
+    const copyCVU = (text: string) => {
         if (navigator.clipboard) {
             navigator.clipboard.writeText(text).then(() => {
                 toast.success('CVU copiado al portapapeles con exito');

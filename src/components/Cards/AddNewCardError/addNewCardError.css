@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main #card-error-container {
+    @apply w-[80%];
+    @apply mt-10;
+    @apply mx-auto;
+    @apply py-6;
+    @apply px-4;
+    @apply bg-blck;
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+    @apply items-center;
+    @apply rounded-sm;
+}
+
+main #card-error-container svg {
+    @apply w-20;
+    @apply h-20;
+    @apply text-redError;
+}
+
+main #card-error {
+    @apply w-full;
+    @apply mt-8;
+    @apply text-white;
+    @apply font-bold;
+    @apply text-2xl;
+    @apply text-center;
+}
+
+main #card-error-container a {
+    @apply w-fit;
+    @apply mt-5;
+    @apply p-5;
+    @apply text-redError;
+    @apply font-bold;
+    @apply underline;
+    @apply text-xl;
+    @apply text-center;
+    @apply cursor-pointer;
+}

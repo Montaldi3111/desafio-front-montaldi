@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { FaArrowLeft, FaSpinner } from 'react-icons/fa6';
+import { toast } from 'sonner';
 
 type FormLoginData = {
   email: string;
@@ -22,7 +23,7 @@ function maskPassword (pass:string):string {
 
 const LoginForm = () => {
 
-  const { register, handleSubmit, formState: { errors } } = useForm<FormLoginData>({
+  const { register, handleSubmit, formState: { errors }, trigger  } = useForm<FormLoginData>({
     resolver: yupResolver(LoginSchema),
     defaultValues: {
       email: '',
@@ -30,12 +31,17 @@ const LoginForm = () => {
     }
   })
   const [serverError, setServerError] = useState<string | null>(null)
-  const [spinner, setSpinner] = useState<boolean>(false)
+  const [spinner, setSpinner] = useState<boolean>(false);
   const [foward, setFoward] = useState<boolean>(false); // false => Solo muestra el input de email. true => muestra el input de password
   const router = useRouter();
 
-  const handleChange = ():void => {
-    setFoward(!foward);
+  const handleChange = async ():Promise<void> => {
+    const isValid = await trigger("email");
+    if(isValid) {
+      setFoward(!foward);
+    } else {
+      toast.error("Debes ingresar un email");
+    }
   }
 
   const onSubmit = (data: FormLoginData) => {
@@ -78,7 +84,7 @@ const LoginForm = () => {
             <input type="email" id="email" placeholder='Correo electrónico' className='my-5 p-4 border-2 border-skyBlue rounded-sm shadow-md' {...register("email")} />
           </div>
           <div id="btn-container">
-          <button className='bg-ylw text-blck my-5 py-4 rounded-sm shadow-md font-bold' id="login-btn" onClick={handleChange}>Continuar</button>
+          <button type="button" className='bg-ylw text-blck my-5 py-4 rounded-sm shadow-md font-bold' id="login-btn" onClick={handleChange}>Continuar</button>
           <a href="/register" className='bg-blck border-2 border-ylw text-ylw my-5 py-4 rounded-sm shadow-md font-bold' id="register-btn">Crear Cuenta</a>
           </div>
         </section>

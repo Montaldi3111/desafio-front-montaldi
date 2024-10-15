@@ -53,6 +53,7 @@ const EditUserProfileForm = ({ userId, userData, pass }: { userId:number, userDa
         updateUserData(userId, editUserData, token).then((response:number) => {
             if(response === 0){
                 toast.success("Datos actualizados")
+                router.refresh();
             }
             else {
                 setServerError("Error al editar el campo")
@@ -65,8 +66,6 @@ const EditUserProfileForm = ({ userId, userData, pass }: { userId:number, userDa
             }
         }).finally(() => {
             setIsEditable(false);
-            reset();
-            router.refresh();
         })
     }
 

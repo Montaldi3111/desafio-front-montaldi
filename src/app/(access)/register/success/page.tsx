@@ -7,15 +7,18 @@ import { deleteCookie, getCookie, getCookies } from 'cookies-next'
 
 const RegisterSuccess = () => {
   const router = useRouter();
-  // useEffect(() => {
-  //   deleteCookie("userRegistered")
-  // },[])
+
+  const continueToLogin = () => {
+    router.push("/login");
+    deleteCookie("userRegistered")
+  }
+
   return (
     <main id="register-success" className='h-screen'>
         <h1>Registro Exitoso</h1>
         <Image src="/tick-icon.png" alt="register successful" width={200} height={100}/>
         <p>Hemos enviado un correo de confirmación para válidar tu email, por favor revisalo para iniciar sesión.</p>
-        <button className='hover:cursor-pointer' onClick={() => router.push("/login")}>Continuar</button>
+        <button className='hover:cursor-pointer' onClick={continueToLogin}>Continuar</button>
 
     </main>
   )

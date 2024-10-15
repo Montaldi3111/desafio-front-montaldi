@@ -204,6 +204,7 @@
     }
 
     main {
+        @apply w-full;
         @apply flex;
         @apply relative;
         @apply h-screen;

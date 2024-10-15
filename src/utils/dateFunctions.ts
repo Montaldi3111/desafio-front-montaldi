@@ -41,53 +41,53 @@ export function filterTransactions(transactions: TransactionType[], filterBy: st
             return [...transactions].sort((a, b) => new Date(b.dated).getTime() - new Date(a.dated).getTime());
 
         case 'today': // Devuelvo un arreglo con las transacciones hechas en el día
-            transactions.filter(transaction => {
+            const todayTransactions = transactions.filter(transaction => {
                 const transactionDate = new Date(transaction.dated);
                 return transactionDate.getDate() === today.getDate() &&
                     transactionDate.getMonth() === today.getMonth() &&
                     transactionDate.getFullYear() === today.getFullYear();
             });
-            return [...transactions].sort((a,b) => new Date(b.dated).getTime() - new Date(a.dated).getTime())
+            return todayTransactions.sort((a,b) => new Date(b.dated).getTime() - new Date(a.dated).getTime())
 
         case 'yesterday': // Devuelvo un arreglo con las transacciones hechas ayer
-            transactions.filter(transaction => {
+            const yesterdayTransactions = transactions.filter(transaction => {
                 const transactionDate = new Date(transaction.dated);
                 const daysDiff = getDaysDifference(today, transactionDate);
                 return daysDiff === 1;
             });
-            return [...transactions].sort((a,b) => new Date(b.dated).getTime() - new Date(a.dated).getTime())
+            return yesterdayTransactions.sort((a,b) => new Date(b.dated).getTime() - new Date(a.dated).getTime())
 
         case '1-week': // Devuelvo un arreglo con las transacciones hechas en la última semana
-            transactions.filter(transaction => {
+            const lastWeekTransactions = transactions.filter(transaction => {
                 const transactionDate = new Date(transaction.dated);
                 const daysDiff = getDaysDifference(today, transactionDate);
                 return daysDiff >= 0 && daysDiff <= 7;
             });
-            return [...transactions].sort((a,b) => new Date(b.dated).getTime() - new Date(a.dated).getTime())
+            return lastWeekTransactions.sort((a,b) => new Date(b.dated).getTime() - new Date(a.dated).getTime())
 
         case '2-week': // Devuelvo un arreglo con las transacciones hechas en los últimos 15 días
-            transactions.filter(transaction => {
+            const twoWeeksTransactions = transactions.filter(transaction => {
                 const transactionDate = new Date(transaction.dated);
                 const daysDiff = getDaysDifference(today, transactionDate);
                 return daysDiff >= 0 && daysDiff <= 15;
             });
-            return [...transactions].sort((a,b) => new Date(b.dated).getTime() - new Date(a.dated).getTime())
+            return twoWeeksTransactions.sort((a,b) => new Date(b.dated).getTime() - new Date(a.dated).getTime())
 
         case '1-month': // Devuelvo un arreglo con las transacciones hechas en el último mes
-            transactions.filter(transaction => {
+            const lastMonthTransactions = transactions.filter(transaction => {
                 const transactionDate = new Date(transaction.dated);
                 const daysDiff = getDaysDifference(today, transactionDate);
                 return daysDiff >= 0 && daysDiff <= 30;
             });
-            return [...transactions].sort((a,b) => new Date(b.dated).getTime() - new Date(a.dated).getTime())
+            return lastMonthTransactions.sort((a,b) => new Date(b.dated).getTime() - new Date(a.dated).getTime())
 
         case '1-year': // Devuelvo un un arreglo con las transacciones hechas en el año
-            transactions.filter(transaction => {
+            const lastYearTransactions = transactions.filter(transaction => {
                 const transactionDate = new Date(transaction.dated);
                 const daysDiff = getDaysDifference(today, transactionDate);
                 return daysDiff >= 0 && daysDiff <= 365;
             });
-            return [...transactions].sort((a,b) => new Date(b.dated).getTime() - new Date(a.dated).getTime())
+            return lastYearTransactions.sort((a,b) => new Date(b.dated).getTime() - new Date(a.dated).getTime())
 
         default:
             return transactions; // Retorna las transacciones si no se reconoce el filtro

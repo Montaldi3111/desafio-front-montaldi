@@ -37,9 +37,9 @@ const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => 
         setCurrentPage(page)
     }
 
-    const filteredTransactions = currentTransactions.filter((transaction: TransactionType) => 
-        transaction.description.toLowerCase().includes(inputValue.toLowerCase())
-      );
+    const filteredTransactions = copyTransaction.filter((transaction: TransactionType) => 
+        (transaction.description.toLowerCase().includes(inputValue.toLowerCase()))
+      ).slice(firstItem, lastItem);
 
     return (
         <>

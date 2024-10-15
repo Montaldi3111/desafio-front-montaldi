@@ -1,6 +1,6 @@
 "use client"
 import { useContext, useEffect, useState } from "react";
-import { useForm, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { FaCheck, FaPen, FaX } from "react-icons/fa6";
 import { ChangeContext } from "@/context/changeContext";
 import { useRouter } from "next/navigation";
@@ -30,7 +30,7 @@ const EditProfileField = ({ isEditable, fieldName, label, value }: EditProfileFi
     }
 
     const handleCancelClick = () => {
-        reset() // Restaurar el valor original
+        reset(); // Restaurar el valor original
         setDisable(!disable);
         setChange(!change);
       };

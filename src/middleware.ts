@@ -7,16 +7,12 @@ export async function middleware(request: NextRequest) {
     const session:string = request.cookies.get("session")?.value ?? "";
     const userRegistered = request.cookies.get("userRegistered")?.value;
 
-    // Si se registro, puede acceder al register/success
-    // NO funciona por alguna razón ???
-    if (userRegistered && request.nextUrl.pathname === "/register/success") {
-      const response = NextResponse.redirect(new URL("/login", request.url));
-      response.cookies.delete("userRegistered")
-      return response;
-    }
-
-    if(!token && session !== "true") {
-      return NextResponse.redirect(new URL('/login', request.url))
+    if(!userRegistered && request.nextUrl.pathname === "/register/success") {
+      if(!token && session !== "true") {
+        return NextResponse.redirect(new URL("/", request.url));
+      } else {
+        return NextResponse.redirect(new URL('/login', request.url))
+      }
     }
     return getAuthenticationHeaders(request, token, session);
   } catch (error) {

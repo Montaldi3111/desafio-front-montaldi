@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { FaArrowRight, FaRegCircleUser } from 'react-icons/fa6'
 import CvuAliasCard from '../Cards/CVU-Alias-Card/CvuAliasCard'
 import { useRouter } from 'next/navigation'
+import { Toaster } from 'sonner'
 
 type ChargeMethodsParams = {
     cvu: string,
@@ -39,6 +40,7 @@ const ChargeMethodsContainer = ({cvu, alias} : ChargeMethodsParams) => {
     } else {
         return (
             <>
+                <Toaster richColors />
                 <CvuAliasCard alias={alias} cvu={cvu} />
             </>
         )
