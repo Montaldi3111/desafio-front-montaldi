@@ -22,24 +22,24 @@ const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => 
     const lastItem = itemsPerPage * currentPage; // índice del ultimo elemento del arreglo
     const firstItem = lastItem - itemsPerPage; // índice del primer elemento de arreglo
     const currentTransactions = copyTransaction.slice(firstItem, lastItem); // genero un sub-array según los índices
+
+    useEffect(() => {
+        setCopyTransaction(filterTransactions(copyTransaction, filterValue))
+    },[filterValue])
     
+    useEffect(() => {
+        setCopyTransaction(filterTransactions(copyTransaction, inputValue))
+    },[inputValue])
     // scroll al principio al cambiar de página
     useEffect(()=> {
         window.scrollTo({ top: 0, behavior:'smooth'});
     },[currentPage, setCurrentPage])
     
     
-    useEffect(()=> {
-        setCopyTransaction(filterTransactions(copyTransaction, filterValue));
-    },[])
 
     const handlePage = (page: number) => {
         setCurrentPage(page)
     }
-
-    const filteredTransactions = copyTransaction.filter((transaction: TransactionType) => 
-        (transaction.description.toLowerCase().includes(inputValue.toLowerCase()))
-      ).slice(firstItem, lastItem);
 
     return (
         <>
@@ -51,7 +51,7 @@ const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => 
             </div>
             <div id="movement-list">
                 {
-                    (transactions && currentTransactions.length > 0) ? filteredTransactions.map((transaction: TransactionType, index: number) => (
+                    (transactions && copyTransaction.length > 0) ? currentTransactions.map((transaction: TransactionType, index: number) => (
                         <Link href={`/activity/${transaction.id}`} key={index}><MovementCard movement={transaction} /></Link>
                     )) : <p className='text-[16px] font-bold text-center mt-4'>No hay registros de tu actividad</p>
                 }

@@ -1,22 +1,26 @@
 "use client"
 import { FaMagnifyingGlass } from 'react-icons/fa6'
-import "./searchBar.css"
-import { useContext, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { SearchContext } from '@/context/searchContext';
 import { useSearch } from '@/hooks/useSearch';
+import "./searchBar.css"
 
 const SearchBar = ({placeholder} : {placeholder: string}) => {
   const {inputValue, setInputValue} = useSearch();
-
+  const router = useRouter()
   const handleInputChange = (e : React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value.toLowerCase());
-  } 
+  }
+
+  const handleKeyDown = (e:React.KeyboardEvent<HTMLInputElement>) => {
+    if(e.key === 'Enter') {
+      router.push(`/activity?filter=${inputValue}`)
+    }
+  }
 
   return (
     <span id="searchBar-container" className='bg-white w-full'>
         <FaMagnifyingGlass />
-        <input type="text" name="search" id="search" value={inputValue} onChange={handleInputChange} placeholder={placeholder}/>
+        <input type="text" name="search" id="search" value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyDown} placeholder={placeholder}/>
     </span>
   )
 }
