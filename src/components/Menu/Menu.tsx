@@ -12,10 +12,11 @@ const Menu = () => {
     const handleLogout = async () => {
             const logout = await logoutSession();
             if (logout) {
-                    deleteCookie("session")
-                    deleteCookie("token")
-                    deleteCookie("password")
-                    router.push("/login")
+                    deleteCookie("session");
+                    deleteCookie("token");
+                    deleteCookie("password");
+                    router.refresh();
+                    router.push("/");
                 } else {
                         alert("No se pudo lograr la acción, intentelo de nuevo")
                     }

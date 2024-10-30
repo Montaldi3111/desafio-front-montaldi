@@ -64,6 +64,8 @@
     main {
         @apply relative;
         @apply h-[120vh];
+        @apply flex;
+        @apply flex-col;
     }
 
     main #image-container {
@@ -120,6 +122,8 @@
     main {
         @apply relative;
         @apply h-screen;
+        @apply flex;
+        @apply flex-col;
     }
 
     main #image-container {
