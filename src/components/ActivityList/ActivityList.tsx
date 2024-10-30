@@ -4,7 +4,7 @@ import MovementCard from '../Cards/MovementCard/MovementCard'
 import './activityList.css'
 import { filterTransactions } from '@/utils/dateFunctions'
 import SearchFilterContainer from '../containers/SearchFilterContainer'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { useSearch } from '@/hooks/useSearch'
 
@@ -12,9 +12,10 @@ const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => 
 
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [copyTransaction, setCopyTransaction] = useState<TransactionType[]>(transactions);
-    const {inputValue} = useSearch();
+    const {inputValue, setInputValue} = useSearch();
     const searchParams = useSearchParams();
-    const filterValue = searchParams.get('filter') ?? "desc-date";
+    const router = useRouter();
+    const filterValue = searchParams.get('filter') ?? null;
     
     // seteo de valores para la paginación
     const itemsPerPage = 10; // cant. de items por página
@@ -24,7 +25,11 @@ const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => 
     const currentTransactions = copyTransaction.slice(firstItem, lastItem); // genero un sub-array según los índices
 
     useEffect(() => {
-        setCopyTransaction(filterTransactions(copyTransaction, filterValue))
+        if(filterValue === null){
+            setCopyTransaction(transactions)
+        } else {
+            setCopyTransaction(filterTransactions(transactions, filterValue))
+        }
     },[filterValue])
     
     useEffect(() => {
@@ -34,8 +39,6 @@ const ActivityList = ({ transactions }: { transactions: TransactionType[] }) => 
     useEffect(()=> {
         window.scrollTo({ top: 0, behavior:'smooth'});
     },[currentPage, setCurrentPage])
-    
-    
 
     const handlePage = (page: number) => {
         setCurrentPage(page)

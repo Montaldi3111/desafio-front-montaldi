@@ -3,24 +3,48 @@ import { FaAngleDown } from 'react-icons/fa6'
 import "./searchFilter.css"
 import { TfiAngleRight } from 'react-icons/tfi'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useSearch } from '@/hooks/useSearch'
 
 const SearchFilter = ({setVisible}: {setVisible: (value:any) => void}) => {
     const [currentFilter, setCurrentFilter] = useState<string | null>(null);
     const [width, setWidth] = useState<number>(0);
+    const {setInputValue} = useSearch();
+    const router = useRouter();
     useEffect(() => {
         if(typeof window !== "undefined" && window){
-            const URLParams = new URLSearchParams(window.location.search) // Obtengo el filtro que viene en la URL.
-            const filterParam = URLParams.get("filter")
+            const URLParams = new URLSearchParams(window.location.search)
+            console.log(URLParams.get("filter")) // Obtengo el filtro que viene en la URL.
+            const filterParam = URLParams.get("filter") ?? null;
             setWidth(window.innerWidth);
-            setCurrentFilter(filterParam);
+            if(filterParam){
+                setCurrentFilter(filterParam);
+            }
         }
     },[])
+
+    useEffect(() => {
+        if(typeof window !== "undefined" && window){
+            let URLParams = new URLSearchParams(window.location.search)
+            if(URLParams.get("filter") === null) {
+                setInputValue("")
+            }
+        }
+    },[currentFilter])
     const visible = width >= 768 && width < 1024;
 
     // Esto me sirve para que React no me cambie los inputs a readOnly si contienen el atributo checked.
     const handleOptionChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setCurrentFilter(e.target.value);
     }
+
+    const clearFilter = () => {
+        setCurrentFilter(null);
+        setInputValue("");
+        setVisible(false);
+        router.push(`/activity`);
+    }
+
     return (
         <form className='flex flex-col' id="search-filter-container">
             <article id="title">
@@ -29,7 +53,7 @@ const SearchFilter = ({setVisible}: {setVisible: (value:any) => void}) => {
                     <FaAngleDown />
                 </div>
                 <div id="erase-filters">
-                    <h3><button>Borrar filtros</button></h3>
+                    <h3><button type="button" onClick={clearFilter}>Borrar filtros</button></h3>
                 </div>
             </article>
             <article id="filters">
